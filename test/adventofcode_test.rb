@@ -1,8 +1,5 @@
-require 'test/unit'
-
 require 'adventofcode'
-
-include Adventofcode
+require 'test/unit'
 
 class Adventofcode_Test < Test::Unit::TestCase
   def test_private_cookie

@@ -76,6 +76,8 @@ module Adventofcode::Year_2016::Day_1
   end
 
   class Traveller
+    include Adventofcode::Year_2016
+
     def self.blocks_travelled(input = get_input)
       Traveller.travel_unparsed_path(input).taxicab_metric
     end
@@ -91,7 +93,7 @@ module Adventofcode::Year_2016::Day_1
     private
 
     def self.get_input
-      Adventofcode.get_input(year = 2016, day = 1)
+      Year_2016.get_input(day: 1)
     end
 
     def self.travel_unparsed_path(input)

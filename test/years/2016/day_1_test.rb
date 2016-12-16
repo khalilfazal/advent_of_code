@@ -1,4 +1,5 @@
 require 'adventofcode/years/2016/day_1'
+require 'monkey_patches/omission'
 
 include Adventofcode::Year_2016::Day_1
 
@@ -35,7 +36,9 @@ class Adventofcode::Year_2016::Day_1_Test < Test::Unit::TestCase
   end
 
   def test_1
-    assert_equal 236, Traveller.blocks_travelled
+    omit_when_dc do
+      assert_equal 236, Traveller.blocks_travelled
+    end
   end
 
   def test_example_4
@@ -43,6 +46,8 @@ class Adventofcode::Year_2016::Day_1_Test < Test::Unit::TestCase
   end
 
   def test_2
-    assert_equal 182, Traveller.visited_twice_distance
+    omit_when_dc do
+      assert_equal 182, Traveller.visited_twice_distance
+    end
   end
 end

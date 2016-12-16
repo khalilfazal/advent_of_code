@@ -4,11 +4,14 @@ require_relative '2016'
 
 module Adventofcode::Year_2016::Day_2
   class Keypad
+    include Adventofcode::Year_2016
+
     attr_reader :pos
 
-    def self.bathroom_code(instructions, sides = 3)
-      keypad = Keypad.new sides
-      codes  = ''
+    def self.bathroom_code(instructions = get_input, sides = 3)
+      keypad       = Keypad.new sides
+      codes        = []
+      instructions = instructions.lines if instructions.is_a? String
 
       instructions.each do |line|
         line.split('').each do |instruction|
@@ -17,13 +20,17 @@ module Adventofcode::Year_2016::Day_2
           end
         end
 
-        codes += keypad.pos.to_s
+        codes << keypad.pos
       end
 
-      codes
+      Integer(codes.join, 10)
     end
 
     private
+
+    def self.get_input
+      Year_2016.get_input(day: 2)
+    end
 
     def initialize(sides)
       @sides = sides
@@ -38,7 +45,7 @@ module Adventofcode::Year_2016::Day_2
         when 'R'
           @pos += 1 if @pos % @sides != 0
         when 'D'
-          @pos += @sides if @pos < @area
+          @pos += @sides if @pos <= @area - @sides
         when 'L'
           @pos -= 1 if (@pos - 1) % @sides != 0
       end
