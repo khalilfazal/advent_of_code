@@ -1,5 +1,3 @@
-require 'open-uri'
-
 require_relative '2016'
 
 class String
@@ -53,10 +51,14 @@ module Adventofcode::Year_2016::Day_1
   end
 
   class Point
-    attr_reader :x, :y
+    attr_reader :x, :y, :travelled
 
     def self.origin
       Point.new 0, 0
+    end
+
+    def ==(other)
+      @x == other.x && @y == other.y
     end
 
     def move(dir)
@@ -70,6 +72,8 @@ module Adventofcode::Year_2016::Day_1
         when Compass::WEST
           @x -= 1
       end
+
+      @travelled << self.clone
     end
 
     def taxicab_metric
@@ -79,27 +83,34 @@ module Adventofcode::Year_2016::Day_1
     private
 
     def initialize(x, y)
-      @x = x
-      @y = y
+      @x         = x
+      @y         = y
+      @travelled = [self.clone]
     end
   end
 
   class Traveller
-    def self.blocks_travelled_from_url(url, hashed_cookies)
-      cookies = hashed_cookies.map do |name, value|
-        "#{name}=#{value}"
-      end.join ';'
-
-      Traveller.blocks_travelled open(url, 'Cookie' => cookies).read
+    def self.blocks_travelled(input, from_url = false)
+      Traveller.travel_unparsed_path(input, from_url).taxicab_metric
     end
 
-    def self.blocks_travelled(path)
-      Traveller.new.instance_eval do
-        travel path.parse_path
+    def self.visited_twice_distance(input, from_url = false)
+      travelled = Traveller.travel_unparsed_path(input, from_url).travelled
+
+      travelled.detect do |block|
+        travelled.rindex(block) != travelled.index(block)
       end.taxicab_metric
     end
 
     private
+
+    def self.travel_unparsed_path(input, from_url)
+      input = Adventofcode.open_uri input if from_url
+
+      Traveller.new.instance_eval do
+        travel input.parse_path
+      end
+    end
 
     def initialize
       @dir = Compass::NORTH
