@@ -1,0 +1,32 @@
+PATH
+  remote: .
+  specs:
+    adventofcode (0.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    docile (1.1.5)
+    json (2.0.2)
+    power_assert (0.4.1)
+    rake (10.4.2)
+    simplecov (0.12.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
+    test-unit (3.1.0)
+      power_assert
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  adventofcode!
+  bundler (~> 1.13)
+  rake (~> 10.0)
+  simplecov (= 0.12)
+  test-unit (= 3.1)
+
+BUNDLED WITH
+   1.13.6
