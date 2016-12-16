@@ -10,20 +10,17 @@ module Adventofcode::Year_2016::Day_2
 
     def self.bathroom_code(instructions = get_input, sides = 3)
       keypad       = Keypad.new sides
-      codes        = []
       instructions = instructions.lines if instructions.is_a? String
 
-      instructions.each do |line|
+      Integer(instructions.map do |line|
         line.split('').each do |instruction|
           keypad.instance_eval do
             move instruction
           end
         end
 
-        codes << keypad.pos
-      end
-
-      Integer(codes.join, 10)
+        keypad.pos
+      end.join, 10)
     end
 
     private
