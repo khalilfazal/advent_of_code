@@ -1,17 +1,15 @@
-require 'open-uri'
-
 require 'adventofcode/version'
+require 'monkey_patches/hash'
+require 'open-uri'
 
 module Adventofcode
   COOKIE = {
       session: '***REMOVED***'
-  }.map do |name, value|
-    "#{name}=#{value}"
-  end.join ';'
+  }.make_cookie
 
   private_constant :COOKIE
 
-  def open_uri(uri)
-    open(uri, 'Cookie' => COOKIE).read
+  def get_input(year, day)
+    open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => COOKIE).read
   end
 end

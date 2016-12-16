@@ -1,20 +1,6 @@
+require 'monkey_patches/string'
+
 require_relative '2016'
-
-class String
-  def parse_path
-    self.split(/, /).map do |block|
-      dir, n = block.match(/(L|R)([0-9]+)/).captures
-
-      [case dir
-         when 'L'
-           :left
-         when 'R'
-           :right
-       end,
-       n.to_i]
-    end
-  end
-end
 
 module Adventofcode::Year_2016::Day_1
   class Compass
@@ -90,12 +76,12 @@ module Adventofcode::Year_2016::Day_1
   end
 
   class Traveller
-    def self.blocks_travelled(input, from_url = false)
-      Traveller.travel_unparsed_path(input, from_url).taxicab_metric
+    def self.blocks_travelled(input = get_input)
+      Traveller.travel_unparsed_path(input).taxicab_metric
     end
 
-    def self.visited_twice_distance(input, from_url = false)
-      travelled = Traveller.travel_unparsed_path(input, from_url).travelled
+    def self.visited_twice_distance(input = get_input)
+      travelled = Traveller.travel_unparsed_path(input).travelled
 
       travelled.detect do |block|
         travelled.rindex(block) != travelled.index(block)
@@ -104,9 +90,11 @@ module Adventofcode::Year_2016::Day_1
 
     private
 
-    def self.travel_unparsed_path(input, from_url)
-      input = Adventofcode.open_uri input if from_url
+    def self.get_input
+      Adventofcode.get_input(year = 2016, day = 1)
+    end
 
+    def self.travel_unparsed_path(input)
       Traveller.new.instance_eval do
         travel input.parse_path
       end

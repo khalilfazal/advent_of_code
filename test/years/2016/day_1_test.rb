@@ -35,7 +35,7 @@ class Adventofcode::Year_2016::Day_1_Test < Test::Unit::TestCase
   end
 
   def test_1
-    assert_equal 236, Traveller.blocks_travelled('http://adventofcode.com/2016/day/1/input', from_url = true)
+    assert_equal 236, Traveller.blocks_travelled
   end
 
   def test_example_4
@@ -43,6 +43,6 @@ class Adventofcode::Year_2016::Day_1_Test < Test::Unit::TestCase
   end
 
   def test_2
-    assert_equal 182, Traveller.visited_twice_distance('http://adventofcode.com/2016/day/1/input', from_url = true)
+    assert_equal 182, Traveller.visited_twice_distance
   end
 end
