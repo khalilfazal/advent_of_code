@@ -1,10 +1,18 @@
 require_relative '2016'
 
 module Adventofcode::Year_2016::Day_2
-  class Keypad
-    include Adventofcode::Year_2016
+  include Adventofcode::Year_2016
 
-    def self.bathroom_code(instructions: get_input, layout: imagined_layout)
+  private
+
+  def self.get_input
+    Year_2016.get_input(day: 2)
+  end
+
+  public
+
+  class Keypad
+    def self.bathroom_code(instructions: Day_2.get_input, layout: imagined_layout)
       keypad = Keypad.new layout: layout
 
       '' + instructions.lines.map do |line|
@@ -23,10 +31,6 @@ module Adventofcode::Year_2016::Day_2
     end
 
     private
-
-    def self.get_input
-      Year_2016.get_input(day: 2)
-    end
 
     def self.imagined_layout
       1.upto(9).to_a.join

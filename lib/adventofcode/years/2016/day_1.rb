@@ -1,8 +1,16 @@
-#require 'monkey_patches/string'
-
 require_relative '2016'
 
 module Adventofcode::Year_2016::Day_1
+  include Adventofcode::Year_2016
+
+  private
+
+  def self.get_input
+    Year_2016.get_input(day: 1)
+  end
+
+  public
+
   class ::String
     def parse_path
       self.split(/, /).map do |block|
@@ -92,13 +100,11 @@ module Adventofcode::Year_2016::Day_1
   end
 
   class Traveller
-    include Adventofcode::Year_2016
-
-    def self.blocks_travelled(input = get_input)
+    def self.blocks_travelled(input = Day_1.get_input)
       Traveller.travel_unparsed_path(input).taxicab_metric
     end
 
-    def self.visited_twice_distance(input = get_input)
+    def self.visited_twice_distance(input = Day_1.get_input)
       travelled = Traveller.travel_unparsed_path(input).travelled
 
       travelled.detect do |block|
@@ -106,17 +112,13 @@ module Adventofcode::Year_2016::Day_1
       end.taxicab_metric
     end
 
-    private
-
-    def self.get_input
-      Year_2016.get_input(day: 1)
-    end
-
     def self.travel_unparsed_path(input)
       Traveller.new.instance_eval do
         travel input.parse_path
       end
     end
+
+    private
 
     def initialize
       @dir = Compass::NORTH
