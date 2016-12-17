@@ -4,13 +4,11 @@ module Adventofcode::Year_2016::Day_2
   class Keypad
     include Adventofcode::Year_2016
 
-    attr_reader :pos
-
-    def self.bathroom_code(instructions = get_input, sides = 3)
-      keypad       = Keypad.new sides
+    def self.bathroom_code(instructions = get_input, grid = default_grid)
+      keypad       = Keypad.new grid: grid
       instructions = instructions.lines if instructions.is_a? String
 
-      Integer(instructions.map do |line|
+      '' + instructions.map do |line|
         line.split('').each do |instruction|
           keypad.instance_eval do
             move instruction
@@ -18,7 +16,11 @@ module Adventofcode::Year_2016::Day_2
         end
 
         keypad.pos
-      end.join, 10)
+      end.join
+    end
+
+    def pos
+      @grid[@pos - 1]
     end
 
     private
@@ -27,13 +29,20 @@ module Adventofcode::Year_2016::Day_2
       Year_2016.get_input(day: 2)
     end
 
-    def initialize(sides)
-      @sides = sides
-      @area  = sides ** 2
-      @pos   = (@area + 1) / 2
+    def self.default_grid
+      1.upto(9).to_a.join
+    end
+
+    def initialize(grid:)
+      @grid  = grid
+      @sides = Math.sqrt(grid.length).floor
+      @area  = @sides ** 2
+      @pos   = 1 + grid.index('5')
     end
 
     def move(dir)
+      old_pos = @pos
+
       case dir
         when 'U'
           @pos -= @sides if @pos > @sides
@@ -44,6 +53,8 @@ module Adventofcode::Year_2016::Day_2
         when 'L'
           @pos -= 1 if (@pos - 1) % @sides != 0
       end
+
+      @pos = old_pos if pos === ' '
     end
   end
 end
