@@ -36,7 +36,7 @@ class Adventofcode::Year_2016::Day_1_Test < Test::Unit::TestCase
   end
 
   def test_1
-    omit_when_dc do
+    omit_when_dced do
       assert_equal 236, Traveller.blocks_travelled
     end
   end
@@ -46,7 +46,7 @@ class Adventofcode::Year_2016::Day_1_Test < Test::Unit::TestCase
   end
 
   def test_2
-    omit_when_dc do
+    omit_when_dced do
       assert_equal 182, Traveller.visited_twice_distance
     end
   end

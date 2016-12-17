@@ -9,7 +9,7 @@ class Adventofcode::Year_2016::Day_2_Test < Test::Unit::TestCase
   end
 
   def test_1
-    omit_when_dc do
+    omit_when_dced do
       assert_equal 76792, Keypad.bathroom_code
     end
   end

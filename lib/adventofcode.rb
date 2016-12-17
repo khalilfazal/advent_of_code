@@ -5,7 +5,7 @@ require 'open-uri'
 module Adventofcode
   COOKIE = {
       session: '***REMOVED***'
-  }.make_cookie
+  }.to_cookie_jar
 
   private_constant :COOKIE
 

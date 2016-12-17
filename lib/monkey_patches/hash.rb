@@ -1,5 +1,5 @@
 class Hash
-  def make_cookie
+  def to_cookie_jar
     self.map do |name, value|
       "#{name}=#{value}"
     end.join ';'
