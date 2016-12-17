@@ -5,10 +5,9 @@ module Adventofcode::Year_2016::Day_2
     include Adventofcode::Year_2016
 
     def self.bathroom_code(instructions: get_input, layout: imagined_layout)
-      keypad       = Keypad.new layout: layout
-      instructions = instructions.lines if instructions.is_a? String
+      keypad = Keypad.new layout: layout
 
-      '' + instructions.map do |line|
+      '' + instructions.lines.map do |line|
         line.split('').each do |instruction|
           keypad.instance_eval do
             move instruction
