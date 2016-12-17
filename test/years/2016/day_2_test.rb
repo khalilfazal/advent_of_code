@@ -7,7 +7,12 @@ include Adventofcode::Year_2016::Day_2
 class Adventofcode::Year_2016::Day_2_Test < Test::Unit::TestCase
   def initialize(test_case_class)
     super(test_case_class)
-    @example_instructions = %w(ULL RRDDD LURDL UUUUD)
+    @example_instructions = %w(
+      ULL
+      RRDDD
+      LURDL
+      UUUUD
+    )
   end
 
   def test_example_1

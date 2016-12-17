@@ -4,8 +4,8 @@ module Adventofcode::Year_2016::Day_2
   class Keypad
     include Adventofcode::Year_2016
 
-    def self.bathroom_code(instructions = get_input, grid = default_grid)
-      keypad       = Keypad.new grid: grid
+    def self.bathroom_code(instructions = get_input, layout = imagined_layout)
+      keypad       = Keypad.new layout: layout
       instructions = instructions.lines if instructions.is_a? String
 
       '' + instructions.map do |line|
@@ -29,15 +29,15 @@ module Adventofcode::Year_2016::Day_2
       Year_2016.get_input(day: 2)
     end
 
-    def self.default_grid
+    def self.imagined_layout
       1.upto(9).to_a.join
     end
 
-    def initialize(grid:)
-      @grid  = grid
-      @sides = Math.sqrt(grid.length).floor
+    def initialize(layout:)
+      @grid  = layout
+      @sides = Math.sqrt(layout.length).floor
       @area  = @sides ** 2
-      @pos   = 1 + grid.index('5')
+      @pos   = 1 + layout.index('5')
     end
 
     def move(dir)
