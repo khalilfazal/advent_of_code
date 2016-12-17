@@ -17,9 +17,7 @@ module Adventofcode::Year_2016::Day_2
 
       '' + instructions.lines.map do |line|
         line.split('').each do |instruction|
-          keypad.instance_eval do
-            move instruction
-          end
+          keypad.move instruction
         end
 
         keypad.pos
@@ -28,18 +26,6 @@ module Adventofcode::Year_2016::Day_2
 
     def pos
       @grid[@pos - 1]
-    end
-
-    private
-
-    def self.imagined_layout
-      1.upto(9).to_a.join
-    end
-
-    def initialize(layout:)
-      @grid  = layout
-      @sides = Math.sqrt(layout.length).floor
-      @pos   = layout.index('5') + 1
     end
 
     def move(dir)
@@ -57,6 +43,18 @@ module Adventofcode::Year_2016::Day_2
       end
 
       @pos = old_pos if pos === ' '
+    end
+
+    private
+
+    def self.imagined_layout
+      1.upto(9).to_a.join
+    end
+
+    def initialize(layout:)
+      @grid  = layout
+      @sides = Math.sqrt(layout.length).floor
+      @pos   = layout.index('5') + 1
     end
   end
 end
