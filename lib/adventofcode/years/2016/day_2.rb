@@ -40,7 +40,7 @@ module Adventofcode::Year_2016::Day_2
       @grid  = layout
       @sides = Math.sqrt(layout.length).floor
       @area  = @sides ** 2
-      @pos   = 1 + layout.index('5')
+      @pos   = layout.index('5') + 1
     end
 
     def move(dir)
