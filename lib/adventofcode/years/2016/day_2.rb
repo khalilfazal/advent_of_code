@@ -39,7 +39,6 @@ module Adventofcode::Year_2016::Day_2
     def initialize(layout:)
       @grid  = layout
       @sides = Math.sqrt(layout.length).floor
-      @area  = @sides ** 2
       @pos   = layout.index('5') + 1
     end
 
@@ -52,7 +51,7 @@ module Adventofcode::Year_2016::Day_2
         when 'R'
           @pos += 1 if @pos % @sides != 0
         when 'D'
-          @pos += @sides if @pos <= @area - @sides
+          @pos += @sides if @pos <= @sides ** 2 - @sides
         when 'L'
           @pos -= 1 if (@pos - 1) % @sides != 0
       end
