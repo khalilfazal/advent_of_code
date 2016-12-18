@@ -1,6 +1,5 @@
 require 'adventofcode/version'
 require 'monkey_patches/array'
-require 'monkey_patches/hash'
 require 'monkey_patches/errno'
 require 'open-uri'
 
