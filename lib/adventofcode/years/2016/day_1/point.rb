@@ -6,7 +6,9 @@ class Point
   end
 
   def ==(other)
-    @x == other.x && @y == other.y
+    [:@x, :@y].all? do |dim|
+      instance_variable_get(dim) == other.instance_variable_get(dim)
+    end
   end
 
   def move(dir)
