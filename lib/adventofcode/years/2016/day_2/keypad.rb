@@ -1,4 +1,4 @@
-class Adventofcode::Year_2016::Day_2::Keypad
+class Keypad
   def self.bathroom_code(instructions: Day_2.get_input, layout: imagined_layout)
     keypad = Keypad.new layout: layout
 

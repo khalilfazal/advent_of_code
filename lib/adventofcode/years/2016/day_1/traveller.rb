@@ -1,4 +1,4 @@
-class Adventofcode::Year_2016::Day_1::Traveller
+class Traveller
   def self.blocks_travelled(input = Day_1.get_input)
     Traveller.travel_unparsed_path(input).taxicab_metric
   end

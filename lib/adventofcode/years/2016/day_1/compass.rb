@@ -1,4 +1,4 @@
-class Adventofcode::Year_2016::Day_1::Compass
+class Compass
   attr_reader :left, :right
 
   def set_neighbours(left, right)
