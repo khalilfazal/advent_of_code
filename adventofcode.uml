@@ -3,56 +3,65 @@
   <ID>GemDependency</ID>
   <OriginalElement>#adventofcode</OriginalElement>
   <nodes>
-    <node x="386.5" y="79.0">bundler</node>
-    <node x="200.0" y="0.0">docile</node>
-    <node x="72.0" y="0.0">simplecov-html</node>
-    <node x="292.5" y="79.0">test-unit</node>
-    <node x="85.5" y="79.0">simplecov</node>
+    <node x="277.095" y="79.0">require_all</node>
+    <node x="188.09500000000003" y="79.0">bundler</node>
+    <node x="238.09500000000003" y="0.0">docile</node>
+    <node x="72.00000000000003" y="0.0">simplecov-html</node>
+    <node x="381.095" y="79.0">test-unit</node>
     <node x="0.0" y="0.0">json</node>
-    <node x="475.5" y="79.0">rake</node>
-    <node x="340.75" y="158.0">#adventofcode</node>
-    <node x="281.0" y="0.0">power_assert</node>
+    <node x="87.09500000000003" y="79.0">simplecov</node>
+    <node x="475.095" y="79.0">rake</node>
+    <node x="283.0" y="158.0">#adventofcode</node>
+    <node x="369.595" y="0.0">power_assert</node>
   </nodes>
   <notes />
   <edges>
     <edge source="simplecov" target="docile">
       <point x="27.0" y="-14.5" />
-      <point x="153.0" y="54.0" />
-      <point x="230.5" y="54.0" />
+      <point x="154.59500000000003" y="54.0" />
+      <point x="268.595" y="54.0" />
       <point x="0.0" y="14.5" />
     </edge>
     <edge source="#adventofcode" target="bundler">
-      <point x="8.625" y="-14.5" />
-      <point x="383.875" y="128.0" />
-      <point x="421.0" y="128.0" />
+      <point x="-13.800000000000011" y="-14.5" />
+      <point x="303.70000000000005" y="128.0" />
+      <point x="222.59500000000003" y="128.0" />
       <point x="0.0" y="14.5" />
     </edge>
     <edge source="#adventofcode" target="test-unit">
-      <point x="-8.625" y="-14.5" />
-      <point x="366.625" y="128.0" />
-      <point x="329.5" y="128.0" />
+      <point x="13.800000000000011" y="-14.5" />
+      <point x="331.30000000000007" y="128.0" />
+      <point x="418.095" y="128.0" />
       <point x="0.0" y="14.5" />
     </edge>
     <edge source="#adventofcode" target="simplecov">
-      <point x="-25.875" y="-14.5" />
-      <point x="349.375" y="138.0" />
-      <point x="126.0" y="138.0" />
+      <point x="-27.600000000000023" y="-14.5" />
+      <point x="289.9" y="138.0" />
+      <point x="127.59500000000003" y="138.0" />
       <point x="0.0" y="14.5" />
     </edge>
     <edge source="simplecov" target="json">
       <point x="-27.0" y="-14.5" />
-      <point x="99.0" y="54.0" />
+      <point x="100.59500000000003" y="54.0" />
       <point x="26.0" y="54.0" />
       <point x="0.0" y="14.5" />
     </edge>
+    <edge source="#adventofcode" target="require_all">
+      <point x="0.0" y="-14.5" />
+      <point x="317.5" y="138.0" />
+      <point x="319.095" y="138.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
     <edge source="#adventofcode" target="rake">
-      <point x="25.875" y="-14.5" />
-      <point x="401.125" y="138.0" />
-      <point x="502.0" y="138.0" />
+      <point x="27.600000000000023" y="-14.5" />
+      <point x="345.1" y="138.0" />
+      <point x="501.595" y="138.0" />
       <point x="0.0" y="14.5" />
     </edge>
     <edge source="simplecov" target="simplecov-html">
       <point x="0.0" y="-14.5" />
+      <point x="127.59500000000003" y="54.0" />
+      <point x="126.00000000000003" y="54.0" />
       <point x="0.0" y="14.5" />
     </edge>
     <edge source="test-unit" target="power_assert">
@@ -61,7 +70,9 @@
     </edge>
   </edges>
   <settings layout="Hierarchic Group" zoom="1.0" x="264.5" y="93.5" />
-  <SelectedNodes />
+  <SelectedNodes>
+    <node>power_assert</node>
+  </SelectedNodes>
   <Categories />
 </Diagram>
 
