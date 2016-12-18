@@ -1,6 +1,6 @@
 # Adventofcode
 
-Run `bin/console` for an interactive prompt.
+Solutions to [Advent of Code](http://adventofcode.com/) puzzles.
 
 ## Usage
 
