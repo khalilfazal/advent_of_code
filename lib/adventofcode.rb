@@ -11,24 +11,21 @@ module Adventofcode
     open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => COOKIE).read
   end
 
-  def self.get_cookie
-    begin
-      open('cookie.txt', 'r') do |file|
-        contents = file.read
+  COOKIE =
+      begin
+        open('cookie.txt', 'r') do |file|
+          contents = file.read
 
-        raise Errno::ENOENT unless contents =~ /^session=[a-f0-9]+$/
+          raise Errno::ENOENT unless contents =~ /^session=[a-f0-9]+$/
 
-        contents
+          contents
+        end
+      rescue Errno::ENOENT
+        raise StandardError.new [
+            'Place your session cookie into cookie.txt',
+            'See cookie.txt.sample'
+        ].unlines
       end
-    rescue Errno::ENOENT
-      raise StandardError.new [
-          'Place your session cookie into cookie.txt',
-          'See cookie.txt.sample'
-      ].unlines
-    end
-  end
-
-  COOKIE = self.get_cookie
 
   private_constant :COOKIE
 end
