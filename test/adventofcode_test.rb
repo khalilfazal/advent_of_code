@@ -1,4 +1,5 @@
 require 'adventofcode'
+require 'require_all'
 require 'test/unit'
 
 class Adventofcode_Test < Test::Unit::TestCase

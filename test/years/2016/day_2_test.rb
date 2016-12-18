@@ -1,4 +1,4 @@
-require 'adventofcode/years/2016/day_2'
+require_all 'lib/adventofcode/years/2016/day_2/*'
 require 'monkey_patches/array'
 require 'monkey_patches/assertions'
 require 'monkey_patches/omission'
