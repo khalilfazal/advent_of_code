@@ -1,6 +1,7 @@
 require 'adventofcode/years/2016/day_2'
-require 'monkey_patches/omission'
+require 'monkey_patches/array'
 require 'monkey_patches/assertions'
+require 'monkey_patches/omission'
 
 include Adventofcode::Year_2016::Day_2
 
@@ -13,7 +14,7 @@ class Adventofcode::Year_2016::Day_2_Test < Test::Unit::TestCase
       RRDDD
       LURDL
       UUUUD
-    ).join "\n"
+    ).unlines
 
     @actual_layout = [
         '  1  ',
