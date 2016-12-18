@@ -4,8 +4,6 @@ require 'monkey_patches/errno'
 require 'open-uri'
 
 module Adventofcode
-  private
-
   def self.get_input(year:, day:)
     open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => COOKIE).read
   end

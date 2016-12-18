@@ -3,13 +3,9 @@ require_relative '2016'
 module Adventofcode::Year_2016::Day_1
   include Adventofcode::Year_2016
 
-  private
-
   def self.get_input
     Year_2016.get_input(day: 1)
   end
-
-  public
 
   class ::String
     def parse_path
@@ -21,8 +17,7 @@ module Adventofcode::Year_2016::Day_1
              :left
            when 'R'
              :right
-         end,
-         n.to_i]
+         end, n.to_i]
       end
     end
   end

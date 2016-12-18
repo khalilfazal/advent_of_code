@@ -3,13 +3,9 @@ require_relative '2016'
 module Adventofcode::Year_2016::Day_2
   include Adventofcode::Year_2016
 
-  private
-
   def self.get_input
     Year_2016.get_input(day: 2)
   end
-
-  public
 
   class Keypad
     def self.bathroom_code(instructions: Day_2.get_input, layout: imagined_layout)
