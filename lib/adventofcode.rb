@@ -28,7 +28,7 @@ module Adventofcode
     end
   end
 
-  COOKIE = Adventofcode.get_cookie
+  COOKIE = self.get_cookie
 
   private_constant :COOKIE
 end
