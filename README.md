@@ -4,7 +4,7 @@ Run `bin/console` for an interactive prompt.
 
 ## Usage
 
-Run the tests in test/
+Run the tests in `test/`
 
 ## Development
 
