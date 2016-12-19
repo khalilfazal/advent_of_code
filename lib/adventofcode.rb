@@ -2,7 +2,7 @@ require 'adventofcode/version'
 require 'monkey_patches/array'
 require 'open-uri'
 
-module Adventofcode
+class Adventofcode
   def self.get_input(year:, day:)
     open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => COOKIE).read
   end
@@ -18,9 +18,9 @@ module Adventofcode
         end
       rescue SystemCallError
         raise StandardError.new [
-            'Place your session cookie into cookie.txt',
-            'See cookie.txt.sample'
-        ].unlines
+                                    'Place your session cookie into cookie.txt',
+                                    'See cookie.txt.sample'
+                                ].unlines
       end
 
   private_constant :COOKIE

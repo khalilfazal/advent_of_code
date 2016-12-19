@@ -1,4 +1,3 @@
-module Adventofcode
-  # @var String
+class Adventofcode
   VERSION = '0.0.0'
 end

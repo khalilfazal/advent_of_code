@@ -1,9 +1,9 @@
-require_all 'lib/adventofcode/years/2016/day_2/*'
+require_all 'lib/adventofcode/year_2016/day_2/*'
 require 'monkey_patches/array'
 require 'monkey_patches/assertions'
 require 'monkey_patches/omission'
 
-class Day_2_Test < Test::Unit::TestCase
+class Year_2016::Day_2_Test < Test::Unit::TestCase
   def initialize(test_case_class)
     super(test_case_class)
 

@@ -1,7 +1,6 @@
-require_relative '../2016'
+require_relative '../year_2016'
 
-module Day_2
-  include Year_2016
+class Day_2 < Year_2016
 
   def self.get_input
     Year_2016.get_input(day: 2)

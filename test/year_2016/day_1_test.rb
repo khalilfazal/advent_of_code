@@ -1,7 +1,8 @@
-require_all 'lib/adventofcode/years/2016/day_1/*'
+require 'require_all'
+require_all 'lib/adventofcode/year_2016/day_1/*'
 require 'monkey_patches/omission'
 
-class Day_1_Test < Test::Unit::TestCase
+class Year_2016::Day_1_Test < Test::Unit::TestCase
   def test_left_north
     assert_same Compass::NORTH.left, Compass::WEST
   end

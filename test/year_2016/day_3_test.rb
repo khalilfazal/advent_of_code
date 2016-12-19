@@ -1,6 +1,6 @@
-require_all 'lib/adventofcode/years/2016/day_3/*'
+require_all 'lib/adventofcode/year_2016/day_3/*'
 
-class Day_3_Test < Test::Unit::TestCase
+class Year_2016::Day_3_Test < Test::Unit::TestCase
   def test_1
     assert_equal 869, Triangle.validate_by_rows
   end
