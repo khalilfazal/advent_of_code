@@ -1,4 +1,3 @@
-require 'require_all'
 require_all 'lib/adventofcode/year_2016/day_1/*'
 require 'monkey_patches/omission'
 
