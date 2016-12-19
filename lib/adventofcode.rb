@@ -18,9 +18,9 @@ class Adventofcode
         end
       rescue SystemCallError
         raise StandardError.new [
-                                    'Place your session cookie into cookie.txt',
-                                    'See cookie.txt.sample'
-                                ].unlines
+            'Place your session cookie into cookie.txt',
+            'See cookie.txt.sample'
+        ].unlines
       end
 
   private_constant :COOKIE
