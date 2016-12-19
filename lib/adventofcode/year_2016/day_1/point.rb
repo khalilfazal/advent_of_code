@@ -1,5 +1,5 @@
 class Point
-  attr_reader :x, :y, :travelled
+  attr_reader :x, :y
 
   def self.origin
     new 0, 0
@@ -8,13 +8,18 @@ class Point
   def initialize(x, y)
     @x         = x
     @y         = y
-    @travelled = [self.clone]
+    @first_dup = nil
+    @visited   = Set.new [self.clone]
   end
 
-  def ==(other)
+  def eql?(other)
     [:@x, :@y].all? do |dim|
-      instance_variable_get(dim) == other.instance_variable_get(dim)
+      instance_variable_get(dim).eql?(other.instance_variable_get dim)
     end
+  end
+
+  def hash
+    [@x, @y].hash
   end
 
   def move(dir)
@@ -29,11 +34,17 @@ class Point
         @x -= 1
     end
 
-    @travelled << self.clone
+    clone = self.clone
+
+    if @visited.include?(clone) && @first_dup.nil?
+      @first_dup = clone
+    else
+      @visited << clone
+    end
   end
 
   def twice_visited!
-    other = travelled.first_dup
+    other = @first_dup
 
     [:@x, :@y].each do |var|
       instance_variable_set var, other.instance_variable_get(var)
