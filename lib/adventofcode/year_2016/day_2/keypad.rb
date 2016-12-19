@@ -2,7 +2,7 @@ require 'monkey_patches/array'
 require 'monkey_patches/string'
 
 class Keypad
-  def self.bathroom_code(instructions: Day_2.get_input, layout: imagined_layout)
+  def self.bathroom_code(instructions, layout = imagined_layout)
     keypad = new layout: layout
 
     instructions.lines.map do |line|

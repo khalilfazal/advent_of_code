@@ -1,11 +1,11 @@
 require 'monkey_patches/array'
 
 class Traveller
-  def self.endpoint_distance(input = Day_1.get_input)
+  def self.endpoint_distance(input)
     Traveller.travel_unparsed input
   end
 
-  def self.twice_visited_distance(input = Day_1.get_input)
+  def self.twice_visited_distance(input)
     Traveller.travel_unparsed input, end_point: false
   end
 

@@ -1,9 +1,9 @@
 class Triangle
-  def self.validate_by_rows(input: Day_3.get_input)
+  def self.validate_by_rows(input)
     validate input
   end
 
-  def self.validate_by_columns(input: Day_3.get_input)
+  def self.validate_by_columns(input)
     validate input, transpose: true
   end
 

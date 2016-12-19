@@ -2,6 +2,10 @@ require_all 'lib/adventofcode/year_2016/day_1/*'
 require 'monkey_patches/pending'
 
 describe 'Year_2016::Day_1' do
+  before(:all) do
+    @input = Day_1.get_input
+  end
+
   it 'left north' do
     expect(Compass::NORTH.left).to equal(Compass::WEST)
   end
@@ -39,7 +43,7 @@ describe 'Year_2016::Day_1' do
 
   it 'star 1' do
     skip_when_dced do
-      expect(Traveller.endpoint_distance).to be === 236
+      expect(Traveller.endpoint_distance @input).to be === 236
     end
   end
 
@@ -49,7 +53,7 @@ describe 'Year_2016::Day_1' do
 
   it 'star 2' do
     skip_when_dced do
-      expect(Traveller.twice_visited_distance).to be === 182
+      expect(Traveller.twice_visited_distance @input).to be === 182
     end
   end
 end
