@@ -1,15 +1,17 @@
+require 'date'
+
 class Date
   def self.current_advent_date
-    today = Date::today
-
-    if today.month === 12
-      if today.day < 26
-        today
+    self.today.instance_eval do
+      if month === 12
+        if day < 25
+          self
+        else
+          prev_day (day - 25)
+        end
       else
-        today.prev_day (today.day - 25)
+        new (year - 1), 12, 25
       end
-    else
-      Date.new (today.year - 1), 12, 25
     end
   end
 end
