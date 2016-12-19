@@ -38,7 +38,7 @@ class Year_2016::Day_1_Test < Test::Unit::TestCase
     assert_equal 12, Traveller.endpoint_distance('R5, L5, R5, R3')
   end
 
-  def test_1
+  def test_star_1
     omit_when_dced do
       assert_equal 236, Traveller.endpoint_distance
     end
@@ -48,7 +48,7 @@ class Year_2016::Day_1_Test < Test::Unit::TestCase
     assert_equal 4, Traveller.twice_visited_distance('R8, R4, R4, R8')
   end
 
-  def test_2
+  def test_star_2
     omit_when_dced do
       assert_equal 182, Traveller.twice_visited_distance
     end
