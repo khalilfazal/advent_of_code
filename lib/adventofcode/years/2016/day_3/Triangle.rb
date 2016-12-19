@@ -1,8 +1,10 @@
 class Triangle
-  def self.validate(input: Day_3.get_input)
-    input.lines.select do |line|
-      Triangle.new(line.split.map(&:to_i)).validate
-    end.length
+  def self.validate_by_rows(input: Day_3.get_input)
+    validate input
+  end
+
+  def self.validate_by_columns(input: Day_3.get_input)
+    validate input, true
   end
 
   def initialize(points)
@@ -11,5 +13,15 @@ class Triangle
 
   def validate
     @a + @b > @c
+  end
+
+  private
+
+  def self.validate(input, transpose = false)
+    sides = input.lines.map(&:split)
+    sides = sides.transpose.flatten.each_slice(3) if transpose
+    sides.select do |triplet|
+      Triangle.new(triplet.map(&:to_i)).validate
+    end.length
   end
 end
