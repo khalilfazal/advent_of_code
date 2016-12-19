@@ -5,19 +5,17 @@ class Triangle
     end.length
   end
 
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
+  end
+
   def validate
     [
         @a + @b > @c,
         @a + @c > @b,
         @b + @c > @a
     ].all?
-  end
-
-  private
-
-  def initialize(a, b, c)
-    @a = a
-    @b = b
-    @c = c
   end
 end

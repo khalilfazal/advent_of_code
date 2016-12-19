@@ -6,18 +6,6 @@ class Compass
     @right = right
   end
 
-  def cycle_from
-    output  = [self]
-    current = self.right
-
-    until current === self do
-      output << current
-      current = current.right
-    end
-
-    output
-  end
-
   NORTH = new
   EAST  = new
   SOUTH = new
@@ -29,4 +17,16 @@ class Compass
   WEST.set_neighbours SOUTH, NORTH
 
   private :set_neighbours
+
+  def cycle_from
+    output  = [self]
+    current = self.right
+
+    until current === self do
+      output << current
+      current = current.right
+    end
+
+    output
+  end
 end

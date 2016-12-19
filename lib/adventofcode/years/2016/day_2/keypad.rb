@@ -14,6 +14,12 @@ class Keypad
     end.join
   end
 
+  def initialize(layout:)
+    @grid  = layout
+    @sides = Math.sqrt(layout.length).floor
+    @pos   = layout.index('5') + 1
+  end
+
   def pos
     @grid[@pos - 1]
   end
@@ -39,11 +45,5 @@ class Keypad
 
   def self.imagined_layout
     1.upto(9).to_a.join
-  end
-
-  def initialize(layout:)
-    @grid  = layout
-    @sides = Math.sqrt(layout.length).floor
-    @pos   = layout.index('5') + 1
   end
 end

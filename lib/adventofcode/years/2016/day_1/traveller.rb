@@ -11,14 +11,6 @@ class Traveller
     end.taxicab_metric
   end
 
-  def self.travel_unparsed_path(input)
-    Traveller.new.instance_eval do
-      travel input.parse_path
-    end
-  end
-
-  private
-
   def initialize
     @dir = Compass::NORTH
     @pos = Point.origin
@@ -34,5 +26,11 @@ class Traveller
     end
 
     @pos
+  end
+
+  private
+
+  def self.travel_unparsed_path(input)
+    Traveller.new.travel input.parse_path
   end
 end

@@ -5,6 +5,12 @@ class Point
     Point.new 0, 0
   end
 
+  def initialize(x, y)
+    @x         = x
+    @y         = y
+    @travelled = [self.clone]
+  end
+
   def ==(other)
     [:@x, :@y].all? do |dim|
       instance_variable_get(dim) == other.instance_variable_get(dim)
@@ -28,13 +34,5 @@ class Point
 
   def taxicab_metric
     @x.abs + @y.abs
-  end
-
-  private
-
-  def initialize(x, y)
-    @x         = x
-    @y         = y
-    @travelled = [self.clone]
   end
 end
