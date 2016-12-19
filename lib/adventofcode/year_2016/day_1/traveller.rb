@@ -1,12 +1,12 @@
 require 'monkey_patches/array'
 
 class Traveller
-  def self.blocks_travelled(input = Day_1.get_input)
-    Traveller.travel_unparsed_path(input).taxicab_metric
+  def self.endpoint_distance(input = Day_1.get_input)
+    Traveller.travel_unparsed input
   end
 
-  def self.visited_twice_distance(input = Day_1.get_input)
-    Traveller.travel_unparsed_path(input).travelled.first_dup.taxicab_metric
+  def self.twice_visited_distance(input = Day_1.get_input)
+    Traveller.travel_unparsed input, end_point: false
   end
 
   def initialize
@@ -28,7 +28,9 @@ class Traveller
 
   private
 
-  def self.travel_unparsed_path(input)
-    Traveller.new.travel input.parse_path
+  def self.travel_unparsed(input, end_point: true)
+    point = new.travel input.parse_path
+    point.twice_visited! unless end_point
+    point.taxicab_metric
   end
 end

@@ -2,7 +2,7 @@ class Point
   attr_reader :x, :y, :travelled
 
   def self.origin
-    Point.new 0, 0
+    new 0, 0
   end
 
   def initialize(x, y)
@@ -30,6 +30,16 @@ class Point
     end
 
     @travelled << self.clone
+  end
+
+  def twice_visited!
+    other = travelled.first_dup
+
+    [:@x, :@y].each do |var|
+      instance_variable_set var, other.instance_variable_get(var)
+    end
+
+    self
   end
 
   def taxicab_metric
