@@ -20,8 +20,8 @@ class Triangle
   def self.validate(input, transpose = false)
     sides = input.lines.map(&:split)
     sides = sides.transpose.flatten.each_slice(3) if transpose
-    sides.select do |triplet|
+    sides.count do |triplet|
       Triangle.new(triplet.map(&:to_i)).validate
-    end.length
+    end
   end
 end
