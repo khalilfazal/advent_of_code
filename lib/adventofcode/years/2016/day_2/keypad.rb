@@ -1,9 +1,12 @@
+require 'monkey_patches/array'
+require 'monkey_patches/string'
+
 class Keypad
   def self.bathroom_code(instructions: Day_2.get_input, layout: imagined_layout)
     keypad = Keypad.new layout: layout
 
-    '' + instructions.lines.map do |line|
-      line.split('').each do |instruction|
+    instructions.lines.map do |line|
+      line.chars.each do |instruction|
         keypad.move instruction
       end
 

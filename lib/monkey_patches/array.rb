@@ -1,5 +1,11 @@
 class Array
+  alias_method :old_join, :join
+
+  def join(separator=$,)
+    '' + old_join(separator)
+  end
+
   def unlines
-    self.join "\n"
+    join "\n"
   end
 end
