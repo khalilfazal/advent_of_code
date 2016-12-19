@@ -18,10 +18,10 @@ class Triangle
   private
 
   def self.validate(input, transpose: false)
-    sides = input.lines.map(&:split)
-    sides = sides.transpose.flatten.each_slice(3) if transpose
+    sides = input.lines.map &:split
+    sides = sides.transpose.flatten.each_slice 3 if transpose
     sides.count do |triplet|
-      new(triplet.map(&:to_i)).validate
+      new(triplet.map &:to_i).validate
     end
   end
 end
