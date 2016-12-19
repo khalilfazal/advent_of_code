@@ -25,16 +25,16 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  spec.require_paths = %w('lib', 'test')
+  spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 1.13'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'require_all', '~> 1.3'
-  spec.add_development_dependency 'simplecov', '0.12'
+  spec.add_development_dependency 'simplecov', '~> 0.12'
 
   # test-unit
   # spec.add_development_dependency 'test-unit', '3.1.5'
 
   # rspec
-  spec.add_development_dependency 'rspec', '3.5'
+  spec.add_development_dependency 'rspec', '~> 3.5'
 end
