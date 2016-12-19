@@ -4,7 +4,7 @@ class Triangle
   end
 
   def self.validate_by_columns(input: Day_3.get_input)
-    validate input, true
+    validate input, transpose: true
   end
 
   def initialize(points)
@@ -17,11 +17,11 @@ class Triangle
 
   private
 
-  def self.validate(input, transpose = false)
+  def self.validate(input, transpose: false)
     sides = input.lines.map(&:split)
     sides = sides.transpose.flatten.each_slice(3) if transpose
     sides.count do |triplet|
-      Triangle.new(triplet.map(&:to_i)).validate
+      new(triplet.map(&:to_i)).validate
     end
   end
 end
