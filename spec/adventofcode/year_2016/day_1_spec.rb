@@ -25,8 +25,7 @@ describe 'Year_2016::Day_1' do
   end
 
   it 'origin' do
-    expect(Point.origin.x).to equal(0)
-    expect(Point.origin.y).to equal(0)
+    expect(Point.origin.dims).to be === [0, 0]
   end
 
   it 'example 1' do

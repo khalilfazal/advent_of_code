@@ -1,25 +1,19 @@
 class Point
-  attr_reader :x, :y
+  alias_method :set, :instance_variable_set
+  alias_method :get, :instance_variable_get
 
   def self.origin
     new 0, 0
   end
 
-  def initialize(x, y)
-    @x         = x
-    @y         = y
+  def initialize(*dims)
+    @x, @y     = dims
     @first_dup = nil
-    @visited   = Set.new [self.clone]
+    @visited   = Set.new [clone]
   end
 
-  def eql?(other)
-    [:@x, :@y].all? do |dim|
-      instance_variable_get(dim).eql?(other.instance_variable_get dim)
-    end
-  end
-
-  def hash
-    [@x, @y].hash
+  def dims
+    [@x, @y]
   end
 
   def move(dir)
@@ -34,26 +28,33 @@ class Point
         @x -= 1
     end
 
-    clone = self.clone
+    copy = clone
 
-    if @visited.include?(clone) && @first_dup.nil?
-      @first_dup = clone
+    if @visited.include?(copy) && @first_dup.nil?
+      @first_dup = copy
     else
-      @visited << clone
+      @visited << copy
     end
   end
 
   def twice_visited!
-    other = @first_dup
-
-    [:@x, :@y].each do |var|
-      instance_variable_set var, other.instance_variable_get(var)
-    end
-
+    @x, @y = @first_dup.dims
     self
   end
 
   def taxicab_metric
-    @x.abs + @y.abs
+    dims.map do |val|
+      val.abs
+    end.inject :+
+  end
+
+  private
+
+  def eql?(other)
+    dims.eql? other.dims
+  end
+
+  def hash
+    dims.hash
   end
 end
