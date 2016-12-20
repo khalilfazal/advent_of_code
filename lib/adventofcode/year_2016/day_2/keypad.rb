@@ -1,5 +1,4 @@
 require 'monkey_patches/array'
-require 'monkey_patches/string'
 
 class Keypad
   def self.bathroom_code(instructions, layout = imagined_layout)
