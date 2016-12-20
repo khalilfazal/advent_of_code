@@ -1,7 +1,4 @@
 class Point
-  alias_method :set, :instance_variable_set
-  alias_method :get, :instance_variable_get
-
   def self.origin
     new 0, 0
   end
