@@ -27,14 +27,13 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ['lib']
 
+  spec.add_development_dependency 'activerecord', '~> 5.0'
   spec.add_development_dependency 'bundler', '~> 1.13'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'require_all', '~> 1.3'
+  spec.add_development_dependency 'rspec', '~> 3.5'
+  spec.add_development_dependency 'ruby-prof', '~> 0.16'
   spec.add_development_dependency 'simplecov', '~> 0.12'
 
-  # test-unit
-  # spec.add_development_dependency 'test-unit', '3.1.5'
-
-  # rspec
-  spec.add_development_dependency 'rspec', '~> 3.5'
+  spec.add_runtime_dependency 'require_all', '~> 1.3'
+  spec.add_runtime_dependency 'standalone_migrations', '~> 5.0'
 end

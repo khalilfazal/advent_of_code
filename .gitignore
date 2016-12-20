@@ -2,4 +2,4 @@
 *.gem
 coverage/
 cookie.txt
-profile.html
+profiles/
