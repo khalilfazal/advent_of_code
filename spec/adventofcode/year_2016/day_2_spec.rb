@@ -4,7 +4,7 @@ require 'monkey_patches/array'
 require 'monkey_patches/pending'
 
 describe 'Year_2016::Day_2' do
-  before(:all) do
+  before :all do
     @input = Day_2.get_input
 
     @example_instructions = %w(

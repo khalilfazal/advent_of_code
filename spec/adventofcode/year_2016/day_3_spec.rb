@@ -1,7 +1,7 @@
 require_all 'lib/adventofcode/year_2016/day_3/*'
 
 describe 'Year_2016::Day_3' do
-  before(:all) do
+  before :all do
     @input = Day_3.get_input
   end
 

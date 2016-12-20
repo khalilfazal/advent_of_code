@@ -2,7 +2,7 @@ require_all 'lib/adventofcode/year_2016/day_1/*'
 require 'monkey_patches/pending'
 
 describe 'Year_2016::Day_1' do
-  before(:all) do
+  before :all do
     @input = Day_1.get_input
   end
 
