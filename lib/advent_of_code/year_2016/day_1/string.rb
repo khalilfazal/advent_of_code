@@ -2,25 +2,28 @@ require 'exceptions/input_error'
 
 class String
   def parse_path
-    parse_error = InputError.new 'Invalid input'
-
     self.split(/, /).map do |block|
-      matches = block.match(/(L|R)([0-9]+)/)
+      matches = block.match /(L|R)([0-9]+)/
 
       if matches.nil?
-        raise parse_error
+        raise InputError.new 'Invalid input'
       end
 
       dir, n = matches.captures
 
-      [case dir
-         when 'L'
-           :left
-         when 'R'
-           :right
-         else
-           raise parse_error
-       end, n.to_i]
+      [dir.parse_dir, n.to_i]
+    end
+  end
+
+  def parse_dir
+    case self
+      when 'L'
+        :left
+      when 'R'
+        :right
+      else
+        # unreachable
+        raise InputError.new 'Invalid input'
     end
   end
 end

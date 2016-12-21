@@ -29,7 +29,7 @@ describe 'Year2016::Day1' do
     expect(Point.origin.dims).to be === [0, 0]
   end
 
-  it 'throws when direction is invalid' do
+  it 'raises an exception when direction is invalid' do
     expect do
       Point.origin.move ''
     end.to raise_exception Compass::InvalidDirection
@@ -63,9 +63,15 @@ describe 'Year2016::Day1' do
     end
   end
 
-  it 'throws when input is invalid' do
+  it 'raises an exception when input is invalid' do
     expect do
       'X0, '.parse_path
+    end.to raise_exception InputError
+  end
+
+  it 'raises an exception when the direction is invalid' do
+    expect do
+      'X, '.parse_dir
     end.to raise_exception InputError
   end
 end
