@@ -1,0 +1,14 @@
+module CacheInput
+  def cache_input(day: self.class.name[/[0-9]+$/].to_i)
+    @input =
+        begin
+          Object.const_get("Day_#{day}").get_input
+        rescue SocketError
+          nil
+        end
+  end
+end
+
+RSpec.configure do |c|
+  c.include CacheInput
+end

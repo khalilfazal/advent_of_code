@@ -4,7 +4,9 @@ require 'rspec/core/rake_task'
 require 'ruby-prof/task'
 require 'standalone_migrations'
 
-gems                                       = [:require_all, :rspec, :set].join_with_prefix '-r ', ' '
+gems = [
+    :require_all, :rspec, :set
+].join_with_prefix('-r ', ' ') + ' -I app -I spec'
 
 # rspec
 RSpec::Core::RakeTask.new(:spec).ruby_opts = gems
@@ -13,11 +15,9 @@ RSpec::Core::RakeTask.new(:spec).ruby_opts = gems
 RubyProf::ProfileTask.new do |t|
   t.test_files  = FileList['spec/**/*_spec.rb']
   t.output_dir  = 'profiles'
-  t.printer     = :graph_html
+  t.printer     = :dot
   t.ruby_opts   = Array.singleton gems
   t.min_percent = 0
-  t.warning     = true
-  t.verbose     = true
 end
 
 # db

@@ -1,22 +1,23 @@
 require_all 'lib/adventofcode/year_2016/day_1/*'
-require 'monkey_patches/pending'
+require 'helpers/cache_input'
+require 'helpers/skip'
 
 describe 'Year_2016::Day_1' do
   before :all do
-    @input = Day_1.get_input
+    cache_input
   end
 
-  it 'left north' do
+  it 'left of north' do
     expect(Compass::NORTH.left).to equal(Compass::WEST)
   end
 
-  it 'private set neighbours' do
+  it 'private set_neighbours' do
     expect do
       Compass::NORTH.set_neighbours Compass::WEST, Compass::EAST
     end.to raise_exception NoMethodError
   end
 
-  it 'cycle from' do
+  it 'cycle_from' do
     expect(Compass::NORTH.cycle_from).to be === [Compass::NORTH,
         Compass::EAST,
         Compass::SOUTH,
