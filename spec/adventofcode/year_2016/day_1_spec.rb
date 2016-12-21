@@ -11,9 +11,9 @@ describe 'Year2016::Day1' do
     expect(Compass::NORTH.left).to equal Compass::WEST
   end
 
-  it 'private set_neighbours' do
+  it 'private neighbours=' do
     expect do
-      Compass::NORTH.set_neighbours Compass::WEST, Compass::EAST
+      Compass::NORTH.neighbours= Compass::WEST, Compass::EAST
     end.to raise_exception NoMethodError
   end
 

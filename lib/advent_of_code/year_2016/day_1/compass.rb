@@ -6,9 +6,8 @@ class Compass
 
   private_class_method :new
 
-  def set_neighbours(left, right)
-    @left = left
-    @right = right
+  def neighbours=(neighbours)
+    @left, @right = neighbours
   end
 
   NORTH = new
@@ -16,12 +15,12 @@ class Compass
   SOUTH = new
   WEST = new
 
-  NORTH.set_neighbours WEST, EAST
-  EAST.set_neighbours NORTH, SOUTH
-  SOUTH.set_neighbours EAST, WEST
-  WEST.set_neighbours SOUTH, NORTH
+  NORTH.neighbours = WEST, EAST
+  EAST.neighbours = NORTH, SOUTH
+  SOUTH.neighbours = EAST, WEST
+  WEST.neighbours = SOUTH, NORTH
 
-  private :set_neighbours
+  private :neighbours=
 
   def cycle_from
     output = [self]

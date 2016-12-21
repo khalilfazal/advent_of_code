@@ -1,7 +1,7 @@
 require_relative '../year_2016'
 
 class Day3 < Year_2016
-  def self.get_input
-    Year_2016.get_input day: 3
+  def self.input
+    Year_2016.input day: 3
   end
 end

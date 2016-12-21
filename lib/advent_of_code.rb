@@ -9,7 +9,7 @@ ActiveRecord::Base.establish_connection(
 )
 
 class AdventOfCode
-  def self.get_input(year:, day:)
+  def self.input(year:, day:)
     row = Input.find_by(year: year, day: day)
 
     if row.nil?
@@ -23,7 +23,7 @@ class AdventOfCode
 
   private
 
-  def self.get_cookie
+  def self.cookie
     begin
       open('cookie.txt', 'r') do |file|
         contents = file.read
@@ -40,7 +40,7 @@ class AdventOfCode
     end
   end
 
-  COOKIE ||= get_cookie
+  COOKIE ||= cookie
 
   private_constant :COOKIE
 end
