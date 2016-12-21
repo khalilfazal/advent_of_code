@@ -1,4 +1,4 @@
-require 'adventofcode/version'
+require 'advent_of_code/version'
 require 'models/input'
 require 'monkey_patches/array'
 require 'open-uri'

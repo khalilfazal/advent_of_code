@@ -1,6 +1,6 @@
-# Adventofcode
+# Advent Of Code
 
-Solutions to [Advent of Code](http://adventofcode.com/) puzzles.
+Solutions to [Advent of Code](http://advent_of_code.com/) puzzles.
 
 ## Usage
 
@@ -12,4 +12,4 @@ After checking out the repo, run `bin/setup` to install dependencies. You can al
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/khalilfazal/adventofcode.
+Bug reports and pull requests are welcome on GitHub at https://github.com/khalilfazal/advent_of_code.
