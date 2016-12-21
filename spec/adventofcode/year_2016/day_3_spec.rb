@@ -1,10 +1,10 @@
-require_all 'lib/adventofcode/year_2016/day_3/*'
+require_all 'lib/advent_of_code/year_2016/day_3/*'
 require 'helpers/cache_input'
 require 'helpers/skip'
 
 describe 'Year2016::Day3' do
   before :all do
-    cache_input
+    @input = cache_input
   end
 
   it 'star 1' do

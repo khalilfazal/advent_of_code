@@ -1,4 +1,4 @@
-require_all 'lib/adventofcode/year_2016/day_2/*'
+require_all 'lib/advent_of_code/year_2016/day_2/*'
 require 'helpers/cache_input'
 require 'helpers/match_string.rb'
 require 'helpers/skip'
@@ -6,7 +6,7 @@ require 'monkey_patches/array'
 
 describe 'Year2016::Day2' do
   before :all do
-    cache_input
+    @input = cache_input
 
     @example_input = %w(
       ULL
