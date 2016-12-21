@@ -1,7 +1,7 @@
-describe 'Adventofcode' do
+describe 'AdventOfCode' do
   it 'private cookie' do
     expect do
-      Adventofcode::COOKIE
+      AdventOfCode::COOKIE
     end.to raise_exception NameError
   end
 end

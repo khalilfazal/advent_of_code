@@ -1,3 +1,3 @@
-class Adventofcode
+class AdventOfCode
   VERSION = '0.0.0'
 end

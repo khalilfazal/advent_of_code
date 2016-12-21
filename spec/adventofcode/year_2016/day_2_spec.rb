@@ -4,7 +4,7 @@ require 'helpers/match_string.rb'
 require 'helpers/skip'
 require 'monkey_patches/array'
 
-describe 'Year_2016::Day_2' do
+describe 'Year2016::Day2' do
   before :all do
     cache_input
 

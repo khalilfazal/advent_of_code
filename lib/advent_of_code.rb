@@ -8,7 +8,7 @@ ActiveRecord::Base.establish_connection(
     database: 'db/db.sqlite3'
 )
 
-class Adventofcode
+class AdventOfCode
   def self.get_input(year:, day:)
     row = Input.find_by(year: year, day: day)
 

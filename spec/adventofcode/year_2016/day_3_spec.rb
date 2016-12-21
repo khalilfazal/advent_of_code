@@ -2,7 +2,7 @@ require_all 'lib/adventofcode/year_2016/day_3/*'
 require 'helpers/cache_input'
 require 'helpers/skip'
 
-describe 'Year_2016::Day_3' do
+describe 'Year2016::Day3' do
   before :all do
     cache_input
   end
