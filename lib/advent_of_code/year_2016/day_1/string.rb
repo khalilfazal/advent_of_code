@@ -1,12 +1,10 @@
-require 'exceptions/input_error'
-
 class String
   def parse_path
     split(/, /).map do |block|
       matches = block.match /(L|R)([0-9]+)/
 
       if matches.nil?
-        raise InputError.new 'Invalid input'
+        raise AdventOfCode::InputError.new 'Invalid input'
       end
 
       dir, n = matches.captures
@@ -22,7 +20,7 @@ class String
       when 'R'
         :right
       else
-        raise InputError.new 'Invalid input'
+        raise AdventOfCode::InputError.new 'Invalid input'
     end
   end
 end

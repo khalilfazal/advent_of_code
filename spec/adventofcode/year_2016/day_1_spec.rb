@@ -66,12 +66,12 @@ describe 'Year2016::Day1' do
   it 'raises an exception when input is invalid' do
     expect do
       'X0, '.parse_path
-    end.to raise_exception InputError
+    end.to raise_exception AdventOfCode::InputError
   end
 
   it 'raises an exception when the direction is invalid' do
     expect do
       'X, '.parse_dir
-    end.to raise_exception InputError
+    end.to raise_exception AdventOfCode::InputError
   end
 end

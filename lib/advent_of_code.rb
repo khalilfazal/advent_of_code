@@ -9,6 +9,11 @@ ActiveRecord::Base.establish_connection(
 )
 
 class AdventOfCode
+  class InputError < StandardError
+  end
+
+  protected
+
   def self.input(year:, day:)
     row = Input.find_by(year: year, day: day)
 
