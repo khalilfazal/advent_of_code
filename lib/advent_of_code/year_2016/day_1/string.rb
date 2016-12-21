@@ -2,7 +2,7 @@ require 'exceptions/input_error'
 
 class String
   def parse_path
-    self.split(/, /).map do |block|
+    split(/, /).map do |block|
       matches = block.match /(L|R)([0-9]+)/
 
       if matches.nil?
@@ -22,7 +22,6 @@ class String
       when 'R'
         :right
       else
-        # unreachable
         raise InputError.new 'Invalid input'
     end
   end

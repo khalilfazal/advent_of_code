@@ -1,16 +1,20 @@
 class Compass
-  private_class_method :new
+  class InvalidDirection < StandardError
+  end
+
   attr_reader :left, :right
 
+  private_class_method :new
+
   def set_neighbours(left, right)
-    @left  = left
+    @left = left
     @right = right
   end
 
   NORTH = new
-  EAST  = new
+  EAST = new
   SOUTH = new
-  WEST  = new
+  WEST = new
 
   NORTH.set_neighbours WEST, EAST
   EAST.set_neighbours NORTH, SOUTH
@@ -20,7 +24,7 @@ class Compass
   private :set_neighbours
 
   def cycle_from
-    output  = [self]
+    output = [self]
     current = self.right
 
     until current === self do
@@ -29,8 +33,5 @@ class Compass
     end
 
     output
-  end
-
-  class InvalidDirection < StandardError
   end
 end
