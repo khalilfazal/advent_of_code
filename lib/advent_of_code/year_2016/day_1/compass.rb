@@ -22,7 +22,7 @@ class Compass
 
   private :neighbours=
 
-  def cycle_from
+  def cycle
     output = [self]
     current = self.right
 

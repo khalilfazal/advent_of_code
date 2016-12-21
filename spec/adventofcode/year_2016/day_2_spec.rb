@@ -44,7 +44,7 @@ describe 'Year2016::Day2' do
     end
   end
 
-  it 'raises an exception when input is invalid' do
+  it 'raises AdventOfCode::InputError when instructions are invalid' do
     expect do
       Keypad.bathroom_code 'X'
     end.to raise_exception AdventOfCode::InputError

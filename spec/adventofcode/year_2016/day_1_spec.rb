@@ -7,29 +7,29 @@ describe 'Year2016::Day1' do
     @input = cache_input
   end
 
-  it 'left of north' do
+  it '#left of Compass::NORTH' do
     expect(Compass::NORTH.left).to equal Compass::WEST
   end
 
-  it 'private neighbours=' do
+  it 'private #neighbours=' do
     expect do
       Compass::NORTH.neighbours= Compass::WEST, Compass::EAST
     end.to raise_exception NoMethodError
   end
 
-  it 'cycle_from' do
-    expect(Compass::NORTH.cycle_from).to be === [Compass::NORTH,
+  it '#cycle' do
+    expect(Compass::NORTH.cycle).to be === [Compass::NORTH,
         Compass::EAST,
         Compass::SOUTH,
         Compass::WEST
     ]
   end
 
-  it 'origin' do
+  it '#origin' do
     expect(Point.origin.dims).to be === [0, 0]
   end
 
-  it 'raises an exception when direction is invalid' do
+  it 'raises Compass::InvalidDirection when dir is invalid' do
     expect do
       Point.origin.move ''
     end.to raise_exception Compass::InvalidDirection
@@ -63,13 +63,13 @@ describe 'Year2016::Day1' do
     end
   end
 
-  it 'raises an exception when input is invalid' do
+  it 'raises AdventOfCode::InputError when input is invalid' do
     expect do
       'X0, '.parse_path
     end.to raise_exception AdventOfCode::InputError
   end
 
-  it 'raises an exception when the direction is invalid' do
+  it 'raises AdventOfCode::InputError when the direction is invalid' do
     expect do
       'X, '.parse_dir
     end.to raise_exception AdventOfCode::InputError

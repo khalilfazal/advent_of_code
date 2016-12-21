@@ -4,17 +4,17 @@ require 'monkey_patches/array'
 require 'open-uri'
 
 ActiveRecord::Base.establish_connection(
-    adapter:  'sqlite3',
+    adapter: 'sqlite3',
     database: 'db/db.sqlite3'
 )
 
-class AdventOfCode
+module AdventOfCode
   class InputError < StandardError
   end
 
-  protected
+  module_function
 
-  def self.input(year:, day:)
+  def input(year:, day:)
     row = Input.find_by(year: year, day: day)
 
     if row.nil?
@@ -26,9 +26,7 @@ class AdventOfCode
     end
   end
 
-  private
-
-  def self.cookie
+  def cookie
     begin
       open('cookie.txt', 'r') do |file|
         contents = file.read
@@ -46,6 +44,6 @@ class AdventOfCode
   end
 
   COOKIE ||= cookie
-
   private_constant :COOKIE
+  private_class_method :cookie
 end

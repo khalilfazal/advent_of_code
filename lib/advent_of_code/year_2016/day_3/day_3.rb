@@ -1,7 +1,11 @@
-require_relative '../year_2016'
+require 'advent_of_code/year_2016/year_2016'
 
-class Day3 < Year_2016
-  def self.input
+module Day3
+  include Year_2016
+
+  module_function
+
+  def input
     Year_2016.input day: 3
   end
 end
