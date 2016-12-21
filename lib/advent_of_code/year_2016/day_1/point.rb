@@ -8,7 +8,7 @@ class Point
   def initialize(*dims)
     @x, @y     = dims
     @first_dup = nil
-    @visited   = Set.new [clone]
+    @visited = Set.new [dup]
   end
 
   def dims
@@ -29,7 +29,7 @@ class Point
         raise Compass::InvalidDirection.new 'Invalid direction'
     end
 
-    copy = clone
+    copy = dup
 
     if @visited.include?(copy) && @first_dup.nil?
       @first_dup = copy
