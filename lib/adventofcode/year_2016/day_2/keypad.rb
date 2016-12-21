@@ -1,6 +1,9 @@
 require 'monkey_patches/array'
+require 'monkey_patches/string'
 
 class Keypad
+  private_class_method :new
+
   def self.bathroom_code(instructions, layout = imagined_layout)
     keypad = new layout: layout
 
@@ -35,6 +38,8 @@ class Keypad
         @pos += @sides if @pos <= @sides ** 2 - @sides
       when 'L'
         @pos -= 1 if (@pos - 1) % @sides != 0
+      else
+        raise InputError.new 'Invalid input'
     end
 
     @pos = old_pos if pos === ' '

@@ -1,4 +1,5 @@
 class Compass
+  private_class_method :new
   attr_reader :left, :right
 
   def set_neighbours(left, right)
@@ -28,5 +29,8 @@ class Compass
     end
 
     output
+  end
+
+  class InvalidDirection < StandardError
   end
 end

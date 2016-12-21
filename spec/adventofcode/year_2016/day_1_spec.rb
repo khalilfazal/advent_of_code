@@ -29,6 +29,12 @@ describe 'Year_2016::Day_1' do
     expect(Point.origin.dims).to be === [0, 0]
   end
 
+  it 'throws when direction is invalid' do
+    expect do
+      Point.origin.move ''
+    end.to raise_exception Compass::InvalidDirection
+  end
+
   it 'example 1' do
     expect(Traveller.endpoint_distance 'R2, L3').to be === 5
   end
@@ -55,5 +61,11 @@ describe 'Year_2016::Day_1' do
     skip_when_dced do
       expect(Traveller.twice_visited_distance @input).to be === 182
     end
+  end
+
+  it 'throws when input is invalid' do
+    expect do
+      'X0, '.parse_path
+    end.to raise_exception InputError
   end
 end

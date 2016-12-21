@@ -1,4 +1,6 @@
 class Point
+  private_class_method :new
+
   def self.origin
     new 0, 0
   end
@@ -23,6 +25,8 @@ class Point
         @y -= 1
       when Compass::WEST
         @x -= 1
+      else
+        raise Compass::InvalidDirection.new 'Invalid direction'
     end
 
     copy = clone

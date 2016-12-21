@@ -8,7 +8,7 @@ describe 'Year_2016::Day_2' do
   before :all do
     cache_input
 
-    @example_instructions = %w(
+    @example_input = %w(
       ULL
       RRDDD
       LURDL
@@ -25,7 +25,7 @@ describe 'Year_2016::Day_2' do
   end
 
   it 'example 1' do
-    expect(Keypad.bathroom_code @example_instructions).to match_string('1985')
+    expect(Keypad.bathroom_code @example_input).to match_string('1985')
   end
 
   it 'star 1' do
@@ -35,12 +35,18 @@ describe 'Year_2016::Day_2' do
   end
 
   it 'example 2' do
-    expect(Keypad.bathroom_code @example_instructions, @actual_layout).to match_string('5DB3')
+    expect(Keypad.bathroom_code @example_input, @actual_layout).to match_string('5DB3')
   end
 
   it 'star 2' do
     skip_when_dced do
       expect(Keypad.bathroom_code @input, @actual_layout).to match_string('A7AC3')
     end
+  end
+
+  it 'throws when input is invalid' do
+    expect do
+      Keypad.bathroom_code 'X'
+    end.to raise_exception InputError
   end
 end

@@ -16,6 +16,6 @@ class Array
   end
 
   def unlines
-    join "\n"
+    join $/
   end
 end

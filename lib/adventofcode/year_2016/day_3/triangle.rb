@@ -1,4 +1,6 @@
 class Triangle
+  private_class_method :new
+
   def self.validate_by_rows(input)
     validate input
   end

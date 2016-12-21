@@ -1,6 +1,8 @@
 require 'monkey_patches/array'
 
 class Traveller
+  private_class_method :new
+
   def self.endpoint_distance(input)
     Traveller.travel_unparsed input
   end
