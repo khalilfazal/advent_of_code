@@ -8,7 +8,7 @@ describe 'Year2016::Day1' do
   end
 
   it 'left of north' do
-    expect(Compass::NORTH.left).to equal(Compass::WEST)
+    expect(Compass::NORTH.left).to equal Compass::WEST
   end
 
   it 'private set_neighbours' do
