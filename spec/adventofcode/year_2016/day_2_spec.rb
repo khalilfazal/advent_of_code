@@ -24,29 +24,27 @@ describe 'Year2016::Day2' do
     ].join
   end
 
-  it 'example 1' do
-    expect(Keypad.bathroom_code @example_input).to match_string '1985'
-  end
+  context 'examples and stars' do
+    subject { Keypad }
 
-  it 'star 1' do
-    skip_when_dced do
-      expect(Keypad.bathroom_code @input).to match_string '76792'
+    it 'example 1' do
+      expect(subject.bathroom_code @example_input).to match_string '1985'
     end
-  end
 
-  it 'example 2' do
-    expect(Keypad.bathroom_code @example_input, @actual_layout).to match_string '5DB3'
-  end
-
-  it 'star 2' do
-    skip_when_dced do
-      expect(Keypad.bathroom_code @input, @actual_layout).to match_string 'A7AC3'
+    it 'star 1' do
+      skip_this_on_network_error { expect(subject.bathroom_code @input).to match_string '76792' }
     end
-  end
 
-  it 'raises AdventOfCode::InputError when instructions are invalid' do
-    expect do
-      Keypad.bathroom_code 'X'
-    end.to raise_exception AdventOfCode::InputError
+    it 'example 2' do
+      expect(subject.bathroom_code @example_input, @actual_layout).to match_string '5DB3'
+    end
+
+    it 'star 2' do
+      skip_this_on_network_error { expect(subject.bathroom_code @input, @actual_layout).to match_string 'A7AC3' }
+    end
+
+    it 'raises AdventOfCode::InputError when instructions are invalid' do
+      expect { subject.bathroom_code 'X' }.to raise_exception AdventOfCode::InputError
+    end
   end
 end

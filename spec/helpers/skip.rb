@@ -1,5 +1,5 @@
 module Skip
-  def skip_when_dced
+  def skip_this_on_network_error
     skip 'skipped due to network issues' if @input.nil?
     yield
   end

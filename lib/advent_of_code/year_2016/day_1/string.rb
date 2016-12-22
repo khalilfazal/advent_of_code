@@ -16,9 +16,9 @@ class String
   def parse_dir
     case self
       when 'L'
-        :left
+        :clockwise
       when 'R'
-        :right
+        :widdershins
       else
         raise AdventOfCode::InputError.new 'Invalid input'
     end

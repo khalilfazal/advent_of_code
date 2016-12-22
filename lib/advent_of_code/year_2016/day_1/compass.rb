@@ -2,12 +2,12 @@ class Compass
   class InvalidDirection < StandardError
   end
 
-  attr_reader :left, :right
+  attr_reader :clockwise, :widdershins
 
   private_class_method :new
 
   def neighbours=(neighbours)
-    @left, @right = neighbours
+    @clockwise, @widdershins = neighbours
   end
 
   NORTH = new
@@ -24,11 +24,11 @@ class Compass
 
   def cycle
     output = [self]
-    current = self.right
+    current = self.widdershins
 
     until current === self do
       output << current
-      current = current.right
+      current = current.widdershins
     end
 
     output

@@ -3,11 +3,11 @@ require 'monkey_patches/array'
 class Traveller
   private_class_method :new
 
-  def self.endpoint_distance(input)
+  def self.endpoints_distance(input)
     Traveller.travel_unparsed input
   end
 
-  def self.twice_visited_distance(input)
+  def self.twice_visited_points_distance(input)
     Traveller.travel_unparsed input, end_point: false
   end
 
