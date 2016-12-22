@@ -46,7 +46,7 @@ describe 'Year2016::Day2' do
       skip_this_on_network_error { expect(subject.bathroom_code @input, @actual_layout).to be_identical_to_string 'A7AC3' }
     end
 
-    it 'raises AdventOfCode::InputError when instructions are invalid' do
+    it 'catches invalid instructions' do
       expect { subject.bathroom_code 'X' }.to raise_exception InputError
     end
   end

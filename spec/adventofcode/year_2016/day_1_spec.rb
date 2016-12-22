@@ -38,7 +38,7 @@ describe 'Year2016::Day1' do
       expect(subject.origin.dims).to be === [0, 0]
     end
 
-    it 'raises Compass::InvalidDirection when dir is invalid' do
+    it 'catches invalid dirs' do
       expect { subject.origin.move '' }.to raise_exception Compass::InvalidDirection
     end
   end
@@ -46,11 +46,11 @@ describe 'Year2016::Day1' do
   context 'parsing String' do
     subject { InputError }
 
-    it 'raises AdventOfCode::InputError when input is invalid' do
+    it 'catches invalid inputs' do
       expect { 'X0, '.parse_path }.to raise_exception subject
     end
 
-    it 'raises AdventOfCode::InputError when direction is invalid' do
+    it 'catches invalid directions' do
       expect { 'X'.parse_dir }.to raise_exception subject
     end
   end

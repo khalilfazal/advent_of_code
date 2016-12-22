@@ -9,7 +9,7 @@ describe 'AdventOfCode' do
     expect { subject::COOKIE }.to raise_exception NameError
   end
 
-  it "'s ::cookie is private" do
+  it "'s ::cookie method is private" do
     expect { subject::COOKIE }.to raise_exception NameError
   end
 end
