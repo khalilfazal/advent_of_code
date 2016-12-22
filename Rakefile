@@ -9,8 +9,11 @@ gems = [
     [:app, :spec].join_with_prefix('-I ', ' ')
 ].join ' '
 
-# rspec
-RSpec::Core::RakeTask.new(:spec).ruby_opts = gems
+# spec
+rspec = RSpec::Core::RakeTask.new
+rspec.ruby_opts = gems
+rspec.rspec_opts = '--color'
+rspec.pattern = '**/{spec_*,*_spec}.rb'
 
 # profile
 RubyProf::ProfileTask.new do |t|

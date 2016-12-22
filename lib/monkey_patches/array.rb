@@ -6,7 +6,7 @@ class Array
   end
 
   def join(separator = $,)
-    $, + old_join(separator)
+    '' + old_join(separator)
   end
 
   def join_with_prefix(prefix = $,, separator = $,)
