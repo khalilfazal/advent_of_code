@@ -6,10 +6,10 @@ class Array
   end
 
   def join(separator = $,)
-    '' + old_join(separator)
+    $, + old_join(separator)
   end
 
-  def join_with_prefix(prefix = '', separator = '')
+  def join_with_prefix(prefix = $,, separator = $,)
     map do |e|
       prefix.to_s + e.to_s
     end.join separator
