@@ -1,8 +1,11 @@
 require_all 'lib/advent_of_code/year_2016/day_2/*'
+require 'advent_of_code'
 require 'helpers/cache_input'
 require 'helpers/match_string'
 require 'helpers/skip'
 require 'monkey_patches/array'
+
+include AdventOfCode
 
 describe 'Year2016::Day2' do
   before :all do
@@ -44,7 +47,7 @@ describe 'Year2016::Day2' do
     end
 
     it 'raises AdventOfCode::InputError when instructions are invalid' do
-      expect { subject.bathroom_code 'X' }.to raise_exception AdventOfCode::InputError
+      expect { subject.bathroom_code 'X' }.to raise_exception InputError
     end
   end
 end

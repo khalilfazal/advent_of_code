@@ -22,7 +22,8 @@ describe 'Year2016::Day1' do
     end
 
     it 'can #cycle once around @clockwise' do
-      expect(subject.cycle).to be === [Compass::NORTH,
+      expect(subject.cycle).to be === [
+          Compass::NORTH,
           Compass::EAST,
           Compass::SOUTH,
           Compass::WEST

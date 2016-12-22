@@ -8,6 +8,6 @@ module CacheInput
   end
 end
 
-RSpec.configure do |c|
-  c.include CacheInput
+RSpec.configure do |config|
+  config.include CacheInput
 end
