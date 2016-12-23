@@ -33,19 +33,17 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = %w(app lib spec)
 
-  # standalone_migrations (~> 5.0) was resolved to 5.0.0, which depends on
-  # activesupport (= 5.0.0.1)
-  spec.add_development_dependency 'activerecord', '~> 5.0', '>= 5.0.0.1'
-  spec.add_development_dependency 'bundler', '~> 1.13', '>= 1.13.6'
-
-  # standalone_migrations (~> 5.0) was resolved to 5.0.0, which depends on
-  # rake (~> 10.0)
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec', '~> 3.5'
-  spec.add_development_dependency 'ruby-prof', '~> 0.16.2'
-  spec.add_development_dependency 'simplecov', '~> 0.12'
-
+  # standalone_migrations (5.0.0) depends on activesupport (= 5.0.0.1)
+  spec.add_runtime_dependency 'activerecord', '~> 5.0', '>= 5.0.0.1'
   spec.add_runtime_dependency 'require_all', '~> 1.3'
   spec.add_runtime_dependency 'standalone_migrations', '~> 5.0'
+
+  # standalone_migrations (5.0.0) depends on rake (~> 10.0)
+  spec.add_runtime_dependency 'rake', '~> 10.0'
+  spec.add_runtime_dependency 'rspec', '~> 3.5'
   spec.add_runtime_dependency 'sqlite3', '~> 1.3'
+
+  spec.add_development_dependency 'rspec-prof', '~> 0.0.7'
+  spec.add_development_dependency 'ruby-prof', '~> 0.16.2'
+  spec.add_development_dependency 'simplecov', '~> 0.12'
 end
