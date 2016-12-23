@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
-rspec="~/.rvm/gems/ruby-2.3.1/bin/rspec"
-
 ruby-prof --printer graph_html --min_percent "0" --file=profiles/profile.html --\
- "$rspec" -r require_all --pattern 'spec/**{,/*/**}/*_spec.rb'
+ /usr/bin/rspec -r rspec -r require_all -I app --color --pattern '**/{spec_*,*_spec}.rb'

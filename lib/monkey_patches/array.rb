@@ -1,10 +1,6 @@
 class Array
   alias_method :old_join, :join
 
-  def self.singleton(e)
-    [] << e
-  end
-
   def join(separator = $,)
     '' + old_join(separator)
   end

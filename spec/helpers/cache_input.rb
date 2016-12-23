@@ -1,10 +1,15 @@
 module CacheInput
-  def cache_input(day: self.class.name[/[0-9]+$/].to_i)
-        begin
-          Object.const_get("Day#{day}").input
-        rescue SocketError
-          nil
-        end
+
+  MODULE_REGEX = /[_A-Za-z][_A-Za-z0-9]*/
+
+  def cache_input
+    day = /(\d+)::#{MODULE_REGEX}$/.match(self.class.name)[1]
+
+    begin
+      Object.const_get("Day#{day}").input
+    rescue SocketError
+      nil
+    end
   end
 end
 

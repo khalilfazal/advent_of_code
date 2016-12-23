@@ -15,6 +15,13 @@ module AdventOfCode
   module_function
 
   def input(year:, day:)
+    # The first year of Advent of Code was 2015.
+    # When input for a year before 2015 is tried to be accessed, the site will throw a 404 error.
+    # Therefore, assert that year > 2014.
+    #
+    # In order to save time and resources, preemptively throw a mock 404 error without opening the url.
+    raise OpenURI::HTTPError.new '404 Not Found', nil unless year > 2014 && day.between?(1, 25)
+
     row = Input.find_by(year: year, day: day)
 
     if row.nil?

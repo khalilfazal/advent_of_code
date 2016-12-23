@@ -1,4 +1,4 @@
-# Advent Of Code
+# Advent of Code
 
 Solutions to [Advent of Code](http://advent_of_code.com/) puzzles.
 

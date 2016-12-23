@@ -6,9 +6,7 @@ require 'helpers/skip'
 include AdventOfCode
 
 describe 'Year2016::Day1' do
-  before :all do
-    @input = cache_input
-  end
+  let (:input) { cache_input }
 
   context 'Compass' do
     subject { Compass::NORTH }
@@ -71,7 +69,7 @@ describe 'Year2016::Day1' do
     end
 
     it 'anchieves star 1' do
-      skip_this_on_network_error { expect(subject.endpoints_distance @input).to be === 236 }
+      skip_this_on_network_error { expect(subject.endpoints_distance input).to be === 236 }
     end
 
     it 'passes example 4' do
@@ -79,7 +77,7 @@ describe 'Year2016::Day1' do
     end
 
     it 'anchieves star 2' do
-      skip_this_on_network_error { expect(subject.twice_visited_points_distance @input).to be === 182 }
+      skip_this_on_network_error { expect(subject.twice_visited_points_distance input).to be === 182 }
     end
   end
 end
