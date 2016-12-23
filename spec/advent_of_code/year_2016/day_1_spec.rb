@@ -41,7 +41,7 @@ describe 'Year2016::Day1' do
     end
   end
 
-  context 'parsing String' do
+  context 'String parsing' do
     subject { InputError }
 
     it 'catches invalid inputs' do
