@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-ruby-prof --printer graph_html --min_percent "0" --file=profiles/profile.html --\
- /usr/bin/rspec -r rspec -r require_all -I app --color --pattern '**/{spec_*,*_spec}.rb'
