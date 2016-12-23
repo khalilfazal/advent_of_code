@@ -1,7 +1,10 @@
 module Skip
   def skip_this_on_network_error
-    skip 'skipped due to network issues' if @input.nil?
-    yield
+    begin
+      yield
+    rescue SocketError
+      skip 'skipped due to network issues'
+    end
   end
 end
 
