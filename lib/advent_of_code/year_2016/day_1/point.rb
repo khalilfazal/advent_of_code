@@ -62,7 +62,6 @@ class Point
   end
 
   def cantor_pairing(k1, k2)
-    s = k1 + k2
-    s.triangle_num + k2
+    (k1 + k2).triangle_num + k2
   end
 end
