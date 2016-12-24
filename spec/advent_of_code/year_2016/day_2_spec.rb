@@ -1,7 +1,7 @@
 require_all 'lib/advent_of_code/year_2016/day_2/*'
 
-describe 'Year2016::Day2' do
-  let (:input) { @input ||= Day2::input }
+describe Year2016::Day2 do
+  let (:input) { @input ||= described_class::input }
 
   let (:example_input) { %w(
       ULL

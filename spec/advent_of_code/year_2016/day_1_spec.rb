@@ -1,7 +1,7 @@
 require_all 'lib/advent_of_code/year_2016/day_1/*'
 
-describe 'Year2016::Day1' do
-  let (:input) { @input ||= Day1::input }
+describe Year2016::Day1 do
+  let (:input) { @input ||= described_class::input }
 
   context 'Compass' do
     subject { Compass::NORTH }
