@@ -57,7 +57,7 @@ class Point
   end
 
   # Copied from: http://stackoverflow.com/a/919661/710755
-  # No difference in run time between dims.hash and cantor_pairing
+  # No difference in run time between Array#hash and Point#cantor_pairing
   def hash
     #dims.hash
     π *dims.map(&:to_nat)
