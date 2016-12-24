@@ -8,7 +8,7 @@ require 'monkey_patches/array'
 include AdventOfCode
 
 describe 'Year2016::Day2' do
-  let (:input) { cache_input }
+  let (:input) { @input ||= cache_input }
 
   let (:example_input) { %w(
       ULL

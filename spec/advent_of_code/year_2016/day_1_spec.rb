@@ -6,7 +6,7 @@ require 'helpers/skip'
 include AdventOfCode
 
 describe 'Year2016::Day1' do
-  let (:input) { cache_input }
+  let (:input) { @input ||= cache_input }
 
   context 'Compass' do
     subject { Compass::NORTH }

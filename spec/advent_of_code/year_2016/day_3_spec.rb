@@ -3,7 +3,7 @@ require 'helpers/cache_input'
 require 'helpers/skip'
 
 describe 'Year2016::Day3' do
-  let (:input) { cache_input }
+  let (:input) { @input ||= cache_input }
 
   context 'examples and stars' do
     subject { Triangle }
