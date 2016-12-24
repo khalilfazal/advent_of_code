@@ -14,11 +14,11 @@ include = [
 rspec = RSpec::Core::RakeTask.new
 rspec.ruby_opts = include
 rspec.rspec_opts = '--color'
-rspec.pattern = '**/{spec_*,*_spec, support/*}.rb'
+rspec.pattern = '**/{spec_*,*_spec,support/*}.rb'
 
 # profile
 RubyProf::ProfileTask.new do |t|
-  t.test_files = FileList['spec/**/*_spec.rb']
+  t.test_files = FileList['**/{spec_*,*_spec}.rb']
   t.output_dir = 'profiles'
   t.printer = :graph_html
   t.ruby_opts = include.singleton
