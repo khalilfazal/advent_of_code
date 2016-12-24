@@ -39,7 +39,7 @@ class Keypad
       when 'L'
         @pos -= 1 if (@pos - 1) % @sides != 0
       else
-        raise AdventOfCode::InputError.new 'Invalid input'
+        raise AdventOfCode::InputError.new "Invalid input '#{dir}'"
     end
 
     @pos = old_pos if pos === ' '

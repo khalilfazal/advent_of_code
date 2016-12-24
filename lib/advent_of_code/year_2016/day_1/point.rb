@@ -28,7 +28,7 @@ class Point
       when Compass::WEST
         @x -= 1
       else
-        raise Compass::InvalidDirection.new 'Invalid direction'
+        raise Compass::InvalidDirection.new "Invalid direction '#{dir}'"
     end
 
     copy = dup
@@ -45,10 +45,9 @@ class Point
     self
   end
 
+  # https://en.wikipedia.org/wiki/Taxicab_geometry#Formal_definition
   def taxicab_metric
-    dims.map do |val|
-      val.abs
-    end.inject :+
+    dims.map(&:abs).inject :+
   end
 
   private
