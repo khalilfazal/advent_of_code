@@ -1,5 +1,5 @@
 class BasicObject
   def singleton
-    [] << self
+    x = *self
   end
 end
