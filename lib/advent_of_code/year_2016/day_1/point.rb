@@ -1,3 +1,5 @@
+require 'monkey_patches/fixnum'
+
 class Point
   private_class_method :new
 
@@ -6,7 +8,7 @@ class Point
   end
 
   def initialize(*dims)
-    @x, @y     = dims
+    @x, @y = dims
     @first_dup = nil
     @visited = Set.new [dup]
   end
@@ -55,7 +57,13 @@ class Point
     dims.eql? other.dims
   end
 
+  # Copied from: http://stackoverflow.com/a/919661/710755
   def hash
-    dims.hash
+    cantor_pairing *dims.map(&:to_nat)
+  end
+
+  def cantor_pairing(k1, k2)
+    s = k1 + k2
+    s.triangle_num + k2
   end
 end
