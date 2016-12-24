@@ -1,3 +1,5 @@
+require 'socket'
+
 module Skip
   def skip_this_on_network_error
     begin
