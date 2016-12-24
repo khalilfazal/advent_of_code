@@ -1,4 +1,4 @@
-require 'monkey_patches/basic_object'
+
 
 # published question asking how this works here: https://redd.it/5k126e
 describe 'BasicObject' do

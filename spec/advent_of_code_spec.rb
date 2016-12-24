@@ -1,6 +1,3 @@
-require 'advent_of_code'
-require 'helpers/within_block_is_expected'
-
 describe 'AdventOfCode' do
   subject { AdventOfCode }
 

@@ -1,9 +1,7 @@
 require_all 'lib/advent_of_code/year_2016/day_3/*'
-require 'helpers/cache_input'
-require 'helpers/skip'
 
 describe 'Year2016::Day3' do
-  let (:input) { @input ||= cache_input }
+  let (:input) { @input ||= Day3::input }
 
   context 'examples and stars' do
     subject { Triangle }

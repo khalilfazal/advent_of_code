@@ -1,14 +1,7 @@
 require_all 'lib/advent_of_code/year_2016/day_2/*'
-require 'advent_of_code'
-require 'helpers/cache_input'
-require 'helpers/match_string'
-require 'helpers/skip'
-require 'monkey_patches/array'
-
-include AdventOfCode
 
 describe 'Year2016::Day2' do
-  let (:input) { @input ||= cache_input }
+  let (:input) { @input ||= Day2::input }
 
   let (:example_input) { %w(
       ULL

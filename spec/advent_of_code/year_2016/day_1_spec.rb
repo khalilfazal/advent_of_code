@@ -1,12 +1,7 @@
 require_all 'lib/advent_of_code/year_2016/day_1/*'
-require 'advent_of_code'
-require 'helpers/cache_input'
-require 'helpers/skip'
-
-include AdventOfCode
 
 describe 'Year2016::Day1' do
-  let (:input) { @input ||= cache_input }
+  let (:input) { @input ||= Day1::input }
 
   context 'Compass' do
     subject { Compass::NORTH }
