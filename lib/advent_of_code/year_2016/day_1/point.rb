@@ -58,10 +58,10 @@ class Point
 
   # Copied from: http://stackoverflow.com/a/919661/710755
   def hash
-    cantor_pairing *dims.map(&:to_nat)
+    π *dims.map(&:to_nat)
   end
 
-  def cantor_pairing(k1, k2)
+  def π(k1, k2)
     (k1 + k2).triangle_num + k2
   end
 end
