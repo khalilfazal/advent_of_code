@@ -3,7 +3,7 @@ require_all 'lib/advent_of_code/year_2016/day_1/*'
 describe Year2016::Day1 do
   let (:input) { @input ||= described_class::input }
 
-  context 'Compass' do
+  context Compass do
     subject { Compass::NORTH }
 
     it "'s @clockwise neighbour is Compass::WEST" do
@@ -24,27 +24,23 @@ describe Year2016::Day1 do
     end
   end
 
-  context 'Point' do
-    subject { Point }
-
+  context Point do
     it "'s origin is (0, 0)" do
-      expect(subject.origin.dims).to be === [0, 0]
+      expect(described_class.origin.dims).to be === [0, 0]
     end
 
     it 'catches invalid dirs' do
-      expect { subject.origin.move '' }.to raise_exception Compass::InvalidDirection
+      expect { described_class.origin.move '' }.to raise_exception Compass::InvalidDirection
     end
   end
 
-  context 'String parsing' do
-    subject { InputError }
-
+  context AdventOfCode::InputError do
     it 'catches invalid inputs' do
-      expect { 'X0, '.parse_path }.to raise_exception subject
+      expect { 'X0, '.parse_path }.to raise_exception described_class
     end
 
     it 'catches invalid directions' do
-      expect { 'X'.parse_dir }.to raise_exception subject
+      expect { 'X'.parse_dir }.to raise_exception described_class
     end
   end
 

@@ -38,7 +38,7 @@ describe Year2016::Day2 do
     end
 
     it 'catches invalid instructions' do
-      expect { subject.bathroom_code 'X' }.to raise_exception InputError
+      expect { subject.bathroom_code 'X' }.to raise_exception AdventOfCode::InputError
     end
   end
 end
