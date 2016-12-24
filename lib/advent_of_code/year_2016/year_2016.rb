@@ -1,6 +1,6 @@
 require 'advent_of_code'
 
-module Year_2016
+module Year2016
   include AdventOfCode
 
   module_function
