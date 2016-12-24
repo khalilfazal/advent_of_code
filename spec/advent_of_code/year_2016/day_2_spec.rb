@@ -26,7 +26,7 @@ describe Year2016::Day2 do
     end
 
     it 'star 1' do
-      skip_this_on_network_error { expect(subject.bathroom_code input).to be_identical_to_string '76792' }
+      skip_this_when_dced { expect(subject.bathroom_code input).to be_identical_to_string '76792' }
     end
 
     it 'example 2' do
@@ -34,7 +34,7 @@ describe Year2016::Day2 do
     end
 
     it 'star 2' do
-      skip_this_on_network_error { expect(subject.bathroom_code input, actual_layout).to be_identical_to_string 'A7AC3' }
+      skip_this_when_dced { expect(subject.bathroom_code input, actual_layout).to be_identical_to_string 'A7AC3' }
     end
 
     it 'catches invalid instructions' do

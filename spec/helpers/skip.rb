@@ -1,12 +1,27 @@
 require 'socket'
 
 module Skip
-  def skip_this_on_network_error
+  def skip_this_when_dced(enabled: true, &example)
+    skip_this_when(enabled: enabled, exception: SocketError, &example)
+  end
+
+  def skip_this_when_file_not_found(enabled: true, &example)
+    skip_this_when(enabled: enabled, exception: Errno::ENOENT, &example)
+  end
+
+  private
+
+  def skip_this_when(enabled:, exception:, &example)
+    result = nil
+
     begin
-      yield
-    rescue SocketError
-      skip 'skipped due to network issues'
+      example.call
+    rescue exception => e
+      result = e
+      skip (yield e) if enabled
     end
+
+    result
   end
 end
 
