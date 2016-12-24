@@ -20,7 +20,7 @@ RubyProf::ProfileTask.new do |t|
   t.test_files = FileList['**/{spec_*,*_spec}.rb']
   t.output_dir = 'profiles'
   t.printer = :graph_html
-  t.ruby_opts = Array(include)
+  t.ruby_opts = [include]
   t.min_percent = 0
 end
 

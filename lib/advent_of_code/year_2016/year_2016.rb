@@ -5,7 +5,7 @@ module Year2016
 
   module_function
 
-  def input(year: 2016, day:)
+  def input(day:)
     AdventOfCode.input year: 2016, day: day
   end
 end

@@ -1,17 +1,13 @@
 describe AdventOfCode do
   it { within_block_is_expected.not_to raise_exception }
 
-  it "'s ::COOKIE const is private" do
-    expect { subject::COOKIE }.to raise_exception NameError
-  end
-
   it "'s ::cookie method is private" do
     expect { subject::cookie }.to raise_exception NameError
   end
 
   context '404 Exceptions for an invalid year/day' do
     def expect_input_factory(year:, day:)
-      expect { subject.input year: year, day: day }.to raise_exception OpenURI::HTTPError
+      expect { subject.input year: year, day: day }.to raise_error OpenURI::HTTPError
     end
 
     it 'throws a 404 Exception when year is negative' do
