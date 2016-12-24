@@ -1,6 +1,4 @@
-describe 'AdventOfCode' do
-  subject { AdventOfCode }
-
+describe AdventOfCode do
   it { within_block_is_expected.not_to raise_exception }
 
   it "'s ::COOKIE const is private" do

@@ -3,9 +3,7 @@ require_all 'lib/advent_of_code/year_2016/day_1/*'
 describe Year2016::Day1 do
   let (:input) { @input ||= described_class::input }
 
-  context Compass do
-    subject { Compass::NORTH }
-
+  context Compass::NORTH do
     it "'s @clockwise neighbour is Compass::WEST" do
       expect(subject.clockwise).to equal Compass::WEST
     end
