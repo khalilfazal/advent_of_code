@@ -1,9 +1,6 @@
 module CacheInput
-
-  MODULE_REGEX = /[_A-Za-z][_A-Za-z0-9]*/
-
   def cache_input
-    day = /Day(\d+)(?:::#{MODULE_REGEX})*$/.match(self.class.name)[1]
+    day = /\d+$/.match(self.class.name.split(/::/)[-2])[0]
 
     Object.const_get("Day#{day}").input
   end
