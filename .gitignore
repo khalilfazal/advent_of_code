@@ -3,3 +3,4 @@ coverage/
 cookie.txt
 profiles/*
 !profiles/.keep
+!profiles/time_across_trials.ods
