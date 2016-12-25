@@ -11,12 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20161220152145) do
-
-  create_table "inputs", force: :cascade do |t|
-    t.integer "year",               null: false
-    t.integer "day",                null: false
-    t.text    "input", default: ""
-    t.index ["year", "day"], name: "index_inputs_on_year_and_day", unique: true
+  # noinspection RailsParamDefResolve
+  create_table 'inputs', force: :cascade do |t|
+    t.integer 'year', null: false
+    t.integer 'day', null: false
+    t.text 'input', default: ''
+    t.index %w(year day), name: 'index_inputs_on_year_and_day', unique: true
   end
-
 end

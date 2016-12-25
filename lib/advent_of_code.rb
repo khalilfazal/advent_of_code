@@ -6,7 +6,7 @@ require 'racc/parser'
 
 ActiveRecord::Base.establish_connection(
     adapter: 'sqlite3',
-    database: 'db/dev.sqlite3'
+    database: 'db/db.sqlite3'
 )
 
 module AdventOfCode
