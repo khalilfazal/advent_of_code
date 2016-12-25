@@ -1,4 +1,4 @@
-RSpec::Matchers.define :be_skipping_with do |*expected|
+RSpec::Matchers.define :be_skipping_with do |expected: nil|
   def supports_block_expectations?
     true
   end
@@ -17,10 +17,10 @@ RSpec::Matchers.define :be_skipping_with do |*expected|
       exception = actual
     end
 
-    if expected.empty?
+    if expected.nil?
       !exception.nil?
     else
-      exception.is_a? expected[0]
+      exception.is_a? expected
     end
   end
 end
