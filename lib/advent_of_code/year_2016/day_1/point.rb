@@ -49,7 +49,7 @@ class Point
 
   # https://en.wikipedia.org/wiki/Taxicab_geometry#Formal_definition
   def taxicab_metric
-    dims.map(&:abs).sum
+    dims.sum(&:abs)
   end
 
   private
