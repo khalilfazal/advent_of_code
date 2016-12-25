@@ -21,11 +21,11 @@ module AdventOfCode
     # Therefore preemptively throw a mock 404 error without using resources.
     raise OpenURI::HTTPError.new '404 Not Found', nil unless year > 2014 && day.between?(1, 25)
 
-    row = Input.find_by(year: year, day: day)
+    row = Input.find_by year: year, day: day
 
     if row.nil?
       input = open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => cookie).read
-      Input.create(year: year, day: day, input: input)
+      Input.create year: year, day: day, input: input
       input
     else
       row.input
@@ -37,7 +37,7 @@ module AdventOfCode
   def cookie
     @cookie ||=
         begin
-          open('cookie.txt', 'r') do |file|
+          open 'cookie.txt', 'r' do |file|
             contents = file.read
             raise SystemCallError unless contents =~ /^session=[a-f0-9]+$/
             contents
