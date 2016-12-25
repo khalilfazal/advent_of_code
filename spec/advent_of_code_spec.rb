@@ -1,3 +1,5 @@
+require 'advent_of_code'
+
 describe AdventOfCode do
   it { within_block_is_expected.not_to raise_exception }
 

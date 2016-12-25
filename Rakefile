@@ -1,4 +1,18 @@
+require 'ruby-prof/task'
+require 'rspec/core/rake_task'
 require 'standalone_migrations'
+
+# spec
+RSpec::Core::RakeTask.new.pattern = '**/{spec_*,*_spec,support/*}.rb'
+
+# profile
+RubyProf::ProfileTask.new do |t|
+  t.test_files = FileList['**/{spec_*,*_spec}.rb']
+  t.min_percent = 0
+  t.output_dir = 'profiles/html'
+  t.printer = :graph_html
+  t.ruby_opts = ['-I spec -r rspec -r require_all']
+end
 
 # stats
 task :stats do

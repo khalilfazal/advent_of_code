@@ -3,3 +3,5 @@ coverage/
 cookie.txt
 profiles/*
 !profiles/.keep
+db/dev.sqlite3
+pkg/

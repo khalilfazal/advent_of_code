@@ -6,13 +6,11 @@ require 'racc/parser'
 
 ActiveRecord::Base.establish_connection(
     adapter: 'sqlite3',
-    database: 'db/db.sqlite3'
+    database: 'db/dev.sqlite3'
 )
 
 module AdventOfCode
-  module_function
-
-  def input(year:, day:)
+  def self.input(year:, day:)
     # The first year of Advent of Code was 2015.
     # When year is before 2015, the site will throw a 404 error.
     #
@@ -22,7 +20,7 @@ module AdventOfCode
     row = Input.find_by year: year, day: day
 
     if row.nil?
-      open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => cookie) do |stream|
+      open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => read_cookie) do |stream|
         Input.create(year: year, day: day, input: stream.read).input
       end
     else
@@ -32,7 +30,7 @@ module AdventOfCode
 
   private
 
-  def cookie
+  def self.read_cookie
     @cookie ||=
         begin
           open 'cookie.txt', 'r' do |file|
