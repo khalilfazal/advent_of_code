@@ -39,9 +39,7 @@ module AdventOfCode
         begin
           open('cookie.txt', 'r') do |file|
             contents = file.read
-
             raise SystemCallError unless contents =~ /^session=[a-f0-9]+$/
-
             contents
           end
         rescue SystemCallError
