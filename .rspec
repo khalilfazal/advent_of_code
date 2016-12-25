@@ -1,0 +1,5 @@
+--drb
+--format Fuubar
+--color
+-r require_all
+-I app

@@ -7,11 +7,15 @@ RSpec::Matchers.define :be_skipping_with do |*expected|
     actual = self.actual
     exception = nil
 
-    RSpec.describe do
-      it { exception = actual.call }
-    end.run
+    if actual.is_a? Proc
+      RSpec.describe do
+        it { exception = actual.call }
+      end.run
 
-    RSpec.world.example_groups.pop
+      RSpec.world.example_groups.pop
+    else
+      exception = actual
+    end
 
     if expected.empty?
       !exception.nil?
