@@ -8,10 +8,11 @@ describe AdventOfCode do
   end
 
   it "shows error message when cookie.txt doesn't exist" do
-    expect { subject.class_exec { read_cookie('foobar.txt') } }.to raise_error StandardError
+    subject.instance_variable_set :@cookie, nil
+    expect { p subject.read_cookie('foobar.txt') }.to raise_error StandardError
   end
 
-  it '' do
+  it 'shows error message when the cookie in cookie.txt is malformed' do
     open('cookie.txt', 'r') do |handle|
       allow(handle).to receive(:read).and_return('bad cookie')
       expect { subject.with_handle(handle) }.to raise_error StandardError

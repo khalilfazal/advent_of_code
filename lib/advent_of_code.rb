@@ -6,7 +6,7 @@ require 'racc/parser'
 
 ActiveRecord::Base.establish_connection(
     adapter: 'sqlite3',
-    database: 'db/db.sqlite3'
+    database: 'db/dev.sqlite3'
 )
 
 module AdventOfCode
@@ -33,7 +33,9 @@ module AdventOfCode
   def self.read_cookie(file = 'cookie.txt')
     @cookie ||=
         begin
-          open(file, 'r', &:with_handle)
+          open(file, 'r') do |handle|
+            with_handle handle
+          end
         rescue SystemCallError
           raise StandardError, [
               'Place your session cookie into cookie.txt',

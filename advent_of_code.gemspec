@@ -5,9 +5,7 @@ require 'advent_of_code/version'
 
 # TODO: finish reading style guide
 # TODO: finish fixing dependencies
-# TODO: create module diagram
 # TODO: annotate all modules, classes, and methods with parameter and return types
-# TODO: get to 100% code coverage
 
 Gem::Specification.new do |spec|
   spec.name = 'advent_of_code'
