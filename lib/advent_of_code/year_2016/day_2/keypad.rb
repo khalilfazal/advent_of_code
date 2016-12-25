@@ -4,16 +4,24 @@ require 'monkey_patches/string'
 class Keypad
   private_class_method :new
 
-  def self.bathroom_code(instructions, layout = imagined_layout)
-    keypad = new layout: layout
+  class << self
+    def bathroom_code(instructions, layout = imagined_layout)
+      keypad = new layout: layout
 
-    instructions.lines.map do |line|
-      line.chars.each do |instruction|
-        keypad.move instruction
-      end
+      instructions.lines.map do |line|
+        line.chars.each do |instruction|
+          keypad.move instruction
+        end
 
-      keypad.pos
-    end.join
+        keypad.pos
+      end.join
+    end
+
+    private
+
+    def imagined_layout
+      1.upto(9).to_a.join
+    end
   end
 
   def initialize(layout:)
@@ -43,11 +51,5 @@ class Keypad
     end
 
     @pos = old_pos if pos === ' '
-  end
-
-  private
-
-  def self.imagined_layout
-    1.upto(9).to_a.join
   end
 end

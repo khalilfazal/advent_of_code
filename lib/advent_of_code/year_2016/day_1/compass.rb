@@ -24,7 +24,7 @@ class Compass
 
   def cycle
     output = [self]
-    current = self.widdershins
+    current = @widdershins
 
     until current === self do
       output << current

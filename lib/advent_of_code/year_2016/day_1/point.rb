@@ -3,8 +3,10 @@ require 'monkey_patches/fixnum'
 class Point
   private_class_method :new
 
-  def self.origin
-    new 0, 0
+  class << self
+    def origin
+      new 0, 0
+    end
   end
 
   def initialize(*dims)

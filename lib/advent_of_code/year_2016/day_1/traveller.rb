@@ -3,12 +3,22 @@ require 'monkey_patches/array'
 class Traveller
   private_class_method :new
 
-  def self.endpoints_distance(input)
-    Traveller.travel_unparsed input
-  end
+  class << self
+    def endpoints_distance(input)
+      travel_unparsed input
+    end
 
-  def self.twice_visited_points_distance(input)
-    Traveller.travel_unparsed input, end_point: false
+    def twice_visited_points_distance(input)
+      travel_unparsed input, end_point: false
+    end
+
+    private
+
+    def travel_unparsed(input, end_point: true)
+      point = new.travel input.parse_path
+      point.twice_visited! unless end_point
+      point.taxicab_metric
+    end
   end
 
   def initialize
@@ -26,13 +36,5 @@ class Traveller
     end
 
     @pos
-  end
-
-  private
-
-  def self.travel_unparsed(input, end_point: true)
-    point = new.travel input.parse_path
-    point.twice_visited! unless end_point
-    point.taxicab_metric
   end
 end
