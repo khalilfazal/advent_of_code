@@ -20,8 +20,8 @@ module AdventOfCode
     row = Input.find_by year: year, day: day
 
     if row.nil?
-      open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => read_cookie) do |stream|
-        Input.create(year: year, day: day, input: stream.read).input
+      open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => read_cookie) do |handle|
+        Input.create(year: year, day: day, input: handle.read).input
       end
     else
       row.input
@@ -30,19 +30,21 @@ module AdventOfCode
 
   private
 
-  def self.read_cookie
+  def self.read_cookie(file = 'cookie.txt')
     @cookie ||=
         begin
-          open 'cookie.txt', 'r' do |file|
-            contents = file.read
-            raise SystemCallError unless contents =~ /^session=[a-f0-9]+$/
-            contents
-          end
+          open(file, 'r', &:with_handle)
         rescue SystemCallError
           raise StandardError, [
               'Place your session cookie into cookie.txt',
               'See cookie.txt.sample'
           ].unlines
         end
+  end
+
+  def self.with_handle(handle)
+    contents = handle.read
+    raise StandardError, 'cookie.txt contains a badly formed cookie' unless contents =~ /^session=[a-f0-9]+$/
+    contents
   end
 end

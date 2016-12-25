@@ -7,6 +7,17 @@ describe AdventOfCode do
     expect { subject::cookie }.to raise_exception NameError
   end
 
+  it "shows error message when cookie.txt doesn't exist" do
+    expect { subject.class_exec { read_cookie('foobar.txt') } }.to raise_error StandardError
+  end
+
+  it '' do
+    open('cookie.txt', 'r') do |handle|
+      allow(handle).to receive(:read).and_return('bad cookie')
+      expect { subject.with_handle(handle) }.to raise_error StandardError
+    end
+  end
+
   context '404 Exceptions for an invalid year/day' do
     def expect_input_factory(year:, day:)
       expect { subject.input year: year, day: day }.to raise_error OpenURI::HTTPError
