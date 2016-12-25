@@ -32,7 +32,7 @@ describe Year2016::Day1 do
     end
   end
 
-  context AdventOfCode::InputError do
+  context ParseError do
     it 'catches invalid inputs' do
       expect { 'X0, '.parse_path }.to raise_exception described_class
     end

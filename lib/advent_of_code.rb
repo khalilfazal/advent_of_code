@@ -2,6 +2,7 @@ require 'advent_of_code/version'
 require 'models/input'
 require 'monkey_patches/array'
 require 'open-uri'
+require 'racc/parser'
 
 ActiveRecord::Base.establish_connection(
     adapter: 'sqlite3',
@@ -9,9 +10,6 @@ ActiveRecord::Base.establish_connection(
 )
 
 module AdventOfCode
-  class InputError < StandardError
-  end
-
   module_function
 
   def input(year:, day:)

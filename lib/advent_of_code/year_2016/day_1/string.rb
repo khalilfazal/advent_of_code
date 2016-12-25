@@ -4,7 +4,7 @@ class String
       matches = block.match /(L|R)([0-9]+)/
 
       if matches.nil?
-        raise AdventOfCode::InputError, "Invalid input '#{block}'"
+        raise ParseError, "Invalid input '#{block}'"
       end
 
       dir, n = matches.captures
@@ -20,7 +20,7 @@ class String
       when 'R'
         :widdershins
       else
-        raise AdventOfCode::InputError, "Invalid input '#{self}'"
+        raise ParseError, "Invalid input '#{self}'"
     end
   end
 end
