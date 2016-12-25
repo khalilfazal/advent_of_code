@@ -5,8 +5,7 @@ require 'ruby-prof/task'
 require 'standalone_migrations'
 
 # spec
-rspec = RSpec::Core::RakeTask.new
-rspec.pattern = '**/{spec_*,*_spec,support/*}.rb'
+RSpec::Core::RakeTask.new.pattern = '**/{spec_*,*_spec,support/*}.rb'
 
 # profile
 RubyProf::ProfileTask.new do |t|

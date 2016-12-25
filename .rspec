@@ -1,5 +1,5 @@
---drb
 --format Fuubar
 --color
 -r require_all
 -I app
+--pattern '**/{spec_*,*_spec,support/*}.rb'
