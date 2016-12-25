@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20161220152145) do
+  # noinspection RailsParamDefResolve
   create_table 'inputs', force: :cascade do |t|
     t.integer 'year', null: false
     t.integer 'day', null: false
