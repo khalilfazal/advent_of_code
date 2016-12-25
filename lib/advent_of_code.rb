@@ -4,10 +4,8 @@ require 'monkey_patches/array'
 require 'open-uri'
 require 'racc/parser'
 
-ActiveRecord::Base.establish_connection(
-    adapter: 'sqlite3',
-    database: 'db/dev.sqlite3'
-)
+config = YAML.load_file('db/config.yml')
+ActiveRecord::Base.establish_connection(config[ENV['RAILS_ENV'] || 'development'])
 
 module AdventOfCode
   def self.input(year:, day:)
