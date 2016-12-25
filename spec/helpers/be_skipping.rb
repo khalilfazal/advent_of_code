@@ -1,4 +1,4 @@
-RSpec::Matchers.define :be_skipping_with do |expected: nil|
+RSpec::Matchers.define :be_skipping_with do |expected = nil|
   def supports_block_expectations?
     true
   end
