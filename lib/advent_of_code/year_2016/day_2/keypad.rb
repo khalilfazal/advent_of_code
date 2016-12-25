@@ -17,13 +17,13 @@ class Keypad
   end
 
   def initialize(layout:)
-    @grid  = layout
+    @layout  = layout
     @sides = Math.sqrt(layout.length).floor
     @pos   = layout.index('5') + 1
   end
 
   def pos
-    @grid[@pos - 1]
+    @layout[@pos - 1]
   end
 
   def move(dir)
