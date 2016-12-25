@@ -1,4 +1,4 @@
-require 'monkey_patches/fixnum'
+require 'monkey_patches/integer'
 
 class Point
   private_class_method :new

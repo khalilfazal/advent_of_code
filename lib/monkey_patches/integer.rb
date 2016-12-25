@@ -1,4 +1,4 @@
-class Fixnum
+class Integer
   def to_nat
     twice = 2 * self
 

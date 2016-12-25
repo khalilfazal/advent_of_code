@@ -19,6 +19,7 @@ group :development do
   gem 'simplecov', '~> 0.12'
 
   # standalone_migrations (5.0.0) depends on rake (~> 10.0)
+  #gem 'rake', '~> 12.0'
   gem 'rake', '~> 10.0'
   gem 'standalone_migrations', '~> 5.0'
 end
