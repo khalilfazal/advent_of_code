@@ -43,7 +43,7 @@ module AdventOfCode
             contents
           end
         rescue SystemCallError
-          raise StandardError.new [
+          raise StandardError, [
               'Place your session cookie into cookie.txt',
               'See cookie.txt.sample'
           ].unlines

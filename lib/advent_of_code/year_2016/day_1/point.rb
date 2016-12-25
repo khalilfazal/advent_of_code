@@ -30,7 +30,7 @@ class Point
       when Compass::WEST
         @x -= 1
       else
-        raise Compass::InvalidDirection.new "Invalid direction '#{dir}'"
+        raise Compass::InvalidDirection, "Invalid direction '#{dir}'"
     end
 
     copy = dup
