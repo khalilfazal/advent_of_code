@@ -1,5 +1,5 @@
 class String
-  def parse_path
+  def parse_commands
     split(/, /).map do |block|
       matches = block.match /(L|R)([0-9]+)/
 
@@ -9,16 +9,16 @@ class String
 
       dir, n = matches.captures
 
-      [dir.parse_dir, n.to_i]
-    end
+      [dir.parse_dir] + ([:straight] * n.to_i)
+    end.inject :+
   end
 
   def parse_dir
     case self
       when 'L'
-        :clockwise
-      when 'R'
         :widdershins
+      when 'R'
+        :clockwise
       else
         raise ParseError, "Invalid input '#{self}'"
     end

@@ -9,15 +9,41 @@ class Traveller
     end
 
     def twice_visited_points_distance(input)
-      travel_unparsed input, end_point: false
+      travel_unparsed input, to_end: false
     end
 
     private
 
-    def travel_unparsed(input, end_point: true)
-      point = new.travel input.parse_path
-      point.twice_visited! unless end_point
-      point.taxicab_metric
+    def travel_unparsed(input, to_end: true)
+      commands = input.parse_commands
+      traveller = new
+
+      if to_end
+        commands.each do |command|
+          traveller.move command
+        end
+      else
+        visited = Set[traveller.pos]
+
+        commands.detect do |command|
+          traveller.move command
+
+          if command === :straight
+            pos = traveller.pos
+
+            if visited.include? pos
+              true
+            else
+              visited << pos
+              false
+            end
+          else
+            false
+          end
+        end
+      end
+
+      traveller.distance
     end
   end
 
@@ -26,15 +52,19 @@ class Traveller
     @pos = Point.origin
   end
 
-  def travel(path)
-    path.each do |dir, n|
-      @dir = @dir.send dir
-
-      n.times do
-        @pos.move @dir
-      end
+  def move(command)
+    if command === :straight
+      @pos.move @dir
+    else
+      @dir = @dir.send command
     end
+  end
 
-    @pos
+  def pos
+    @pos.dup
+  end
+
+  def distance
+    @pos.taxicab_metric
   end
 end

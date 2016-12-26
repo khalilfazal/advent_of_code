@@ -6,14 +6,18 @@ class Compass
 
   private_class_method :new
 
-  def neighbours=(neighbours)
-    @clockwise, @widdershins = neighbours
+  def initialize(name)
+    @name = name
   end
 
-  NORTH = new
-  EAST = new
-  SOUTH = new
-  WEST = new
+  def neighbours=(neighbours)
+    @widdershins, @clockwise = neighbours
+  end
+
+  NORTH = new 'N'
+  EAST = new 'E'
+  SOUTH = new 'S'
+  WEST = new 'W'
 
   NORTH.neighbours = WEST, EAST
   EAST.neighbours = NORTH, SOUTH
@@ -24,13 +28,17 @@ class Compass
 
   def cycle
     output = [self]
-    current = @widdershins
+    current = @clockwise
 
     until current === self do
       output << current
-      current = current.widdershins
+      current = current.clockwise
     end
 
     output
+  end
+
+  def to_s
+    @name
   end
 end

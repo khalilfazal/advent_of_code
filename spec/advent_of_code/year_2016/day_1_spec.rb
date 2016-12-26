@@ -4,8 +4,8 @@ describe Year2016::Day1 do
   let (:input) { @input ||= described_class::input }
 
   context Compass::NORTH do
-    it "'s @clockwise neighbour is Compass::WEST" do
-      expect(subject.clockwise).to equal Compass::WEST
+    it "'s @clockwise neighbour is Compass::EAST" do
+      expect(subject.clockwise).to equal Compass::EAST
     end
 
     it "'s #neighbours= is private" do
@@ -24,7 +24,8 @@ describe Year2016::Day1 do
 
   context Point do
     it "'s origin is (0, 0)" do
-      expect(described_class.origin.dims).to be === [0, 0]
+      # noinspection RubyResolve
+      expect(described_class.origin.to_s).to be_identical_to_string '[0, 0]'
     end
 
     it 'catches invalid dirs' do
@@ -34,7 +35,7 @@ describe Year2016::Day1 do
 
   context ParseError do
     it 'catches invalid inputs' do
-      expect { 'X0, '.parse_path }.to raise_exception described_class
+      expect { 'X0, '.parse_commands }.to raise_exception described_class
     end
 
     it 'catches invalid directions' do

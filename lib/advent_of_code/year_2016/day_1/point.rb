@@ -11,8 +11,6 @@ class Point
 
   def initialize(*dims)
     @x, @y = dims
-    @first_dup = nil
-    @visited = Set.new [dup]
   end
 
   def dims
@@ -32,24 +30,15 @@ class Point
       else
         raise Compass::InvalidDirection, "Invalid direction '#{dir}'"
     end
-
-    copy = dup
-
-    if @visited.include?(copy) && @first_dup.nil?
-      @first_dup = copy
-    else
-      @visited << copy
-    end
-  end
-
-  def twice_visited!
-    @x, @y = @first_dup.dims
-    self
   end
 
   # https://en.wikipedia.org/wiki/Taxicab_geometry#Formal_definition
   def taxicab_metric
     dims.sum(&:abs)
+  end
+
+  def to_s
+    dims.to_s
   end
 
   private
