@@ -6,6 +6,6 @@ class UpdateInputs < ActiveRecord::Migration[5.0]
       t.change :input, :text, default: ''
     end
 
-    add_index :inputs, [:year, :day], unique: true
+    add_index :inputs, %i(year day), unique: true
   end
 end
