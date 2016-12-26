@@ -1,7 +1,11 @@
+require 'forwardable'
 require 'monkey_patches/array'
 
 class Traveller
+  extend Forwardable
+
   private_class_method :new
+  def_delegator :pos, :taxicab_metric, :distance
 
   class << self
     def endpoints_distance(input)
@@ -30,19 +34,12 @@ class Traveller
 
           if command === :straight
             pos = traveller.pos
-
-            if visited.include? pos
-              true
-            else
-              visited << pos
-              false
-            end
-          else
-            false
+            visited.include?(pos) || !(visited << pos)
           end
         end
       end
 
+      # noinspection RubyResolve
       traveller.distance
     end
   end
@@ -62,9 +59,5 @@ class Traveller
 
   def pos
     @pos.dup
-  end
-
-  def distance
-    @pos.taxicab_metric
   end
 end

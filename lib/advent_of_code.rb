@@ -31,9 +31,7 @@ module AdventOfCode
   def self.read_cookie(file = 'cookie.txt')
     @cookie ||=
         begin
-          open(file, 'r') do |handle|
-            with_handle handle
-          end
+          open(file, 'r') { |handle| with_handle handle }
         rescue SystemCallError
           raise StandardError, [
               'Place your session cookie into cookie.txt',
