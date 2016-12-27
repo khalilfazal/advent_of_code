@@ -11,6 +11,7 @@ config = YAML.load_file('db/config.yml')
 ActiveRecord::Base.establish_connection(config[ENV['RAILS_ENV'] || 'development'])
 
 module AdventOfCode
+  private
 
   # @param year Integer
   # @param day Integer
@@ -33,8 +34,6 @@ module AdventOfCode
       row.input
     end
   end
-
-  private
 
   # @param file String
   #
@@ -70,7 +69,7 @@ module AdventOfCode
       #
       # @return String
       define_singleton_method :input do |day:|
-        parent.input year: 2016, day: day
+        parent.input year: year, day: day
       end
 
       define_singleton_method :make_day do |day|
