@@ -1,8 +1,9 @@
 require 'advent_of_code/version'
 require 'models/input'
 require 'monkey_patches/array'
-require 'monkey_patches/object'
 require 'monkey_patches/comparable'
+require 'monkey_patches/object'
+require 'monkey_patches/time'
 require 'open-uri'
 require 'racc/parser'
 
@@ -82,14 +83,10 @@ module AdventOfCode
         end
       end
 
-      time = Time::now
-
       # noinspection RubyResolve
-      (1 .. (time.month < 12 ? 25 : time.day.clamp(1, 25))).map { |day| make_day day }
+      Time::now.advent_days.map { |day| make_day day }
     end
   end
 
-  time = Time::now
-
-  (2015 .. time.year - (time.month < 12 ? 1 : 0)).map { |year| make_year year }
+  Time::now.advent_years.map { |year| make_year year }
 end
