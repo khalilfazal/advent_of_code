@@ -1,15 +1,13 @@
 class String
   def parse_commands
     split(/, /).map do |block|
-      matches = block.match /(L|R)([0-9]+)/
+      matches = block.match /(?<dir>L|R)(?<n>[0-9]+)/
 
       if matches.nil?
         raise ParseError, "Invalid input '#{block}'"
       end
 
-      dir, n = matches.captures
-
-      [dir.parse_dir] + ([:straight] * n.to_i)
+      [matches['dir'].parse_dir] + ([:straight] * matches['n'].to_i)
     end.inject :+
   end
 
