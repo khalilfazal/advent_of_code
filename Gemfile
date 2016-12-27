@@ -12,7 +12,7 @@ group :test do
   gem 'rspec', '~> 3.5'
 end
 
-# gems needed for profiling and coverage
+# gems needed for inspections, profiling and coverage
 group :development do
   gem 'rspec-prof', '~> 0.0.7'
   gem 'ruby-prof', '~> 0.16.2'
