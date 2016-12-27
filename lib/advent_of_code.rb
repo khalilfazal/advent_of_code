@@ -1,6 +1,8 @@
 require 'advent_of_code/version'
 require 'models/input'
 require 'monkey_patches/array'
+require 'monkey_patches/object'
+require 'monkey_patches/comparable'
 require 'open-uri'
 require 'racc/parser'
 
@@ -8,6 +10,7 @@ config = YAML.load_file('db/config.yml')
 ActiveRecord::Base.establish_connection(config[ENV['RAILS_ENV'] || 'development'])
 
 module AdventOfCode
+
   # @param year Integer
   # @param day Integer
   #
@@ -55,4 +58,38 @@ module AdventOfCode
     raise StandardError, 'cookie.txt contains a badly formed cookie' unless contents =~ /^session=[a-f0-9]+$/
     contents
   end
+
+  # @param year Integer
+  #
+  # @return Module
+  def self.make_year(year)
+    define_module "Year#{year}" do
+
+      # @param day Integer
+      #
+      # @return String
+      define_singleton_method :input do |day:|
+        parent.input year: 2016, day: day
+      end
+
+      define_singleton_method :make_day do |day|
+        define_module "Day#{day}" do
+
+          # @return String
+          define_singleton_method :input do
+            parent.input day: day
+          end
+        end
+      end
+
+      time = Time::now
+
+      # noinspection RubyResolve
+      (1 .. (time.month < 12 ? 25 : time.day.clamp(1, 25))).map { |day| make_day day }
+    end
+  end
+
+  time = Time::now
+
+  (2015 .. time.year - (time.month < 12 ? 1 : 0)).map { |year| make_year year }
 end
