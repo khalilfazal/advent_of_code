@@ -5,6 +5,9 @@ module Year2016
 
   module_function
 
+  # @param day Integer
+  #
+  # @return String
   def input(day:)
     AdventOfCode.input year: 2016, day: day
   end

@@ -29,7 +29,7 @@ describe Year2016::Day1 do
     end
 
     it 'catches invalid dirs' do
-      expect { described_class.origin.move '' }.to raise_exception Compass::InvalidDirection
+      expect { described_class.origin.move '' }.to raise_exception ParseError
     end
   end
 

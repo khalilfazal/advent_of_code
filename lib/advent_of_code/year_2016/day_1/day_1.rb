@@ -6,6 +6,7 @@ module Year2016
 
     module_function
 
+    # @return String
     def input
       Year2016.input day: 1
     end

@@ -1,4 +1,5 @@
 class String
+  # @return [Symbol]
   def parse_commands
     split(/, /).map do |block|
       matches = block.match /(?<dir>L|R)(?<n>[0-9]+)/
@@ -11,6 +12,7 @@ class String
     end.inject :+
   end
 
+  # @return Symbol|ParseError
   def parse_dir
     case self
       when 'L'

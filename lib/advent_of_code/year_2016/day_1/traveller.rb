@@ -8,16 +8,26 @@ class Traveller
   def_delegator :pos, :taxicab_metric, :distance
 
   class << self
+    # @param input String
+    #
+    # @return Integer
     def endpoints_distance(input)
       travel_unparsed input
     end
 
+    # @param input String
+    #
+    # @return Integer
     def twice_visited_points_distance(input)
       travel_unparsed input, to_end: false
     end
 
     private
 
+    # @param input String
+    # @param to_end TrueClass
+    #
+    # @return Integer
     def travel_unparsed(input, to_end: true)
       commands = input.parse_commands
       traveller = new
@@ -49,6 +59,9 @@ class Traveller
     @pos = Point.origin
   end
 
+  # @param command Symbol
+  #
+  # @return Integer|Compass|ParseError
   def move(command)
     if command === :straight
       @pos.move @dir
@@ -57,6 +70,7 @@ class Traveller
     end
   end
 
+  # @return Point
   def pos
     @pos.dup
   end
