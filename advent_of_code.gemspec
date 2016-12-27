@@ -3,8 +3,6 @@ lib = File.expand_path '../lib', __FILE__
 $LOAD_PATH.unshift lib unless $LOAD_PATH.include? lib
 require 'advent_of_code/version'
 
-# TODO: annotate all modules, classes, and methods with parameter and return types
-
 Gem::Specification.new do |spec|
   spec.name = 'advent_of_code'
   spec.version = AdventOfCode::VERSION
