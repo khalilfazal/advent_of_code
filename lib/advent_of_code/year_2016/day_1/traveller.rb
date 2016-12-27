@@ -1,4 +1,5 @@
 require 'forwardable'
+require 'helpers/boolean'
 require 'monkey_patches/array'
 
 class Traveller
@@ -25,7 +26,7 @@ class Traveller
     private
 
     # @param input String
-    # @param to_end TrueClass
+    # @param to_end Boolean
     #
     # @return Integer
     def travel_unparsed(input, to_end: true)

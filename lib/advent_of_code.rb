@@ -11,13 +11,13 @@ config = YAML.load_file('db/config.yml')
 ActiveRecord::Base.establish_connection(config[ENV['RAILS_ENV'] || 'development'])
 
 module AdventOfCode
-  private
+  module_function
 
   # @param year Integer
   # @param day Integer
   #
   # @return String
-  def self.input(year:, day:)
+  def input(year:, day:)
     # The first year of Advent of Code was 2015.
     # When year is before 2015, the site will throw a 404 error.
     #
@@ -38,7 +38,7 @@ module AdventOfCode
   # @param file String
   #
   # @return String
-  def self.read_cookie(file = 'cookie.txt')
+  def read_cookie(file = 'cookie.txt')
     @cookie ||=
         begin
           open(file, 'r') { |handle| with_handle handle }
@@ -53,7 +53,7 @@ module AdventOfCode
   # @param handle File
   #
   # @return String
-  def self.with_handle(handle)
+  def with_handle(handle)
     contents = handle.read
     raise StandardError, 'cookie.txt contains a badly formed cookie' unless contents =~ /^session=[a-f0-9]+$/
     contents
@@ -62,7 +62,7 @@ module AdventOfCode
   # @param year Integer
   #
   # @return Module
-  def self.make_year(year)
+  def make_year(year)
     define_module "Year#{year}" do
 
       # @param day Integer

@@ -1,4 +1,6 @@
 RSpec::Matchers.define :be_skipping_with do |expected = StandardError|
+
+  # @return TrueClass
   def supports_block_expectations?
     true
   end
@@ -18,6 +20,8 @@ RSpec::Matchers.define :be_skipping_with do |expected = StandardError|
 end
 
 RSpec::Matchers.define :be_skipping do
+
+  # @return TrueClass
   def supports_block_expectations?
     true
   end

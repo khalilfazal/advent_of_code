@@ -1,5 +1,4 @@
 class Object
-
   # @param name String
   #
   # @return Module

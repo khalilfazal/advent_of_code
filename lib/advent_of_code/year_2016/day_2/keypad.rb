@@ -5,6 +5,10 @@ class Keypad
   private_class_method :new
 
   class << self
+    # @param instructions String
+    # @param layout String
+    #
+    # @return String
     def bathroom_code(instructions, layout = imagined_layout)
       keypad = new layout: layout
 
@@ -19,21 +23,27 @@ class Keypad
 
     private
 
+    # @return String
     def imagined_layout
       1.upto(9).to_a.join
     end
   end
 
+  # @param layout String
   def initialize(layout:)
-    @layout  = layout
+    @layout = layout
     @sides = Math.sqrt(layout.length).floor
-    @pos   = layout.index('5') + 1
+    @pos = layout.index('5') + 1
   end
 
+  # @return String
   def pos
     @layout[@pos - 1]
   end
 
+  # @param dir String
+  #
+  # @return Integer
   def move(dir)
     old_pos = @pos
 
