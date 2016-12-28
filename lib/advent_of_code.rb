@@ -83,7 +83,7 @@ module AdventOfCode
       end
 
       # noinspection RubyResolve
-      Time::now.advent_days.map { |day| make_day day }
+      Time::now.advent_days(year).map { |day| make_day day }
     end
   end
 

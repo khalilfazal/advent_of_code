@@ -3,12 +3,21 @@ require 'monkey_patches/time'
 
 # noinspection RailsParamDefResolve
 class Input < ActiveRecord::Base
-  validates :year, numericality: {only_integer: true}
-  year_range = Time::now.advent_years
-  validates :year, inclusion: {in: year_range, message: "The year must be between 2015 and #{year_range.last}"}
+  validates_numericality_of :year, only_integer: true, strict: true, message: 'Years can only be integers'
+  validates_numericality_of :day, only_integer: true, strict: true, message: 'Days can only be integers'
+  validates_uniqueness_of :day, scope: :year, strict: true, message: 'Each day happens only once per year'
 
-  validates :day, numericality: {only_integer: true}
-  validates :day, inclusion: {in: 1 .. 25, message: 'The day must be between 1 and 25'}
+  validate :date
 
-  validates_uniqueness_of :year, scope: :day
+  def date
+    now = Time::now
+
+    unless now.valid_year?(year: year)
+      errors.add(:year, :invalid_year, strict: true, message: 'There are no Advent of Code problems for %{year}')
+    end
+
+    unless now.valid_day?(year: year, day: day)
+      errors.add(:day, :invalid_day, strict: true, message: "#{year}-12-#{day} hasn't occured yet")
+    end
+  end
 end
