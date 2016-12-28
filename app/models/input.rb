@@ -17,5 +17,5 @@ class Input < ActiveRecord::Base
     validates_inclusion_of :day, in: now.advent_days(year: year), strict: true, message: "#{year}-12-#{day} hasn't occured yet"
   end
 
-  validates_uniqueness_of :day, scope: :year, strict: true, message: 'Each day happens only once per year'
+  validates_uniqueness_of :day, scope: :year, strict: true, message: '%{year}-12-%{day} is already in the input table'
 end
