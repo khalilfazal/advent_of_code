@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+# TODO: Move to 2.4
+# Blocking: RubyMines doesn't work with 2.4 yet
+# Remove monkey_patches/comparable.rb after moving to 2.4
+ruby '2.3.3'
+
 # gems needed for running all files in lib
 group :runtime do
   gem 'activerecord', '~> 5.0', '>= 5.0.1'
