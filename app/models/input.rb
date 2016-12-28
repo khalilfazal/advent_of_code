@@ -8,9 +8,9 @@ class Input < ActiveRecord::Base
     validates_numericality_of attr, only_integer: true, strict: true, message: 'can only be integral'
   end
 
-  validate :date
+  validate :advent_day
 
-  def date
+  def advent_day
     now = Time::now
 
     validates_inclusion_of :year, in: now.advent_years, strict: true, message: 'There are no Advent of Code problems for %{year}'
