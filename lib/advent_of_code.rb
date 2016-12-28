@@ -7,8 +7,7 @@ require 'monkey_patches/time'
 require 'open-uri'
 require 'racc/parser'
 
-config = YAML.load_file('db/config.yml')
-ActiveRecord::Base.establish_connection(config[ENV['RAILS_ENV'] || 'development'])
+load_db(environment: ENV['RAILS_ENV'] || 'development')
 
 module AdventOfCode
   module_function
@@ -22,7 +21,8 @@ module AdventOfCode
     # When year is before 2015, the site will throw a 404 error.
     #
     # Therefore preemptively throw a mock 404 error without using resources.
-    raise OpenURI::HTTPError.new '404 Not Found', nil unless year.between?(2015, Time::now.year) && day.between?(1, 25)
+    now = Time::now
+    raise OpenURI::HTTPError.new '404 Not Found', nil unless now.valid_advent_year?(year: year) && now.valid_advent_day?(year: year, day: day)
 
     row = Input.find_by year: year, day: day
 
@@ -83,7 +83,7 @@ module AdventOfCode
       end
 
       # noinspection RubyResolve
-      Time::now.advent_days(year).map { |day| make_day day }
+      Time::now.advent_days(year: year).map { |day| make_day day }
     end
   end
 
