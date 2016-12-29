@@ -41,7 +41,7 @@ module AdventOfCode
   def read_cookie(file = 'cookie.txt')
     @cookie ||=
         begin
-          open(file, 'r') { |handle| with_handle handle }
+          open(file, 'r', &method(:with_handle))
         rescue SystemCallError
           raise StandardError, [
               'Place your session cookie into cookie.txt',
@@ -83,9 +83,9 @@ module AdventOfCode
       end
 
       # noinspection RubyResolve
-      Time::now.advent_days(year: year).map { |day| make_day day }
+      Time::now.advent_days(year: year).map &method(:make_day)
     end
   end
 
-  Time::now.advent_years.map { |year| make_year year }
+  Time::now.advent_years.map &method(:make_year)
 end

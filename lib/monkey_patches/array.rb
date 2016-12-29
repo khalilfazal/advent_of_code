@@ -1,6 +1,11 @@
 class Array
   alias_method :old_join, :join
 
+  # @param
+  def delete_elem(elem)
+    reject(&elem.method(:===))
+  end
+
   # @param separator String
   #
   # @return String
