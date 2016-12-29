@@ -20,7 +20,7 @@ class Array
     mode_generic :max
   end
 
-  def rare
+  def rarest
     mode_generic :min
   end
 

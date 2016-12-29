@@ -9,7 +9,7 @@ class Noise
     end
 
     def unscramble2(input)
-      unscramble_generic input, :rare
+      unscramble_generic input, :rarest
     end
 
     private
