@@ -4,6 +4,9 @@ class MD5Hasher
   private_class_method :new
 
   class << self
+    # @param id String
+    #
+    # @return String
     def crack(id)
       hasher = new(id)
 
@@ -12,6 +15,9 @@ class MD5Hasher
       end.join
     end
 
+    # @param id String
+    #
+    # @return String
     def crack2(id)
       password = Array.new 8, nil
       hasher = new(id)
@@ -30,11 +36,13 @@ class MD5Hasher
     end
   end
 
+  # @param id String
   def initialize(id)
     @id = id
     @i = 0
   end
 
+  # @return String
   def next_interesting
     begin
       hash = Digest::MD5.hexdigest("#{@id}#{@i += 1}")

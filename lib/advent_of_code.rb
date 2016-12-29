@@ -7,7 +7,7 @@ require 'monkey_patches/time'
 require 'open-uri'
 require 'racc/parser'
 
-load_db(environment: ENV['RAILS_ENV'] || 'development')
+load_db(environment: ENV['RAILS_ENV'])
 
 module AdventOfCode
   module_function
