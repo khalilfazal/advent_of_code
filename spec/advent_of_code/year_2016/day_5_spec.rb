@@ -13,22 +13,22 @@ describe Day5 do
   context 'examples and stars' do
     subject { MD5Hasher }
 
-    xit 'example 1' do
+    it 'example 1' do
       # noinspection RubyResolve
       expect(subject.crack example).to be_identical_to_string '18f47a30'
     end
 
-    xit 'test 1' do
+    it 'test 1' do
       # noinspection RubyResolve
       expect(subject.crack input).to be_identical_to_string '1a3099aa'
     end
 
-    xit 'example 2' do
+    it 'example 2' do
       # noinspection RubyResolve
       expect(subject.crack2 example).to be_identical_to_string '05ace8e3'
     end
 
-    xit 'test 2' do
+    it 'test 2' do
       # noinspection RubyResolve
       expect(subject.crack2 input).to be_identical_to_string '694190cd'
     end

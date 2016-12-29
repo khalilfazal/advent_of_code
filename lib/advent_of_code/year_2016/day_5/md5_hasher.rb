@@ -1,5 +1,7 @@
 require 'digest/md5'
 
+include Digest
+
 class MD5Hasher
   private_class_method :new
 
@@ -27,7 +29,7 @@ class MD5Hasher
         pos = hash[5]
         pos_i = pos.to_i
 
-        if ('0' .. '7').include?(pos) && password[pos_i].nil?
+        if password[pos_i].nil? && ('0' .. '7').include?(pos)
           password[pos.to_i] = hash[6]
         end
       end
@@ -40,12 +42,14 @@ class MD5Hasher
   def initialize(id)
     @id = id
     @i = 0
+    @hasher = MD5.method :hexdigest
+
   end
 
   # @return String
   def next_interesting
     begin
-      hash = Digest::MD5.hexdigest("#{@id}#{@i += 1}")
+      hash = @hasher.call("#{@id}#{@i += 1}")
     end until /^0{5}/ =~ hash
 
     hash
