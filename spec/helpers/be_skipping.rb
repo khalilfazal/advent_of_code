@@ -4,8 +4,7 @@ RSpec::Matchers.define :be_skipping_with do |expected = StandardError|
     true
   end
 
-  match do
-    actual = self.actual
+  match do |actual|
     exception = nil
 
     RSpec.describe do
@@ -14,12 +13,11 @@ RSpec::Matchers.define :be_skipping_with do |expected = StandardError|
 
     RSpec.world.example_groups.pop
 
-    exception.is_a? expected
+    expect(exception).to be_a(expected)
   end
 end
 
 RSpec::Matchers.define :be_skipping do
-
   # @return TrueClass
   def supports_block_expectations?
     true
