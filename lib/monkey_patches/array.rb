@@ -9,7 +9,7 @@ class Array
   #
   # @return [Element]
   def delete_elem(elem)
-    reject(&elem.method(:===))
+    reject &elem.method(:===)
   end
 
   # @return [Element]
@@ -22,7 +22,9 @@ class Array
     !empty?
   end
 
-  # @param separator String
+  # A work around for https://bugs.ruby-lang.org/issues/8289
+  #
+  # @param separator Element
   #
   # @return String
   def join(separator = $,)
