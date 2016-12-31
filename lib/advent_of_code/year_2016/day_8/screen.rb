@@ -1,3 +1,5 @@
+require 'monkey_patches/array'
+
 class Screen
   def initialize(width, height)
     @screen = Array.new height do
