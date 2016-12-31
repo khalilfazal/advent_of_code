@@ -3,11 +3,7 @@ class Integer
   def to_nat
     twice = 2 * self
 
-    if self >= 0
-      twice
-    else
-      twice.negate.pred
-    end
+    (self >= 0) ? twice : twice.negate.pred
   end
 
   # @return Integer

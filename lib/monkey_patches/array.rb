@@ -2,8 +2,8 @@ require 'helpers/boolean'
 require 'helpers/element'
 
 class Array
+  alias_method :old_flat_map, :flat_map
   alias_method :old_join, :join
-  alias_method :old_map, :map
 
   # @param elem Element
   #
@@ -35,12 +35,12 @@ class Array
   # @block
   #
   # @return [Element]
-  def map(n = 1, &block)
-    old_map do |elem|
+  def flat_map(n = 1, &block)
+    old_flat_map do |elem|
       if n === 1
         block.call elem
       else
-        elem.map n - 1, &block
+        elem.flat_map n - 1, &block
       end
     end
   end

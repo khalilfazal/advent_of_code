@@ -9,7 +9,7 @@ class Array
       sequence.linksOf(3).find_all do |a, b, c|
         a === c && !(a === b)
       end
-    end.map(2, &:join).flatten
+    end.flat_map(2, &:join)
   end
 end
 

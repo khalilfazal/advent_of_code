@@ -7,7 +7,7 @@ class Room
   attr_reader :id
   attr_reader :checksum
 
-  NAME_ID_REGEX =/([-a-z]+)-([0-9]+)/
+  NAME_ID_REGEX =/([-a-z]+)-(\d+)/
 
   class << self
     def sum_of_real_sector_ids(inputs)
