@@ -1,5 +1,5 @@
 require 'advent_of_code'
-require_all 'lib/advent_of_code/year_2016/day_2/*'
+require_all 'lib/advent_of_code/year_2016/day_02/*'
 
 # noinspection RubyResolve
 include AdventOfCode::Year2016

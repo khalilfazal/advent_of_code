@@ -1,6 +1,6 @@
 require 'advent_of_code'
 require 'helpers/match_string'
-require_all 'lib/advent_of_code/year_2016/day_5/*'
+require_all 'lib/advent_of_code/year_2016/day_05/*'
 
 # noinspection RubyResolve
 include AdventOfCode::Year2016
