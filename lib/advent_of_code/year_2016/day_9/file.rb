@@ -6,6 +6,34 @@ module Day9
 
     def_delegator :@decompressed, :length, :length
 
+    class << self
+      def decompressed_length(contents)
+        total_length = 0
+        min_length = contents.length
+        weights = [1] * min_length
+
+        i = 0
+        while i < min_length do
+          if contents[i] === '('
+            length, times = contents.slice(i .. -1).match(/\((\d+)x(\d+)\)/).captures
+            marker_end = i + 3 + length.length + times.length
+            times = times.to_i
+
+            (marker_end .. marker_end + length.to_i - 1).each do |j|
+              weights[j] *= times
+            end
+
+            i = marker_end
+          else
+            total_length += weights[i]
+            i += 1
+          end
+        end
+
+        total_length
+      end
+    end
+
     def initialize(contents)
       @contents = contents
     end
@@ -29,20 +57,6 @@ module Day9
       end
 
       @decompressed
-    end
-
-    def reset
-      @contents, @decompressed = @decompressed, @contents
-      self
-    end
-
-    def decompressAll
-      begin
-        contents = @contents
-        decompress
-        decompressed = @decompressed
-        reset
-      end until contents === decompressed
     end
   end
 end
