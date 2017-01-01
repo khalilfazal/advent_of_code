@@ -2,17 +2,6 @@ require 'helpers/boolean'
 require 'helpers/element'
 require 'monkey_patches/array'
 
-class Array
-  # @return [Element]
-  def abas
-    map do |sequence|
-      sequence.linksOf(3).find_all do |a, b, c|
-        a === c && !(a === b)
-      end
-    end.flat_map(2, &:join)
-  end
-end
-
 class String
   # @return Boolean
   def tls?

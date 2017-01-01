@@ -10,10 +10,16 @@ class Room
   NAME_ID_REGEX =/([-a-z]+)-(\d+)/
 
   class << self
+    # @param inputs [String]
+    #
+    # @return Integer
     def sum_of_real_sector_ids(inputs)
-      make_inputs(inputs).select(&:real?).map(&:id).sum
+      make_inputs(inputs).find_all(&:real?).map(&:id).sum
     end
 
+    # @param params [String|Integer]
+    #
+    # @return String
     def decrypt(*params)
       if params.length === 1
         encrypted, id = params[0].match(NAME_ID_REGEX).captures
@@ -26,6 +32,10 @@ class Room
       encrypted.tr abc.join + '-', abc.rotate(id % 26).join + ' '
     end
 
+    # @param inputs [String]
+    # @param name String
+    #
+    # @return Integer
     def find_sector_id_of(inputs, name)
       make_inputs(inputs).find do |room|
         room.decrypt === name
@@ -34,6 +44,9 @@ class Room
 
     private
 
+    # @param inputs [String]
+    #
+    # @return [Room]
     def make_inputs(inputs)
       inputs.map(&method(:new))
     end
@@ -59,6 +72,7 @@ class Room
     @checksum === calc_checksum
   end
 
+  # @return String
   def decrypt
     self.class.decrypt(@encrypted_name, @id)
   end

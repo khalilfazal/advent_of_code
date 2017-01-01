@@ -7,6 +7,9 @@ module Day9
     def_delegator :@decompressed, :length, :length
 
     class << self
+      # @param contents String
+      #
+      # @return Integer
       def decompressed_length(contents)
         total_length = 0
         min_length = contents.length
@@ -34,10 +37,12 @@ module Day9
       end
     end
 
+    # @param contents String
     def initialize(contents)
       @contents = contents
     end
 
+    # @return String
     def decompress
       @decompressed = ''
 
