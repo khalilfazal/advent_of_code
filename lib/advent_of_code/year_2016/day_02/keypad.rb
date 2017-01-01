@@ -57,7 +57,7 @@ class Keypad
       when 'L'
         @pos -= 1 if (@pos - 1) % @sides != 0
       else
-        raise ParseError, "Invalid input '#{dir}'"
+        raise ParseError, "Invalid input: #{dir}"
     end
 
     @pos = old_pos if pos === ' '

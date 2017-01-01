@@ -5,7 +5,7 @@ class String
       matches = block.match /(?<dir>L|R)(?<n>[0-9]+)/
 
       if matches.nil?
-        raise ParseError, "Invalid input '#{block}'"
+        raise ParseError, "Invalid input: #{block}"
       end
 
       [matches['dir'].parse_dir] + ([:straight] * matches['n'].to_i)
@@ -20,7 +20,7 @@ class String
       when 'R'
         :clockwise
       else
-        raise ParseError, "Invalid input '#{self}'"
+        raise ParseError, "Invalid input: #{self}"
     end
   end
 end

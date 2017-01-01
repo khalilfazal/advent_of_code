@@ -34,7 +34,7 @@ class Point
       when Compass::WEST
         @x -= 1
       else
-        raise ParseError, "Invalid direction '#{dir}'"
+        raise ParseError, "Invalid direction: #{dir}"
     end
   end
 
