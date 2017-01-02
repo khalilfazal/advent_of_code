@@ -7,7 +7,7 @@ install: bundle install
 script:
   - rake db:create
   - rake db:migrate
-  - echo -n session=53616c7465645f5f3bf1c8a8e27fac4aaaf4c430e4586eecd119b3e7218d1a0763c964b8a8d4d8b34b27bafce0770f54 | tee cookie.txt
+  - echo -n session=53616c7465645f5f91b1fce08411bbf3980eacc75a2906f35f32730aecaef31b90cf981bdd6a00fdf848593dc2389525 | tee cookie.txt
   - rake spec
 
 addons:
