@@ -4,7 +4,7 @@ Solutions to [Advent of Code](http://advent_of_code.com/) puzzles.
 
 ## Usage
 
-Run the tests in `test/`
+Run using run configurations
 
 ## Development
 
