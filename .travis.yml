@@ -4,6 +4,7 @@ rvm: 2.4.0
 
 install: bundle install
 
+# need sudo to start postgresql daemon
 sudo: required
 
 services:
