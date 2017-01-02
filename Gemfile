@@ -37,5 +37,4 @@ group :test do
   gem 'debase', '~> 0.2.1'
 end
 
-# Specify your gem's dependencies in advent_of_code.gemspec
 gemspec
