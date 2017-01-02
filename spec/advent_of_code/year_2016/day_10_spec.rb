@@ -7,7 +7,15 @@ include AdventOfCode::Year2016
 # noinspection RubyResolve
 describe Day10 do
   before :all do
-    @world = World.run(described_class::input.lines)
+    @world = World.run described_class::input.lines
+  end
+
+  context World do
+    subject {World}
+
+    it 'catches invalid commands' do
+      expect {subject.run ['noop']}.to raise_error ParseError
+    end
   end
 
   context 'examples and stars' do
