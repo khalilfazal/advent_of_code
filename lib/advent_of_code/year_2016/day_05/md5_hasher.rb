@@ -2,7 +2,7 @@ require 'digest/md5'
 
 include Digest
 
-#
+# finds interesting md5 hashes
 class MD5Hasher
   private_class_method :new
 
