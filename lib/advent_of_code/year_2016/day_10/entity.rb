@@ -1,3 +1,4 @@
+# either a Bot or Output
 class Entity
   attr_reader :id
   attr_reader :microchips
@@ -18,8 +19,8 @@ class Entity
 
     if full?
       @microchips = {
-          low: @microchips.min,
-          high: @microchips.max
+        low: @microchips.min,
+        high: @microchips.max
       }
     end
 

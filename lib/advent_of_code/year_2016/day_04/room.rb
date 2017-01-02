@@ -3,6 +3,7 @@ require 'helpers/boolean'
 require 'monkey_patches/array'
 require 'monkey_patches/enumerable'
 
+# the room name is encrypted
 class Room
   attr_reader :id
   attr_reader :checksum

@@ -7,8 +7,8 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day5 do
-  let (:input) { @input ||= described_class::input.chomp }
-  let (:example) { 'abc' }
+  let(:input) { @input ||= described_class.input.chomp }
+  let(:example) { 'abc' }
 
   context 'examples and stars' do
     subject { MD5Hasher }

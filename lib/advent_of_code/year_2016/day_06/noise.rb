@@ -1,5 +1,6 @@
 require 'monkey_patches/array'
 
+# noises are decoded by finding the most common or least common character per column
 class Noise
   private_class_method :new
 
@@ -10,7 +11,7 @@ class Noise
     def unscramble(input)
       unscramble_generic input, :mode
     end
-    
+
     # @param input [String]
     #
     # @return String

@@ -1,3 +1,4 @@
+# add method to dynamically create a module
 class Object
   # @param name String
   #

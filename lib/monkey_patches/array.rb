@@ -1,9 +1,12 @@
+require 'English'
 require 'helpers/boolean'
 require 'helpers/element'
 
+# added methods to get the most and least common element in array (mode and rarest).
+# added methods to get elements with odd and even indices.
 class Array
-  alias_method :old_flat_map, :flat_map
-  alias_method :old_join, :join
+  alias old_flat_map flat_map
+  alias old_join join
 
   # @param elem Element
   #
@@ -27,7 +30,7 @@ class Array
   # @param separator Element
   #
   # @return String
-  def join(separator = $,)
+  def join(separator = $OFS)
     '' + old_join(separator)
   end
 
@@ -64,7 +67,7 @@ class Array
 
   # @return String
   def unlines
-    join $/
+    join $RS
   end
 
   private

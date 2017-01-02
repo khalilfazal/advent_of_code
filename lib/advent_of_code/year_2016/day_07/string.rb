@@ -2,7 +2,8 @@ require 'helpers/boolean'
 require 'helpers/element'
 require 'monkey_patches/array'
 
-class String
+# can check if an IPV7 string supports tls or ssl
+module IPV7
   # @return Boolean
   def tls?
     nets.even.any?(&:abba?) && nets.odd.none?(&:abba?)
@@ -15,7 +16,7 @@ class String
 
   # @return Boolean
   def abba?
-    linksOf(4).any? do |a, b, c, d|
+    links_of(4).any? do |a, b, c, d|
       a === d && b === c && !(a === b)
     end
   end
@@ -23,7 +24,7 @@ class String
   # @param n Integer
   #
   # @return [[String]]
-  def linksOf(n)
+  def links_of(n)
     chars.each_cons n
   end
 
@@ -37,7 +38,12 @@ class String
 
   # @return String
   def opposite
-    a, b, _ = self.chars
+    a, b, = chars
     [b, a, b].join
   end
+end
+
+# prepend IP to String
+class String
+  prepend IPV7
 end

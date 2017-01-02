@@ -11,7 +11,7 @@ class Input < ActiveRecord::Base
   validate :advent_day
 
   def advent_day
-    now = Time::now
+    now = Time.now
 
     validates_inclusion_of :year, in: now.advent_years, strict: true, message: 'There are no Advent of Code problems for %{year}'
     validates_inclusion_of :day, in: now.advent_days(year: year), strict: true, message: "#{year}-12-#{day} hasn't occured yet"

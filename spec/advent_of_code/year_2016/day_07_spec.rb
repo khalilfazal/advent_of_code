@@ -6,21 +6,25 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day7 do
-  let (:input) { @input ||= described_class::input.lines }
+  let(:input) { @input ||= described_class.input.lines }
 
-  let(:tls_examples) { %w(
-    abba[mnop]qrst
-    abcd[bddb]xyyx
-    aaaa[qwer]tyui
-    ioxxoj[asdfgh]zxcvbn
-  ) }
+  let(:tls_examples) do
+    %w(
+      abba[mnop]qrst
+      abcd[bddb]xyyx
+      aaaa[qwer]tyui
+      ioxxoj[asdfgh]zxcvbn
+    )
+  end
 
-  let (:ssl_examples) { %w(
-    aba[bab]xyz
-    xyx[xyx]xyx
-    aaa[kek]eke
-    zazbz[bzb]cdb
-  ) }
+  let(:ssl_examples) do
+    %w(
+      aba[bab]xyz
+      xyx[xyx]xyx
+      aaa[kek]eke
+      zazbz[bzb]cdb
+    )
+  end
 
   context 'examples and stars' do
     RSpec::Matchers.define :support do |protocol|

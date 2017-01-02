@@ -11,7 +11,7 @@ group :runtime do
   gem 'sqlite3', '~> 1.3', '>= 1.3.12'
 
   # standalone_migrations (5.0.0) depends on rake (~> 10.0)
-  #gem 'rake', '~> 12.0'
+  # gem 'rake', '~> 12.0'
   gem 'rake', '~> 10.0'
   gem 'standalone_migrations', '~> 5.0'
 end
@@ -21,6 +21,7 @@ group :test do
   gem 'require_all', '~> 1.3', '>= 1.3.3'
   gem 'rspec', '~> 3.5'
   gem 'rspec-prof', '~> 0.0.7'
+  gem 'rubocop', '~> 0.46.0'
   gem 'ruby-prof', '~> 0.16.2'
   gem 'simplecov', '~> 0.12.0'
 end

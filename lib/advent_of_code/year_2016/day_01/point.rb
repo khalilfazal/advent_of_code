@@ -1,5 +1,6 @@
 require 'monkey_patches/integer'
 
+# a 2d point with taxicab metric
 class Point
   private_class_method :new
 
@@ -64,15 +65,15 @@ class Point
   #
   # @return Integer
   def hash
-    #dims.hash
-    π(*dims.map(&:to_nat))
+    # dims.hash
+    pi(*dims.map(&:to_nat))
   end
 
   # @param k1 Integer
   # @param k2 Integer
   #
   # @return Integer
-  def π(k1, k2)
+  def pi(k1, k2)
     (k1 + k2).triangle_num + k2
   end
 end

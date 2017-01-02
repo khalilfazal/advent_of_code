@@ -7,25 +7,27 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day6 do
-  let (:input) { @input ||= described_class::input.lines }
-  let (:example) { %w(
-    eedadn
-    drvtee
-    eandsr
-    raavrd
-    atevrs
-    tsrnev
-    sdttsa
-    rasrtv
-    nssdts
-    ntnada
-    svetve
-    tesnvt
-    vntsnd
-    vrdear
-    dvrsen
-    enarar
-  ) }
+  let(:input) { @input ||= described_class.input.lines }
+  let(:example) do
+    %w(
+      eedadn
+      drvtee
+      eandsr
+      raavrd
+      atevrs
+      tsrnev
+      sdttsa
+      rasrtv
+      nssdts
+      ntnada
+      svetve
+      tesnvt
+      vntsnd
+      vrdear
+      dvrsen
+      enarar
+    )
+  end
 
   context 'examples and stars' do
     subject { Noise }

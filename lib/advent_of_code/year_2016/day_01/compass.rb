@@ -1,3 +1,4 @@
+# a compass implemented with only 4 instancesL one per direction
 class Compass
   attr_reader :clockwise, :widdershins
 
@@ -31,7 +32,7 @@ class Compass
     output = [self]
     current = @clockwise
 
-    until current === self do
+    until current === self
       output << current
       current = current.clockwise
     end

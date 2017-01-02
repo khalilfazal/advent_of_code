@@ -2,6 +2,7 @@ require 'digest/md5'
 
 include Digest
 
+#
 class MD5Hasher
   private_class_method :new
 
@@ -24,7 +25,7 @@ class MD5Hasher
       password = Array.new 8, nil
       hasher = new(id)
 
-      while password.include? nil do
+      while password.include? nil
         hash = hasher.next_interesting
         pos = hash[5]
         pos_i = pos.to_i
@@ -43,7 +44,6 @@ class MD5Hasher
     @id = id
     @i = 0
     @hasher = MD5.method :hexdigest
-
   end
 
   # @return String

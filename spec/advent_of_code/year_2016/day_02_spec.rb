@@ -6,22 +6,26 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day2 do
-  let (:input) { @input ||= described_class::input }
+  let(:input) { @input ||= described_class.input }
 
-  let (:example_input) { %w(
+  let(:example_input) do
+    %w(
       ULL
       RRDDD
       LURDL
       UUUUD
-    ).unlines }
+    ).unlines
+  end
 
-  let (:actual_layout) { [
+  let(:actual_layout) do
+    [
       '  1  ',
       ' 234 ',
       '56789',
       ' ABC ',
       '  D  '
-  ].join }
+    ].join
+  end
 
   context 'examples and stars' do
     subject { Keypad }

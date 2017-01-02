@@ -1,5 +1,7 @@
+require 'English'
 require 'monkey_patches/hash'
 
+# contains bots and outputs
 class World
   attr_reader :entities
 
@@ -24,9 +26,9 @@ class World
   def run_command(command)
     case command
       when /value (?<microchip>\d+) goes to #{entity_regex :receiver}/
-        execute :receive, *$~.capture_entities(:receiver), $~[:microchip].to_i
+        execute :receive, *$LAST_MATCH_INFO.capture_entities(:receiver), $LAST_MATCH_INFO[:microchip].to_i
       when /#{entity_regex :giver} gives low to #{entity_regex :lower} and high to #{entity_regex :higher}/
-        execute :promise, *$~.capture_entities(:giver, :lower, :higher)
+        execute :promise, *$LAST_MATCH_INFO.capture_entities(:giver, :lower, :higher)
       else
         raise ParseError, "Invalid command: #{command}"
     end
@@ -60,9 +62,7 @@ class World
   end
 
   def give(giver, givee)
-    if giver.promised_to? givee
-      execute :receive, giver.giftee(givee), giver[givee]
-    end
+    execute :receive, giver.giftee(givee), giver[givee] if giver.promised_to? givee
   end
 
   def outputs(outputs)

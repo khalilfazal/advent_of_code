@@ -1,5 +1,6 @@
 require 'helpers/boolean'
 
+# represents triangles that can be validated with the triangle inequality
 class Triangle
   private_class_method :new
 

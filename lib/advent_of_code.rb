@@ -9,6 +9,9 @@ require 'racc/parser'
 
 load_db(environment: ENV['RAILS_ENV'])
 
+# retrieves input from http://adventofcode.com
+# retrieves cookie from cookie.txt
+# queries and creates Input models
 module AdventOfCode
   module_function
 
@@ -21,7 +24,7 @@ module AdventOfCode
     # When year is before 2015, the site will throw a 404 error.
     #
     # Therefore preemptively throw a mock 404 error without using resources.
-    now = Time::now
+    now = Time.now
     raise OpenURI::HTTPError.new '404 Not Found', nil unless now.valid_advent_year?(year: year) && now.valid_advent_day?(year: year, day: day)
 
     row = Input.find_by year: year, day: day
@@ -40,14 +43,14 @@ module AdventOfCode
   # @return String
   def read_cookie(file = 'cookie.txt')
     @cookie ||=
-        begin
-          open(file, 'r', &method(:with_handle))
-        rescue SystemCallError
-          raise StandardError, [
-              'Place your session cookie into cookie.txt',
-              'See cookie.txt.sample'
-          ].unlines
-        end
+      begin
+        open(file, 'r', &method(:with_handle))
+      rescue SystemCallError
+        raise StandardError, [
+          'Place your session cookie into cookie.txt',
+          'See cookie.txt.sample'
+        ].unlines
+      end
   end
 
   # @param handle File
@@ -64,7 +67,6 @@ module AdventOfCode
   # @return Module
   def make_year(year)
     define_module "Year#{year}" do
-
       # @param day Integer
       #
       # @return String
@@ -74,7 +76,6 @@ module AdventOfCode
 
       define_singleton_method :make_day do |day|
         define_module "Day#{day}" do
-
           # @return String
           define_singleton_method :input do
             parent.input day: day
@@ -83,9 +84,9 @@ module AdventOfCode
       end
 
       # noinspection RubyResolve
-      Time::now.advent_days(year: year).map(&method(:make_day))
+      Time.now.advent_days(year: year).map(&method(:make_day))
     end
   end
 
-  Time::now.advent_years.map(&method(:make_year))
+  Time.now.advent_years.map(&method(:make_year))
 end

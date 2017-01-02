@@ -7,7 +7,7 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day9 do
-  let(:input) { @input ||= described_class::input.delete "\n" }
+  let(:input) { @input ||= described_class.input.delete "\n" }
 
   it 'example 1' do
     file = Day9::File.new 'ADVENT'
@@ -58,7 +58,7 @@ describe Day9 do
   end
 
   it 'test 1' do
-    expect( Day9::File.new(input).decompress.length).to be === 110_346
+    expect(Day9::File.new(input).decompress.length).to be === 110_346
   end
 
   it 'test 2' do

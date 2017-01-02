@@ -2,6 +2,7 @@ require 'forwardable'
 require 'helpers/boolean'
 require 'monkey_patches/array'
 
+# a traveller as a location and a direction
 class Traveller
   extend Forwardable
 

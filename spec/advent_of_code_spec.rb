@@ -4,7 +4,7 @@ describe AdventOfCode do
   it { within_block_is_expected.not_to raise_exception }
 
   it "'s ::cookie method is private" do
-    expect { subject::cookie }.to raise_exception NameError
+    expect { subject.cookie }.to raise_exception NameError
   end
 
   it "shows error message when cookie.txt doesn't exist" do

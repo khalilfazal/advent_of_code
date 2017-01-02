@@ -2,6 +2,7 @@ require 'forwardable'
 require 'monkey_patches/string'
 
 module Day9
+  # represents a compressed file
   class File
     extend Forwardable
 
@@ -17,7 +18,7 @@ module Day9
         weights = [1] * min_length
 
         i = 0
-        while i < min_length do
+        while i < min_length
           if contents[i] === '('
             length, times = contents.slice(i .. -1).match(/\((\d+)x(\d+)\)/).captures
             marker_end = i + 3 + length.length + times.length
@@ -53,7 +54,7 @@ module Day9
         times = times.to_i
 
         @decompressed += safe
-        left, right = rest.splitAt length
+        left, right = rest.split_at length
         @decompressed += left * times
         @contents = right
 

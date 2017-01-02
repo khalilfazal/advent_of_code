@@ -1,6 +1,7 @@
 require 'helpers/boolean'
 require 'monkey_patches/array'
 
+# A dot-matrix screen that can be manipulated with commands
 class Screen
   # @param width Integer
   # @param height Integer
@@ -35,7 +36,7 @@ class Screen
       rotate dim.to_sym, i.to_i, amount.to_i
     end
 
-    self.to_s if display
+    to_s if display
   end
 
   # @return Integer
@@ -55,9 +56,7 @@ class Screen
   # @param x Integer
   # @param y Integer
   def rect(x, y)
-    if transposed?
-      x, y = y, x
-    end
+    x, y = y, x if transposed?
 
     (0 .. y - 1).each do |i|
       (0 .. x - 1).each do |j|

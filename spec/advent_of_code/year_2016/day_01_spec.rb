@@ -6,7 +6,7 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day1 do
-  let (:input) { @input ||= described_class::input }
+  let(:input) { @input ||= described_class.input }
 
   context Compass::NORTH do
     it "'s @clockwise neighbour is Compass::EAST" do
@@ -19,10 +19,10 @@ describe Day1 do
 
     it 'can #cycle once around @clockwise' do
       expect(subject.cycle).to be === [
-          Compass::NORTH,
-          Compass::EAST,
-          Compass::SOUTH,
-          Compass::WEST
+        Compass::NORTH,
+        Compass::EAST,
+        Compass::SOUTH,
+        Compass::WEST
       ]
     end
   end

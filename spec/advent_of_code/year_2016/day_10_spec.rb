@@ -7,14 +7,14 @@ include AdventOfCode::Year2016
 # noinspection RubyResolve
 describe Day10 do
   before :all do
-    @world = World.run described_class::input.lines
+    @world = World.run described_class.input.lines
   end
 
   context World do
-    subject {World}
+    subject { World }
 
     it 'catches invalid commands' do
-      expect {subject.run ['noop']}.to raise_error ParseError
+      expect { subject.run ['noop'] }.to raise_error ParseError
     end
   end
 
@@ -24,7 +24,7 @@ describe Day10 do
     end
 
     it 'test 2' do
-      expect(@world.output_products 0 .. 2).to be === 12567
+      expect(@world.output_products 0 .. 2).to be === 12_567
     end
   end
 end

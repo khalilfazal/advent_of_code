@@ -7,13 +7,15 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day4 do
-  let (:input) { @input ||= described_class::input.lines }
-  let(:examples) { %w(
+  let(:input) { @input ||= described_class.input.lines }
+  let(:examples) do
+    %w(
       aaaaa-bbb-z-y-x-123[abxyz]
       a-b-c-d-e-f-g-h-987[abcde]
       not-a-real-room-404[oarel]
       totally-real-room-200[decoy]
-  ) }
+    )
+  end
 
   context 'examples and stars' do
     subject { Room }
@@ -44,11 +46,11 @@ describe Day4 do
     end
 
     it 'example 5' do
-      expect(subject.sum_of_real_sector_ids examples).to be === 1514
+      expect(subject.sum_of_real_sector_ids examples).to be === 1_514
     end
 
     it 'test 1' do
-      expect(subject.sum_of_real_sector_ids input).to be === 361724
+      expect(subject.sum_of_real_sector_ids input).to be === 361_724
     end
 
     it 'example 6' do

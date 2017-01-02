@@ -1,5 +1,6 @@
 require 'forwardable'
 
+# can fulfil promises
 class Bot < Entity
   extend Forwardable
 
@@ -18,7 +19,7 @@ class Bot < Entity
   end
 
   def promised_to?(entity)
-    @promises.has_key? entity
+    @promises.key? entity
   end
 
   def giftee(entity)
