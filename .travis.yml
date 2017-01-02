@@ -7,7 +7,7 @@ install: bundle install
 script:
   - rake db:create
   - rake db:migrate
-  - echo -n session=53616c7465645f5f91b1fce08411bbf3980eacc75a2906f35f32730aecaef31b90cf981bdd6a00fdf848593dc2389525 | tee cookie.txt
+  - echo -n session=$ADVENT_OF_CODE_COOKIE > cookie.txt
   - rake spec
   - bundle exec codeclimate-test-reporter
 
