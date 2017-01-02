@@ -1,8 +1,7 @@
 production: &default
-  adapter: sqlite3
-  database: db/db.sqlite3
-  timeout: 5000
+  adapter: postgresql
+  database: production
 
 test:
   <<: *default
-  database: db/dev.sqlite3
+  database: test

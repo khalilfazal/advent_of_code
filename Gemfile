@@ -7,7 +7,8 @@ ruby '2.4.0'
 
 # gems needed for running all files in lib
 group :runtime do
-  gem 'sqlite3', '~> 1.3', '>= 1.3.12'
+  gem 'pg', '~> 0.19.0'
+  #gem 'sqlite3', '~> 1.3', '>= 1.3.12'
 
   # standalone_migrations (5.0.0) depends on rake (~> 10.0)
   # gem 'rake', '~> 12.0'

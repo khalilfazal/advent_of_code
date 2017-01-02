@@ -1,5 +1,4 @@
 cookie.txt
-db/dev.sqlite3
 
 profiles/*
 !profiles/.keep

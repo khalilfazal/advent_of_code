@@ -11,11 +11,13 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2016_12_20_152145) do
-  # noinspection RailsParamDefResolve
-  create_table 'inputs', force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension 'plpgsql'
+
+  create_table 'inputs', id: :serial, force: :cascade do |t|
     t.integer 'year', null: false
     t.integer 'day', null: false
     t.text 'input', default: ''
-    t.index %w(year day), name: 'index_inputs_on_year_and_day', unique: true
+    t.index %w(year day), name: 'index_inputs_on_year_and_day', unique: true, using: :btree
   end
 end
