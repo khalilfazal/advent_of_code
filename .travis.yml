@@ -5,3 +5,7 @@ rvm: 2.3.3
 install: bundle install
 
 script: rake db:migrate:reset
+
+addons:
+    code_climate:
+        repo_token: d7871fdcaf93762b416e616110b87cb90ff52754662f2b69f926480
