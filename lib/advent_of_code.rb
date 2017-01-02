@@ -59,9 +59,9 @@ module AdventOfCode
   #
   # @return String
   def with_handle(handle)
-    contents = handle.read
-    raise StandardError, 'cookie.txt contains a badly formed cookie' unless contents =~ /^session=[a-f0-9]+$/
-    contents
+    handle.read.tap do |contents|
+      raise StandardError, 'cookie.txt contains a badly formed cookie' unless contents =~ /^session=[a-f0-9]+$/
+    end
   end
 
   # @param year Integer
