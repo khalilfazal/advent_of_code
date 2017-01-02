@@ -11,7 +11,7 @@ RubyProf::ProfileTask.new do |t|
   t.min_percent = 0
   t.output_dir = 'profiles/html'
   t.printer = :graph_html
-  t.ruby_opts = ['-I spec -r rspec -r require_all']
+  t.ruby_opts = ['-I app -I spec -r rspec -r require_all']
 end
 
 # stats

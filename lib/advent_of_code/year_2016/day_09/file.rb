@@ -1,3 +1,4 @@
+require 'forwardable'
 require 'monkey_patches/string'
 
 module Day9

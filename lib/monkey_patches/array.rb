@@ -32,15 +32,15 @@ class Array
   end
 
   # @param n Integer
-  # @block
+  # @block f
   #
   # @return [Element]
-  def flat_map(n = 1, &block)
+  def flat_map(n = 1, &f)
     old_flat_map do |elem|
       if n === 1
-        block.call elem
+        f.call elem
       else
-        elem.flat_map n - 1, &block
+        elem.flat_map n - 1, &f
       end
     end
   end
