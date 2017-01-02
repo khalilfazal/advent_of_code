@@ -1,7 +1,11 @@
-coverage/
 cookie.txt
+db/dev.sqlite3
+
 profiles/*
 !profiles/.keep
-db/dev.sqlite3
-pkg/
+
+pkg/*
 !/pkg/.keep
+
+coverage/*
+!/coverage/.keep
