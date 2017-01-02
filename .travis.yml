@@ -11,7 +11,6 @@ before_script:
   - psql -c 'create database test;' -U postgres
 
 script:
-  - bundle exec rake db:create
   - bundle exec rake db:migrate
   - echo -n session=$ADVENT_OF_CODE_COOKIE > cookie.txt
   - bundle exec rake spec
