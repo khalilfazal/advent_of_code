@@ -6,6 +6,8 @@ install: bundle install
 
 script:
   - rake db:create
+  - echo -n session=53616c7465645f5f1ed6eff3dee1a3fed31b84c3785aab1a5a8b7e3e7ddbd481d5852d5f0655056069ffffcc9ceb6cb0 | tee cookie.txt
+  - rake spec
 
 addons:
   code_climate:
