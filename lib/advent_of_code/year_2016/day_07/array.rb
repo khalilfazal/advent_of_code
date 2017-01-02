@@ -1,4 +1,5 @@
-# because I think using methods look neater than using functions
+# I think using methods look neater than using functions
+# Object.m() versus f(Object)
 class Array
   # @return [Element]
   def abas
