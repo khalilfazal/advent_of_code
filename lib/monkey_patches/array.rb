@@ -9,7 +9,7 @@ class Array
   #
   # @return [Element]
   def delete_elem(elem)
-    reject &elem.method(:===)
+    reject(&elem.method(:===))
   end
 
   # @return [Element]

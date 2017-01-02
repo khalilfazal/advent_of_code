@@ -10,7 +10,7 @@ class String
 
   # @return [String]
   def nets
-    split /\[|\]/
+    split(/\[|\]/)
   end
 
   # @return Boolean

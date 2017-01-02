@@ -29,7 +29,7 @@ class Screen
   # @return String|NilClass
   def prompt(raw, display: true)
     if (parsed = raw.match(/rect (\d+)x(\d+)/))
-      rect *parsed.captures.map(&:to_i)
+      rect(*parsed.captures.map(&:to_i))
     elsif (parsed = raw.match(/rotate (column|row) (?:x|y)=(\d+) by (\d+)/))
       dim, i, amount = *parsed.captures
       rotate dim.to_sym, i.to_i, amount.to_i
@@ -82,6 +82,6 @@ class Screen
       @major = dim
     end
 
-    @screen[i].rotate! -amount
+    @screen[i].rotate!(-amount)
   end
 end

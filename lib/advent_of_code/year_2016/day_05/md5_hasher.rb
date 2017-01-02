@@ -48,9 +48,12 @@ class MD5Hasher
 
   # @return String
   def next_interesting
-    begin
+    hash = nil
+
+    loop do
       hash = @hasher.call("#{@id}#{@i += 1}")
-    end until /^0{5}/ =~ hash
+      break if /^0{5}/ =~ hash
+    end
 
     hash
   end

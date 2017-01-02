@@ -2,7 +2,7 @@ class String
   # @return [Symbol]
   def parse_commands
     split(/, /).map do |block|
-      matches = block.match /(?<dir>L|R)(?<n>[0-9]+)/
+      matches = block.match(/(?<dir>L|R)(?<n>[0-9]+)/)
 
       if matches.nil?
         raise ParseError, "Invalid input: #{block}"

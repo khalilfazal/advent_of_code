@@ -65,7 +65,7 @@ class Point
   # @return Integer
   def hash
     #dims.hash
-    π *dims.map(&:to_nat)
+    π(*dims.map(&:to_nat))
   end
 
   # @param k1 Integer

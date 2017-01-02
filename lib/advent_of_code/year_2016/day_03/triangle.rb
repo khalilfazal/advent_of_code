@@ -25,10 +25,10 @@ class Triangle
     #
     # @return Integer
     def num_of_triangles(input, transpose: false)
-      sides = input.lines.map &:split
+      sides = input.lines.map(&:split)
       sides = sides.transpose.flatten.each_slice 3 if transpose
       sides.count do |triplet|
-        new(triplet.map &:to_i).triangle?
+        new(triplet.map(&:to_i)).triangle?
       end
     end
   end

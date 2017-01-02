@@ -9,19 +9,6 @@ ruby '2.3.3'
 group :runtime do
   gem 'activerecord', '~> 5.0', '>= 5.0.1'
   gem 'sqlite3', '~> 1.3', '>= 1.3.12'
-end
-
-# gems needed for running all files in spec
-group :test do
-  gem 'require_all', '~> 1.3', '>= 1.3.3'
-  gem 'rspec', '~> 3.5'
-end
-
-# gems needed for inspections, profiling and coverage
-group :development do
-  gem 'rspec-prof', '~> 0.0.7'
-  gem 'ruby-prof', '~> 0.16.2'
-  gem 'simplecov', '~> 0.12.0'
 
   # standalone_migrations (5.0.0) depends on rake (~> 10.0)
   #gem 'rake', '~> 12.0'
@@ -29,8 +16,17 @@ group :development do
   gem 'standalone_migrations', '~> 5.0'
 end
 
+# gems needed for testing, inspections, profiling and coverage
+group :test do
+  gem 'require_all', '~> 1.3', '>= 1.3.3'
+  gem 'rspec', '~> 3.5'
+  gem 'rspec-prof', '~> 0.0.7'
+  gem 'ruby-prof', '~> 0.16.2'
+  gem 'simplecov', '~> 0.12.0'
+end
+
 # gems needed for both development and testing
-group :development, :test do
+group :test do
   gem 'fuubar', '~> 2.2'
 end
 
