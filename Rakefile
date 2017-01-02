@@ -5,7 +5,6 @@ require 'standalone_migrations'
 # spec
 spec = RSpec::Core::RakeTask.new
 spec.pattern = '**/{spec_*,*_spec,support/*}.rb'
-spec.rspec_opts = '--tag ~speed:slow'
 
 # profile
 RubyProf::ProfileTask.new do |t|
