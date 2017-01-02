@@ -6,14 +6,9 @@ require 'monkey_patches/object'
 require 'monkey_patches/time'
 require 'open-uri'
 require 'racc/parser'
+require 'simplecov'
 
-if ENV['CI']
-  require 'codeclimate-test-reporter'
-  CodeClimate::TestReporter.start
-else
-  require 'simplecov'
-  SimpleCov.start
-end
+SimpleCov.start
 
 load_db(environment: ENV['RAILS_ENV'])
 
