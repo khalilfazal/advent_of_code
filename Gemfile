@@ -18,6 +18,7 @@ end
 
 # gems needed for testing, inspections, profiling and coverage
 group :test do
+  gem 'codeclimate-test-reporter', '~> 1.0', '>= 1.0.4'
   gem 'require_all', '~> 1.3', '>= 1.3.3'
   gem 'rspec', '~> 3.5'
   gem 'rspec-prof', '~> 0.0.7'

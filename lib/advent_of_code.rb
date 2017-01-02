@@ -6,6 +6,9 @@ require 'monkey_patches/object'
 require 'monkey_patches/time'
 require 'open-uri'
 require 'racc/parser'
+require 'simplecov'
+
+SimpleCov.start
 
 load_db(environment: ENV['RAILS_ENV'])
 
