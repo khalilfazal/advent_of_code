@@ -2,7 +2,7 @@ language: ruby
 
 rvm: 2.3.3
 
-install: bundle install
+install: true #bundle install
 
 script: echo $CODECLIMATE_REPO_TOKEN
 #  - rake db:create
