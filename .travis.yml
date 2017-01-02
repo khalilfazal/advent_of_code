@@ -4,6 +4,8 @@ rvm: 2.4.0
 
 install: bundle install
 
+sudo: required
+
 services:
   - postgresql
 
