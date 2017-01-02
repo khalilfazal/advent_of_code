@@ -5,8 +5,8 @@ rvm: 2.3.3
 install: bundle install
 
 script:
-  - rake db:migrate:reset
-  - rake spec
+  - rake db:create
+  - rake db:migrate
 
 addons:
   code_climate:
