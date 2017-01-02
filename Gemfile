@@ -1,14 +1,10 @@
 source 'https://rubygems.org'
 
-# TODO: Move to 2.4
-# Blocking: RubyMines doesn't work with 2.4 yet
-# Remove monkey_patches/comparable.rb after moving to 2.4
 ruby '2.4.0'
 
 # gems needed for running all files in lib
 group :runtime do
   gem 'pg', '~> 0.19.0'
-  #gem 'sqlite3', '~> 1.3', '>= 1.3.12'
 
   # standalone_migrations (5.0.0) depends on rake (~> 10.0)
   # gem 'rake', '~> 12.0'
@@ -20,7 +16,7 @@ group :runtime do
 
   git 'https://github.com/rails/rails.git' do
     # next version after 5.0.1 solves this problem: https://github.com/rails/rails/commit/cb0452e9a50e97f8ab2100f6226fbdd47a970a34
-    gem 'activerecord' #, '~> 5.0', '>= 5.0.1'
+    gem 'activerecord' # , '~> 5.0', '>= 5.0.1'
   end
 end
 
@@ -35,7 +31,7 @@ group :test do
   gem 'ruby-prof', '~> 0.16.2'
 
   # next version after 0.12 solves this problem: https://github.com/colszowka/simplecov/commit/050eb6830440bf998c462aee219f8b3cd17d570f
-  gem 'simplecov', git: 'https://github.com/colszowka/simplecov.git' #, '~> 0.12.0'
+  gem 'simplecov', git: 'https://github.com/colszowka/simplecov.git' # , '~> 0.12.0'
 
   # debase 0.2.2 has this bug: https://intellij-support.jetbrains.com/hc/en-us/community/posts/203374210-Problem-debugging-with-Rubymine
   gem 'debase', '~> 0.2.1'
