@@ -29,8 +29,4 @@ class Entity
   def full?
     @microchips.length === 2
   end
-
-  def to_s
-    @id.inspect
-  end
 end
