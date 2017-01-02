@@ -1,7 +1,6 @@
 require 'advent_of_code/version'
 require 'models/input'
 require 'monkey_patches/array'
-require 'monkey_patches/comparable'
 require 'monkey_patches/object'
 require 'monkey_patches/time'
 require 'open-uri'
