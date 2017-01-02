@@ -3,6 +3,6 @@ production: &default
   database: db/db.sqlite3
   timeout: 5000
 
-development:
+test:
   <<: *default
   database: db/dev.sqlite3
