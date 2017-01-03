@@ -9,15 +9,14 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 2016_12_20_152145) do
+ActiveRecord::Schema.define(version: 20170103063709) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
-  create_table 'inputs', id: :serial, force: :cascade do |t|
+  create_table 'advent_problems', id: :serial, force: :cascade do |t|
     t.integer 'year', null: false
     t.integer 'day', null: false
     t.text 'input', default: ''
-    t.index %w(year day), name: 'index_inputs_on_year_and_day', unique: true, using: :btree
+    t.index %w(year day), name: 'index_advent_problems_on_year_and_day', unique: true, using: :btree
   end
 end

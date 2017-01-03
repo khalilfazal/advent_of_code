@@ -3,7 +3,7 @@ require 'simplecov'
 SimpleCov.start
 
 require 'advent_of_code/version'
-require 'models/input'
+require 'models/advent_problem'
 require 'monkey_patches/array'
 require 'monkey_patches/object'
 require 'monkey_patches/time'
@@ -14,7 +14,7 @@ load_db(environment: ENV['RAILS_ENV'])
 
 # retrieves input from http://adventofcode.com
 # retrieves cookie from cookie.txt
-# queries and creates Input models
+# queries and creates Advent Problems
 module AdventOfCode
   module_function
 
@@ -30,11 +30,11 @@ module AdventOfCode
     now = Time.now
     raise OpenURI::HTTPError.new '404 Not Found', nil unless now.valid_advent_year?(year: year) && now.valid_advent_day?(year: year, day: day)
 
-    row = Input.find_by year: year, day: day
+    row = AdventProblem.find_by year: year, day: day
 
     if row.nil?
       open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => read_cookie) do |handle|
-        Input.create(year: year, day: day, input: handle.read).input
+        AdventProblem.create(year: year, day: day, input: handle.read).input
       end
     else
       row.input

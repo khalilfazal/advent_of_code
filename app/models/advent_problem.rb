@@ -2,7 +2,7 @@ require 'models/load_db'
 require 'monkey_patches/time'
 
 # noinspection RailsParamDefResolve
-class Input < ActiveRecord::Base
+class AdventProblem < ActiveRecord::Base
   %i(year day).each do |attr|
     validates_presence_of attr, presence: true, strict: true, message: 'must be present'
     validates_numericality_of attr, only_integer: true, strict: true, message: 'can only be integral'
