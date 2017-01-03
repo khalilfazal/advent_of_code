@@ -1,9 +1,4 @@
-require 'advent_of_code'
-require 'helpers/match_string'
 require_all 'lib/advent_of_code/year_2016/day_05/*'
-
-# noinspection RubyResolve
-include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day5 do
@@ -24,7 +19,9 @@ describe Day5 do
     # Runtime: 39 622ms
     it 'anchieves star 1', speed: 'slow' do
       # noinspection RubyResolve
-      expect(subject.crack input).to be_identical_to_string '1a3099aa'
+      skip_this_when_dced do
+        expect(subject.crack input).to be_identical_to_string '1a3099aa'
+      end
     end
 
     # Runtime: 30s 995ms
@@ -36,7 +33,9 @@ describe Day5 do
     # Runtime: 57s 813ms
     it 'anchieves star 2', speed: 'slow' do
       # noinspection RubyResolve
-      expect(subject.crack2 input).to be_identical_to_string '694190cd'
+      skip_this_when_dced do
+        expect(subject.crack2 input).to be_identical_to_string '694190cd'
+      end
     end
   end
 end

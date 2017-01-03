@@ -1,7 +1,7 @@
 production: &default
   adapter: postgresql
-  database: production
+  database: advent_of_code_production
 
 test:
   <<: *default
-  database: test
+  database: advent_of_code_test

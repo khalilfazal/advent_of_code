@@ -1,8 +1,4 @@
-require 'advent_of_code'
 require_all 'lib/advent_of_code/year_2016/day_02/*'
-
-# noinspection RubyResolve
-include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day2 do
@@ -38,7 +34,9 @@ describe Day2 do
 
     it 'anchieves star 1' do
       # noinspection RubyResolve
-      skip_this_when_dced { expect(subject.bathroom_code input).to be_identical_to_string '76792' }
+      skip_this_when_dced do
+        expect(subject.bathroom_code input).to be_identical_to_string '76792'
+      end
     end
 
     it 'passes example 2' do
@@ -48,7 +46,9 @@ describe Day2 do
 
     it 'anchieves star 2' do
       # noinspection RubyResolve
-      skip_this_when_dced { expect(subject.bathroom_code input, actual_layout).to be_identical_to_string 'A7AC3' }
+      skip_this_when_dced do
+        expect(subject.bathroom_code input, actual_layout).to be_identical_to_string 'A7AC3'
+      end
     end
 
     it 'catches invalid instructions' do

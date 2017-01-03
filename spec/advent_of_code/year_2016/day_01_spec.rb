@@ -1,8 +1,4 @@
-require 'advent_of_code'
 require_all 'lib/advent_of_code/year_2016/day_01/*'
-
-# noinspection RubyResolve
-include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day1 do
@@ -65,7 +61,9 @@ describe Day1 do
     end
 
     it 'anchieves star 1' do
-      skip_this_when_dced { expect(subject.endpoints_distance input).to be === 236 }
+      skip_this_when_dced do
+        expect(subject.endpoints_distance input).to be === 236
+      end
     end
 
     it 'passes example 4' do
@@ -73,7 +71,9 @@ describe Day1 do
     end
 
     it 'anchieves star 2' do
-      skip_this_when_dced { expect(subject.twice_visited_points_distance input).to be === 182 }
+      skip_this_when_dced do
+        expect(subject.twice_visited_points_distance input).to be === 182
+      end
     end
   end
 end

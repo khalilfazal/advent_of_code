@@ -4,8 +4,7 @@ require 'standalone_migrations'
 task :spec do
   require 'rspec/core/rake_task'
 
-  spec = RSpec::Core::RakeTask.new
-  spec.pattern = '**/{spec_*,*_spec,support/*}.rb'
+  RSpec::Core::RakeTask.new.pattern = 'spec/helpers/spec_helper.rb'
 end
 
 # profile

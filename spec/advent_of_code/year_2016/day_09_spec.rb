@@ -1,9 +1,4 @@
-require 'advent_of_code'
-require 'helpers/match_string'
 require_all 'lib/advent_of_code/year_2016/day_09/*'
-
-# noinspection RubyResolve
-include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day9 do
@@ -46,11 +41,15 @@ describe Day9 do
     end
 
     it 'achieves star 1' do
-      expect(Day9::File.new(input).decompress.length).to be === 110_346
+      skip_this_when_dced do
+        expect(Day9::File.new(input).decompress.length).to be === 110_346
+      end
     end
 
     it 'achieves star 2' do
-      expect(Day9::File.decompressed_length input).to be === 10_774_309_173
+      skip_this_when_dced do
+        expect(Day9::File.decompressed_length input).to be === 10_774_309_173
+      end
     end
   end
 end

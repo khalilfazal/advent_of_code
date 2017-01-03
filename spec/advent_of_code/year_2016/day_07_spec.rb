@@ -1,8 +1,4 @@
-require 'advent_of_code'
 require_all 'lib/advent_of_code/year_2016/day_07/*'
-
-# noinspection RubyResolve
-include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day7 do
@@ -51,7 +47,9 @@ describe Day7 do
     end
 
     it 'achieves star 1' do
-      expect(input.count(&:tls?)).to be === 110
+      skip_this_when_dced do
+        expect(input.count(&:tls?)).to be === 110
+      end
     end
 
     it 'passes example 5' do
@@ -71,7 +69,9 @@ describe Day7 do
     end
 
     it 'achieves star 2' do
-      expect(input.count(&:ssl?)).to be === 242
+      skip_this_when_dced do
+        expect(input.count(&:ssl?)).to be === 242
+      end
     end
   end
 end

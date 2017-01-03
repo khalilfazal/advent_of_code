@@ -1,13 +1,12 @@
-require 'advent_of_code'
 require_all 'lib/advent_of_code/year_2016/day_10/*'
-
-# noinspection RubyResolve
-include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day10 do
   before :all do
-    @problem = described_class.problem
+    skip_this_when_dced do
+      @problem = described_class.problem
+    end
+
     @world = World.run @problem.input.lines
   end
 
