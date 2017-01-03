@@ -1,15 +1,13 @@
 require 'advent_of_code'
+require 'advent_of_code/version'
+require 'helpers/match_string'
 
 describe AdventOfCode do
   it { within_block_is_expected.not_to raise_exception }
 
-  it "'s ::cookie method is private" do
-    expect { subject.cookie }.to raise_exception NameError
-  end
-
   it "shows error message when cookie.txt doesn't exist" do
     subject.instance_variable_set :@cookie, nil
-    expect { p subject.read_cookie('foobar.txt') }.to raise_error StandardError
+    expect { subject.read_cookie('foobar.txt') }.to raise_error StandardError
   end
 
   it 'shows error message when the cookie in cookie.txt is malformed' do
