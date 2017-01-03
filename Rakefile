@@ -31,3 +31,19 @@ end
 
 # db
 StandaloneMigrations::Tasks.load_tasks
+
+# truncate
+namespace :db do
+  include ActiveRecord
+
+  desc 'Truncate all existing data'
+  task truncate: 'db:load_config' do
+    begin
+      Base.establish_connection
+
+      Base.connection.tables.each do |table|
+        Base.connection.execute("TRUNCATE #{table}")
+      end
+    end
+  end
+end

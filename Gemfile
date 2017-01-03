@@ -23,6 +23,7 @@ end
 # gems needed for testing, inspections, profiling and coverage
 group :test do
   gem 'codeclimate-test-reporter', '~> 1.0', '>= 1.0.4'
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'fuubar', '~> 2.2'
   gem 'require_all', '~> 1.3', '>= 1.3.3'
   gem 'rspec', '~> 3.5'
