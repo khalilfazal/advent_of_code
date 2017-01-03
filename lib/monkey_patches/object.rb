@@ -9,7 +9,7 @@ class Object
     const_set name, Module.new(&block)
   end
 
-  # Continuously calls block until f(yield.call) is true
+  # Continuously calls yield until f(yield.call) is true
   # returns yield.call
   #
   # @param f Proc: Object -> Boolean
