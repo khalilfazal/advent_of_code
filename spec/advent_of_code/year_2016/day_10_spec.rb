@@ -1,7 +1,9 @@
 require_all 'lib/advent_of_code/year_2016/day_10/*'
 
+require 'advent_of_code'
+
 # noinspection RubyResolve
-describe Day10 do
+describe AdventOfCode::Year2016::Day10 do
   before :all do
     skip_this_when_dced do
       @problem = described_class.problem

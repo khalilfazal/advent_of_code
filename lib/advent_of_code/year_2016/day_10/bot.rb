@@ -1,5 +1,5 @@
-require 'forwardable'
-require 'helpers/boolean'
+autoload :Boolean, 'helpers/boolean'
+autoload :Forwardable, 'forwardable'
 
 # can fulfil promises
 class Bot < Entity

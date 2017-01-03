@@ -1,4 +1,3 @@
-require 'models/load_db'
 require 'monkey_patches/time'
 
 # noinspection RailsParamDefResolve

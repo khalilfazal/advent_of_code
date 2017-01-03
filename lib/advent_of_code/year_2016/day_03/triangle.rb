@@ -1,4 +1,4 @@
-require 'helpers/boolean'
+autoload :Boolean, 'helpers/boolean'
 
 # represents triangles that can be validated with the triangle inequality
 class Triangle

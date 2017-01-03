@@ -1,4 +1,4 @@
-require 'helpers/boolean'
+autoload :Boolean, 'helpers/boolean'
 
 # calculates valid advent days and years
 class Time

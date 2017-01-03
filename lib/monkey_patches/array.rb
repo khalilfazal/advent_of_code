@@ -1,5 +1,5 @@
+autoload :Boolean, 'helpers/boolean'
 require 'English'
-require 'helpers/boolean'
 
 # Element of an array
 class Element < Object

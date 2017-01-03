@@ -1,4 +1,4 @@
-require 'forwardable'
+autoload :Forwardable, 'forwardable'
 require 'monkey_patches/string'
 
 module Day9

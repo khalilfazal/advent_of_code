@@ -1,5 +1,6 @@
+autoload :OpenURI, 'open-uri'
 require 'advent_of_code'
-require 'helpers/match_string'
+require 'helpers/within_block_is_expected'
 
 describe AdventOfCode do
   it { within_block_is_expected.not_to raise_exception }

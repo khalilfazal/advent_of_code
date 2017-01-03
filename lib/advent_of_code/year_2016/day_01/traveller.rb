@@ -1,5 +1,5 @@
-require 'forwardable'
-require 'helpers/boolean'
+autoload :Boolean, 'helpers/boolean'
+autoload :Forwardable, 'forwardable'
 require 'monkey_patches/array'
 
 # a traveller as a location and a direction

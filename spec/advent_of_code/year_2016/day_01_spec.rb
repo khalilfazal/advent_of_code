@@ -1,7 +1,11 @@
 require_all 'lib/advent_of_code/year_2016/day_01/*'
 
+require 'advent_of_code'
+require 'helpers/match_string'
+require 'racc/parser'
+
 # noinspection RubyResolve
-describe Day1 do
+describe AdventOfCode::Year2016::Day1 do
   let(:problem) { @problem ||= described_class.problem }
   let(:input) { @input ||= problem.input }
 

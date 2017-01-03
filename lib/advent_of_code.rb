@@ -1,4 +1,7 @@
-load_db(environment: ENV['RAILS_ENV'])
+autoload :AdventProblem, 'models/advent_problem'
+
+require 'monkey_patches/object'
+require 'monkey_patches/time'
 
 # retrieves input from http://adventofcode.com
 # retrieves cookie from cookie.txt

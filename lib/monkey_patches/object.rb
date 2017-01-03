@@ -1,4 +1,4 @@
-require 'helpers/boolean'
+autoload :Boolean, 'helpers/boolean'
 
 # add method to dynamically create a module
 class Object

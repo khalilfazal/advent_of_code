@@ -1,7 +1,11 @@
-require 'active_record'
-require 'yaml'
+autoload :ActiveRecord, 'active_record'
+autoload :YAML, 'yaml'
 
-def load_db(environment:)
-  config = YAML.load_file('db/config.yml')
-  ActiveRecord::Base.establish_connection(config[environment])
+module LoadDB
+  module_function
+
+  def run(environment:)
+    config = YAML.load_file('db/config.yml')
+    ActiveRecord::Base.establish_connection(config[environment])
+  end
 end

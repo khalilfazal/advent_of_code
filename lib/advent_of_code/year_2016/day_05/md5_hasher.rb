@@ -1,7 +1,4 @@
-require 'digest/md5'
 require 'monkey_patches/object'
-
-include Digest
 
 # finds interesting md5 hashes
 class MD5Hasher
@@ -44,7 +41,7 @@ class MD5Hasher
   def initialize(id)
     @id = id
     @i = 0
-    @hasher = MD5.method :hexdigest
+    @hasher = Digest::MD5.method :hexdigest
   end
 
   # @return String

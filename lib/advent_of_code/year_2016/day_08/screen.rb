@@ -1,4 +1,4 @@
-require 'helpers/boolean'
+autoload :Boolean, 'helpers/boolean'
 require 'monkey_patches/array'
 
 # A dot-matrix screen that can be manipulated with commands

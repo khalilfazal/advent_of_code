@@ -1,5 +1,5 @@
+autoload :Boolean, 'helpers/boolean'
 require 'active_support/core_ext/hash/transform_values'
-require 'helpers/boolean'
 require 'monkey_patches/array'
 require 'monkey_patches/enumerable'
 

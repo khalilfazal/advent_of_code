@@ -1,7 +1,9 @@
 require_all 'lib/advent_of_code/year_2016/day_05/*'
 
+require 'advent_of_code'
+
 # noinspection RubyResolve
-describe Day5 do
+describe AdventOfCode::Year2016::Day5 do
   let(:problem) { @problem ||= described_class.problem }
   let(:input) { @input ||= problem.input.chomp }
 

@@ -1,4 +1,4 @@
-require 'helpers/boolean'
+autoload :Boolean, 'helpers/boolean'
 
 # either a Bot or Output
 class Entity
