@@ -7,7 +7,7 @@ describe AdventOfCode::Year2016::Day8 do
   let(:problem) { @problem ||= described_class.problem }
   let(:input) { @input ||= problem.input.lines }
 
-  let (:test_screen) do
+  let(:test_screen) do
     skip_this_when_dced do
       @test_screen ||= Screen.new(50, 6).prompts(input)
     end
