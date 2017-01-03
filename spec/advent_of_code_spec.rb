@@ -1,5 +1,4 @@
 require 'advent_of_code'
-require 'advent_of_code/version'
 require 'helpers/match_string'
 
 describe AdventOfCode do
