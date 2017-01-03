@@ -1,5 +1,8 @@
 # captures information for either a bot or output
 class MatchData
+  # @param entities [Symbol]
+  #
+  # @return Array[Hash[Symbol, String | Integer]]
   def capture_entities(*entities)
     entities.map do |entity|
       {

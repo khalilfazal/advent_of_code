@@ -23,7 +23,8 @@ class Point
 
   # @param dir Compass
   #
-  # @return Integer|ParseError
+  # @return Integer
+  # @return ParseError
   def move(dir)
     case dir
       when Compass::NORTH

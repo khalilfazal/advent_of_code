@@ -1,9 +1,9 @@
-require 'helpers/element'
-
-class Key < Element
+# Key type of a Hash
+class Key < Object
 end
 
-class Value < Element
+# Value type of a Hash
+class Value < Object
 end
 
 # update value at key with updater

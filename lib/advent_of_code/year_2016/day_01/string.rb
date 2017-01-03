@@ -11,7 +11,8 @@ class String
     end.inject :+
   end
 
-  # @return Symbol|ParseError
+  # @return Symbol
+  # @throws ParseError
   def parse_dir
     case self
       when 'L'

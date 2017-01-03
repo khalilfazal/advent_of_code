@@ -18,7 +18,7 @@ class Room
       make_inputs(inputs).find_all(&:real?).map(&:id).sum
     end
 
-    # @param params [String|Integer]
+    # @param params [String | Integer]
     #
     # @return String
     def decrypt(*params)

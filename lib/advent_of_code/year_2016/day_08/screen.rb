@@ -27,7 +27,7 @@ class Screen
   # @param raw String
   # @param display Boolean
   #
-  # @return String|NilClass
+  # @return String | NilClass
   def prompt(raw, display: true)
     if (parsed = raw.match(/rect (\d+)x(\d+)/))
       rect(*parsed.captures.map(&:to_i))

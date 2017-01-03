@@ -1,6 +1,9 @@
 require 'English'
 require 'helpers/boolean'
-require 'helpers/element'
+
+# Element of an array
+class Element < Object
+end
 
 # added methods to get the most and least common element in array (mode and rarest).
 # added methods to get elements with odd and even indices.

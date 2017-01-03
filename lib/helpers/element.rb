@@ -1,2 +1,0 @@
-class Element < Object
-end

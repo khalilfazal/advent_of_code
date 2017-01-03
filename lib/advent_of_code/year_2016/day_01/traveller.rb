@@ -63,7 +63,8 @@ class Traveller
 
   # @param command Symbol
   #
-  # @return Integer|Compass|ParseError
+  # @return Integer | Compass
+  # @throws ParseError
   def move(command)
     if command === :straight
       @pos.move @dir

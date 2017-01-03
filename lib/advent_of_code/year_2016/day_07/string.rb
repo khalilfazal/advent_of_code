@@ -1,5 +1,4 @@
 require 'helpers/boolean'
-require 'helpers/element'
 require 'monkey_patches/array'
 
 # can check if an IPV7 string supports tls or ssl

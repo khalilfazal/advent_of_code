@@ -1,4 +1,5 @@
 require 'digest/md5'
+require 'monkey_patches/object'
 
 include Digest
 
@@ -48,13 +49,8 @@ class MD5Hasher
 
   # @return String
   def next_interesting
-    hash = nil
-
-    loop do
-      hash = @hasher.call("#{@id}#{@i += 1}")
-      break if /^0{5}/ =~ hash
+    loop_until(->(hash) { /^0{5}/ =~ hash }) do
+      @hasher.call("#{@id}#{@i += 1}")
     end
-
-    hash
   end
 end
