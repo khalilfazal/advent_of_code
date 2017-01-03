@@ -33,43 +33,43 @@ describe Day7 do
       end
     end
 
-    it 'example 1' do
+    it 'passes example 1' do
       expect(tls_examples[0]).to support :tls
     end
 
-    it 'example 2' do
+    it 'passes example 2' do
       expect(tls_examples[1]).not_to support :tls
     end
 
-    it 'example 3' do
+    it 'passes example 3' do
       expect(tls_examples[2]).not_to support :tls
     end
 
-    it 'example 4' do
+    it 'passes example 4' do
       expect(tls_examples[3]).to support :tls
     end
 
-    it 'test 1' do
+    it 'achieves star 1' do
       expect(input.count(&:tls?)).to be === 110
     end
 
-    it 'example 5' do
+    it 'passes example 5' do
       expect(ssl_examples[0]).to support :ssl
     end
 
-    it 'example 6' do
+    it 'passes example 6' do
       expect(ssl_examples[1]).not_to support :ssl
     end
 
-    it 'example 7' do
+    it 'passes example 7' do
       expect(ssl_examples[2]).to support :ssl
     end
 
-    it 'example 8' do
+    it 'passes example 8' do
       expect(ssl_examples[3]).to support :ssl
     end
 
-    it 'test 2' do
+    it 'achieves star 2' do
       expect(input.count(&:ssl?)).to be === 242
     end
   end

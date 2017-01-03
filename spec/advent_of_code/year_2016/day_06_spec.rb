@@ -32,22 +32,22 @@ describe Day6 do
   context 'examples and stars' do
     subject { Noise }
 
-    it 'example 1' do
+    it 'passes example 1' do
       # noinspection RubyResolve
       expect(subject.unscramble example).to be_identical_to_string 'easter'
     end
 
-    it 'test 1' do
+    it 'achieves star 1' do
       # noinspection RubyResolve
       expect(subject.unscramble input).to be_identical_to_string 'qrqlznrl'
     end
 
-    it 'example 2' do
+    it 'passes example 2' do
       # noinspection RubyResolve
       expect(subject.unscramble2 example).to be_identical_to_string 'advent'
     end
 
-    it 'test 2' do
+    it 'achieves star 2' do
       # noinspection RubyResolve
       expect(subject.unscramble2 input).to be_identical_to_string 'kgzdfaon'
     end

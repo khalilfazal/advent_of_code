@@ -29,36 +29,36 @@ describe Day4 do
       end
     end
 
-    it 'example 1' do
+    it 'passes example 1' do
       expect(examples[0]).to be_a_real_room
     end
 
-    it 'example 2' do
+    it 'passes example 2' do
       expect(examples[1]).to be_a_real_room
     end
 
-    it 'example 3' do
+    it 'passes example 3' do
       expect(examples[2]).to be_a_real_room
     end
 
-    it 'example 4' do
+    it 'passes example 4' do
       expect(examples[3]).not_to be_a_real_room
     end
 
-    it 'example 5' do
+    it 'passes example 5' do
       expect(subject.sum_of_real_sector_ids examples).to be === 1_514
     end
 
-    it 'test 1' do
+    it 'anchieves star 1' do
       expect(subject.sum_of_real_sector_ids input).to be === 361_724
     end
 
-    it 'example 6' do
+    it 'passes example 6' do
       # noinspection RubyResolve
       expect(subject.decrypt('qzmt-zixmtkozy-ivhz-343')).to be_identical_to_string 'very encrypted name'
     end
 
-    it 'test 2' do
+    it 'anchieves star 2' do
       expect(subject.find_sector_id_of(input, 'northpole object storage')).to be === 482
     end
   end
