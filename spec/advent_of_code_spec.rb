@@ -18,7 +18,7 @@ describe AdventOfCode do
 
   context '404 Exceptions for an invalid year/day' do
     def expect_input_factory(year:, day:)
-      expect { subject.input year: year, day: day }.to raise_error OpenURI::HTTPError
+      expect { subject.problem(year: year, day: day).input }.to raise_error OpenURI::HTTPError
     end
 
     it 'throws a 404 Exception when year is negative' do

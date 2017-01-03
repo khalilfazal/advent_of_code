@@ -7,7 +7,8 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day9 do
-  let(:input) { @input ||= described_class.input.delete "\n" }
+  let(:problem) { @problem ||= described_class.problem }
+  let(:input) { @input ||= problem.input.delete "\n" }
 
   context 'examples and stars' do
     [{

@@ -7,7 +7,8 @@ include AdventOfCode::Year2016
 # noinspection RubyResolve
 describe Day10 do
   before :all do
-    @world = World.run described_class.input.lines
+    @problem = described_class.problem
+    @world = World.run @problem.input.lines
   end
 
   context World do

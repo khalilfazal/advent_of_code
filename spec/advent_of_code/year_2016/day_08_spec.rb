@@ -7,7 +7,8 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day8 do
-  let(:input) { @input ||= described_class.input.lines }
+  let(:problem) { @problem ||= described_class.problem }
+  let(:input) { @input ||= problem.input.lines }
 
   before :all do
     @example_screen = Screen.new 7, 3

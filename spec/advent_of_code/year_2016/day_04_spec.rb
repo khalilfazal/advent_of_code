@@ -7,7 +7,9 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day4 do
-  let(:input) { @input ||= described_class.input.lines }
+  let(:problem) { @problem ||= described_class.problem }
+  let(:input) { @input ||= problem.input.lines }
+
   let(:examples) do
     %w(
       aaaaa-bbb-z-y-x-123[abxyz]

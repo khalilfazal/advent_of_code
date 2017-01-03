@@ -7,7 +7,9 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day5 do
-  let(:input) { @input ||= described_class.input.chomp }
+  let(:problem) { @problem ||= described_class.problem }
+  let(:input) { @input ||= problem.input.chomp }
+
   let(:example) { 'abc' }
 
   context 'examples and stars' do

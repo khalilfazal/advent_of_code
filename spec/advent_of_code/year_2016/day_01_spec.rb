@@ -6,7 +6,8 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day1 do
-  let(:input) { @input ||= described_class.input }
+  let(:problem) { @problem ||= described_class.problem }
+  let(:input) { @input ||= problem.input }
 
   context Compass::NORTH do
     it "'s @clockwise neighbour is Compass::EAST" do

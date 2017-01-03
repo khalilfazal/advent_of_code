@@ -6,7 +6,8 @@ include AdventOfCode::Year2016
 
 # noinspection RubyResolve
 describe Day2 do
-  let(:input) { @input ||= described_class.input }
+  let(:problem) { @problem ||= described_class.problem }
+  let(:input) { @input ||= problem.input }
 
   let(:example_input) do
     %w(

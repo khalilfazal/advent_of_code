@@ -21,8 +21,8 @@ module AdventOfCode
   # @param year Integer
   # @param day Integer
   #
-  # @return String
-  def input(year:, day:)
+  # @return AdventProblem
+  def problem(year:, day:)
     # The first year of Advent of Code was 2015.
     # When year is before 2015, the site will throw a 404 error.
     #
@@ -30,14 +30,10 @@ module AdventOfCode
     now = Time.now
     raise OpenURI::HTTPError.new '404 Not Found', nil unless now.valid_advent_year?(year: year) && now.valid_advent_day?(year: year, day: day)
 
-    row = AdventProblem.find_by year: year, day: day
-
-    if row.nil?
+    AdventProblem.find_or_create_by!(year: year, day: day) do |problem|
       open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => read_cookie) do |handle|
-        AdventProblem.create(year: year, day: day, input: handle.read).input
+        problem.input = handle.read
       end
-    else
-      row.input
     end
   end
 
@@ -72,16 +68,16 @@ module AdventOfCode
     define_module "Year#{year}" do
       # @param day Integer
       #
-      # @return String
-      define_singleton_method :input do |day:|
-        parent.input year: year, day: day
+      # @return AdventProblem
+      define_singleton_method :problem do |day:|
+        parent.problem year: year, day: day
       end
 
       define_singleton_method :make_day do |day|
         define_module "Day#{day}" do
-          # @return String
-          define_singleton_method :input do
-            parent.input day: day
+          # @return AdventProblem
+          define_singleton_method :problem do
+            parent.problem day: day
           end
         end
       end
