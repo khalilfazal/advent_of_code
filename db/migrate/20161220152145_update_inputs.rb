@@ -7,6 +7,7 @@ class UpdateInputs < ActiveRecord::Migration[5.0]
       t.change :input, :text, default: ''
     end
 
+    # noinspection RailsParamDefResolve
     add_index :inputs, %i(year day), unique: true
   end
 end
