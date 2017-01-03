@@ -2,6 +2,7 @@ autoload :AdventProblem, 'models/advent_problem'
 
 require 'monkey_patches/object'
 require 'monkey_patches/time'
+require 'open-uri'
 
 # retrieves input from http://adventofcode.com
 # retrieves cookie from cookie.txt
