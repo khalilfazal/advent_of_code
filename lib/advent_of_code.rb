@@ -22,9 +22,9 @@ module AdventOfCode
     now = Time.now
     raise OpenURI::HTTPError.new '404 Not Found', nil unless now.valid_advent_year?(year: year) && now.valid_advent_day?(year: year, day: day)
 
-    AdventProblem.find_or_create_by!(year: year, day: day) do |problem|
-      open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => read_cookie) do |handle|
-        problem.input = handle.read
+    AdventProblem.find_or_create_by(year: year, day: day).tap do |problem|
+      if problem.input.nil?
+        problem.update input: open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => read_cookie).read
       end
     end
   end
@@ -75,9 +75,9 @@ module AdventOfCode
       end
 
       # noinspection RubyResolve
-      Time.now.advent_days(year: year).map(&method(:make_day))
+      Time.now.advent_days(year: year).each(&method(:make_day))
     end
   end
 
-  Time.now.advent_years.map(&method(:make_year))
+  Time.now.advent_years.each(&method(:make_year))
 end
