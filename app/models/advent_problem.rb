@@ -1,3 +1,4 @@
+require 'monkey_patches/string'
 require 'monkey_patches/time'
 
 # noinspection RailsParamDefResolve
@@ -8,6 +9,7 @@ class AdventProblem < ActiveRecord::Base
   end
 
   validate :advent_day
+  validates_uniqueness_of :day, scope: :year, strict: true, message: '%{year}-12-%{day} is already in the input table'
 
   # @return [ActiveModel::Validations::InclusionValidator]
   def advent_day
@@ -17,5 +19,16 @@ class AdventProblem < ActiveRecord::Base
     validates_inclusion_of :day, in: now.advent_days(year: year), strict: true, message: "#{year}-12-#{day} hasn't occured yet"
   end
 
-  validates_uniqueness_of :day, scope: :year, strict: true, message: '%{year}-12-%{day} is already in the input table'
+  # @param id Integer
+  #
+  # @return Integer | String
+  def solution(id)
+    # noinspection RubyResolve
+    solutions[id - 1].to_i!.tap do |solution|
+      # assuming that all strings start and end with double quotes
+      if solution.is_a? String
+        solution.chop!.reverse!.chop!.reverse!.gsub! '\\n', "\n"
+      end
+    end
+  end
 end
