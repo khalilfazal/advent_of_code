@@ -4,11 +4,13 @@ rvm: 2.4.0
 
 install: bundle install
 
-# need sudo to start postgresql daemon
 sudo: required
 
-services:
-  - postgresql
+services: postgresql
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_46cc5676755c_key -iv $encrypted_46cc5676755c_iv
+    -in lib/seeds/solutions.json.enc -out lib/seeds/solutions.json -d
 
 script:
   - bundle exec rake db:create

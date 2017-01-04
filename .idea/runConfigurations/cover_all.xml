@@ -32,6 +32,7 @@
     <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
     <method>
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:truncate test" run_configuration_type="RakeRunConfigurationType" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:seed test" run_configuration_type="RakeRunConfigurationType" />
     </method>
   </configuration>
 </component>

@@ -8,3 +8,5 @@ pkg/*
 
 coverage/*
 !/coverage/.keep
+
+lib/seeds/solutions.json
