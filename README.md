@@ -7,7 +7,11 @@ Solutions to [Advent of Code](http://advent_of_code.com/) puzzles.
 
 ## Usage
 
-Run using run configurations
+1. fill out cookie.txt with your personal session cookie from [adventofcode.com](http://adventofcode.com/)
+2. fill out db/seeds/answers.json with your personal expected answers
+3. replace contents of lib/ with your own programming solutions
+4. run the spec files in spec/
+5. check out .travis.yml for hints
 
 ## Contributing
 
