@@ -1,6 +1,7 @@
 require_all 'lib/advent_of_code/year_2016/day_02/*'
 
 require 'advent_of_code'
+require 'helpers/match_string'
 
 # noinspection RubyResolve
 describe AdventOfCode::Year2016::Day2 do
@@ -37,7 +38,7 @@ describe AdventOfCode::Year2016::Day2 do
     it 'anchieves star 1' do
       # noinspection RubyResolve
       skip_this_when_dced do
-        expect(subject.bathroom_code input).to be_identical_to_string '76792'
+        expect(subject.bathroom_code input).to be_identical_to_string problem.solution 1
       end
     end
 
@@ -49,7 +50,7 @@ describe AdventOfCode::Year2016::Day2 do
     it 'anchieves star 2' do
       # noinspection RubyResolve
       skip_this_when_dced do
-        expect(subject.bathroom_code input, actual_layout).to be_identical_to_string 'A7AC3'
+        expect(subject.bathroom_code input, actual_layout).to be_identical_to_string problem.solution 2
       end
     end
 

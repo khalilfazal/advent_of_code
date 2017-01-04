@@ -50,7 +50,7 @@ describe AdventOfCode::Year2016::Day7 do
 
     it 'achieves star 1' do
       skip_this_when_dced do
-        expect(input.count(&:tls?)).to be === 110
+        expect(input.count(&:tls?)).to be === problem.solution(1)
       end
     end
 
@@ -72,7 +72,7 @@ describe AdventOfCode::Year2016::Day7 do
 
     it 'achieves star 2' do
       skip_this_when_dced do
-        expect(input.count(&:ssl?)).to be === 242
+        expect(input.count(&:ssl?)).to be === problem.solution(2)
       end
     end
   end

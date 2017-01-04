@@ -22,11 +22,11 @@ describe AdventOfCode::Year2016::Day10 do
 
   context 'examples and stars' do
     it 'achieves star 1' do
-      expect(@world.bot_with_chips low: 17, high: 61).to be === 181
+      expect(@world.bot_with_chips low: 17, high: 61).to be === @problem.solution(1)
     end
 
     it 'achieves star 2' do
-      expect(@world.output_products 0 .. 2).to be === 12_567
+      expect(@world.output_products 0 .. 2).to be === @problem.solution(2)
     end
   end
 end

@@ -1,6 +1,7 @@
 require_all 'lib/advent_of_code/year_2016/day_09/*'
 
 require 'advent_of_code'
+require 'helpers/match_string'
 
 # noinspection RubyResolve
 describe AdventOfCode::Year2016::Day9 do
@@ -44,13 +45,13 @@ describe AdventOfCode::Year2016::Day9 do
 
     it 'achieves star 1' do
       skip_this_when_dced do
-        expect(Day9::File.new(input).decompress.length).to be === 110_346
+        expect(Day9::File.new(input).decompress.length).to be === problem.solution(1)
       end
     end
 
     it 'achieves star 2' do
       skip_this_when_dced do
-        expect(Day9::File.decompressed_length input).to be === 10_774_309_173
+        expect(Day9::File.decompressed_length input).to be === problem.solution(2)
       end
     end
   end

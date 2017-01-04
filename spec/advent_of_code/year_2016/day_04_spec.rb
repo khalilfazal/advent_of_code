@@ -1,6 +1,7 @@
 require_all 'lib/advent_of_code/year_2016/day_04/*'
 
 require 'advent_of_code'
+require 'helpers/match_string'
 
 # noinspection RubyResolve
 describe AdventOfCode::Year2016::Day4 do
@@ -50,7 +51,7 @@ describe AdventOfCode::Year2016::Day4 do
 
     it 'anchieves star 1' do
       skip_this_when_dced do
-        expect(subject.sum_of_real_sector_ids input).to be === 361_724
+        expect(subject.sum_of_real_sector_ids input).to be === problem.solution(1)
       end
     end
 
@@ -61,7 +62,7 @@ describe AdventOfCode::Year2016::Day4 do
 
     it 'anchieves star 2' do
       skip_this_when_dced do
-        expect(subject.find_sector_id_of(input, 'northpole object storage')).to be === 482
+        expect(subject.find_sector_id_of(input, 'northpole object storage')).to be === problem.solution(2)
       end
     end
   end

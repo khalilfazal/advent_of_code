@@ -1,6 +1,7 @@
 require_all 'lib/advent_of_code/year_2016/day_08/*'
 
 require 'advent_of_code'
+require 'helpers/match_string'
 
 # noinspection RubyResolve
 describe AdventOfCode::Year2016::Day8 do
@@ -55,19 +56,12 @@ describe AdventOfCode::Year2016::Day8 do
     end
 
     it 'achieves star 1: count the number of lit pixels' do
-      expect(test_screen.pixels).to be === 121
+      expect(test_screen.pixels).to be === problem.solution(1)
     end
 
     it 'achieves star 2: what code is the screen trying to display?' do
       # noinspection RubyResolve
-      expect(test_screen.to_s).to be_identical_to_string <<~SCREEN
-          ###..#..#.###..#..#..##..####..##..####..###.#....
-          #..#.#..#.#..#.#..#.#..#.#....#..#.#......#..#....
-          #..#.#..#.#..#.#..#.#....###..#..#.###....#..#....
-          ###..#..#.###..#..#.#....#....#..#.#......#..#....
-          #.#..#..#.#.#..#..#.#..#.#....#..#.#......#..#....
-          #..#..##..#..#..##...##..####..##..####..###.####.
-      SCREEN
+      expect(test_screen.to_s).to be_identical_to_string problem.solution 2
     end
   end
 end
