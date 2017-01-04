@@ -15,10 +15,7 @@ module AdventOfCode
   #
   # @return AdventProblem
   def problem(year:, day:)
-    # The first year of Advent of Code was 2015.
-    # When year is before 2015, the site will throw a 404 error.
-    #
-    # Therefore preemptively throw a mock 404 error without using resources.
+    # Preemptively throw a mock 404 error without using any resources.
     now = Time.now
     raise OpenURI::HTTPError.new '404 Not Found', nil unless now.valid_advent_year?(year: year) && now.valid_advent_day?(year: year, day: day)
 
