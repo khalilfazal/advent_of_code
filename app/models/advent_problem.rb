@@ -24,7 +24,7 @@ class AdventProblem < ActiveRecord::Base
   # @return Integer | String
   def solution(id)
     # noinspection RubyResolve
-    solutions[id - 1].to_i!.tap do |solution|
+    answers[id - 1].to_i!.tap do |solution|
       # assuming that all strings start and end with double quotes
       if solution.is_a? String
         solution.chop!.reverse!.chop!.reverse!.gsub! '\\n', "\n"
