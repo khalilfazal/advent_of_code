@@ -33,7 +33,7 @@
     <method>
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:drop test" run_configuration_type="RakeRunConfigurationType" />
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:create test" run_configuration_type="RakeRunConfigurationType" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:migrate test" run_configuration_type="RakeRunConfigurationType" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:schema:load: test" run_configuration_type="RakeRunConfigurationType" />
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:seed test" run_configuration_type="RakeRunConfigurationType" />
     </method>
   </configuration>

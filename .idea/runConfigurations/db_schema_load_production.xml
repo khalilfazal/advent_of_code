@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="travis ci spec" type="RakeRunConfigurationType" factoryName="Rake">
+  <configuration default="false" name="db:schema:load production" type="RakeRunConfigurationType" factoryName="Rake" folderName="production">
     <module name="advent_of_code" />
     <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
     <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
@@ -14,17 +14,12 @@
         <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
       </COVERAGE_PATTERN>
     </EXTENSION>
-    <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="spec" />
+    <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="db:schema:load" />
     <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="RAILS_ENV=production" />
-    <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE=":rspec " />
+    <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
     <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
     <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
     <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-    <method>
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:drop production" run_configuration_type="RakeRunConfigurationType" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:create production" run_configuration_type="RakeRunConfigurationType" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:schema:load production" run_configuration_type="RakeRunConfigurationType" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:seed production" run_configuration_type="RakeRunConfigurationType" />
-    </method>
+    <method />
   </configuration>
 </component>
