@@ -9,6 +9,7 @@ class AdventProblem < ActiveRecord::Base
 
   validate :advent_day
 
+  # @return [ActiveModel::Validations::InclusionValidator]
   def advent_day
     now = Time.now
 
