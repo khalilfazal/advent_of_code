@@ -21,7 +21,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 929ded40fc1bdeb42353868b7ada9e73615ad4b4
+  revision: b9db45bb632853b709c64c736859e9ee347ca4bf
   specs:
     actionpack (5.1.0.alpha)
       actionview (= 5.1.0.alpha)
@@ -162,4 +162,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.13.6
+   1.13.7
