@@ -9,18 +9,18 @@ class Object
     const_set name, Module.new(&block)
   end
 
-  # Continuously calls yield until f(seed) is true
+  # Continuously calls block until f(seed) is true
   # returns seed
   #
   # @param f Proc: Object -> Boolean
   # @block
   #
   # @return Object
-  def loop_until(f)
+  def loop_until(f, &block)
     seed = nil
 
     loop do
-      break if f.call((seed = yield))
+      break if f.call((seed = block.call))
     end
 
     seed
