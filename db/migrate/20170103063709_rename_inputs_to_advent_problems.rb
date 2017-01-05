@@ -1,4 +1,4 @@
-# rename table inputs to advent_problems
+# Rename table inputs to advent_problems
 class RenameInputsToAdventProblems < ActiveRecord::Migration[5.1]
   def change
     # noinspection RailsParamDefResolve

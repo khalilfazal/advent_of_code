@@ -1,4 +1,4 @@
-# create table: inputs
+# Create table: inputs
 # with columns: year, day, and input
 class CreateInputs < ActiveRecord::Migration[5.1]
   def change

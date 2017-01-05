@@ -1,4 +1,4 @@
-# add index to prevent duplicate advent days in a year
+# Add index to prevent duplicate advent days in a year
 class UpdateInputs < ActiveRecord::Migration[5.1]
   def change
     change_table :inputs do |t|
