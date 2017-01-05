@@ -3,9 +3,7 @@ autoload :YAML, 'yaml'
 
 # noinspection RubyResolve
 YAML.load(File.read 'db/seeds/answers.yml')['years'].each do |year|
-  year_id = year['year']
-
   year['days'].each do |day|
-    AdventProblem.seed year: year_id, day: day['day'], answers: day['answers']
+    AdventProblem.seed year.slice('year').merge(day).symbolize_keys
   end
 end
