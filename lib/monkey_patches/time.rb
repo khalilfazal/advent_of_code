@@ -14,7 +14,18 @@ class Time
     1 .. ((year === self.year && month === 12) ? day.clamp(1, 25) : 25)
   end
 
-  # Has year-12-day happened yet?
+  # Are there any problems for this +date+?
+  #
+  # @param date Hash[Symbol, Integer]
+  #
+  # @return Boolean
+  def valid_advent_date?(date)
+    valid_advent_year?(date.slice :year) && valid_advent_day?(date)
+  end
+
+  private
+
+  # Has year-12-day happened yet and are there any problems for this +day+?
   #
   # @param year Integer
   # @param day Integer
@@ -24,7 +35,7 @@ class Time
     advent_days(year: year).include? day
   end
 
-  # Are there any Advent of Code problems for the specified +year+?
+  # Are there any problems for the specified +year+?
   #
   # @param year Integer
   #

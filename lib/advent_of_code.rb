@@ -10,20 +10,33 @@ require 'open-uri'
 module AdventOfCode
   module_function
 
+  # @param date Hash[Symbol, Integer]
+  #
+  # @return AdventProblem
+  def problem(date)
+    # Preemptively throw a mock 404 error without using any resources if there is no problem for that date.
+    raise OpenURI::HTTPError.new '404 Not Found', nil unless now.valid_advent_date? date
+
+    AdventProblem.find_or_create_by(date).tap do |problem|
+      if problem.input.nil?
+        problem.update input: open(problem_url(date), 'Cookie' => read_cookie).read
+      end
+    end
+  end
+
+  # Builds the url for a problem
+  #
   # @param year Integer
   # @param day Integer
   #
-  # @return AdventProblem
-  def problem(year:, day:)
-    # Preemptively throw a mock 404 error without using any resources.
-    now = Time.now
-    raise OpenURI::HTTPError.new '404 Not Found', nil unless now.valid_advent_year?(year: year) && now.valid_advent_day?(year: year, day: day)
+  # @return String
+  def problem_url(year:, day:)
+    "http://adventofcode.com/#{year}/day/#{day}/input"
+  end
 
-    AdventProblem.find_or_create_by(year: year, day: day).tap do |problem|
-      if problem.input.nil?
-        problem.update input: open("http://adventofcode.com/#{year}/day/#{day}/input", 'Cookie' => read_cookie).read
-      end
-    end
+  # @return Time
+  def now
+    @now ||= Time.now
   end
 
   # @param file String
@@ -70,11 +83,13 @@ module AdventOfCode
           end
         end
       end
-
-      # noinspection RubyResolve
-      Time.now.advent_days(year: year).each(&method(:make_day))
+    end.tap do |year_module|
+      now.advent_days(year: year).each do |day|
+        # noinspection RubyResolve
+        year_module.make_day day
+      end
     end
   end
 
-  Time.now.advent_years.each(&method(:make_year))
+  now.advent_years.each(&method(:make_year))
 end
