@@ -11,6 +11,19 @@ class AdventProblem < ActiveRecord::Base
   validate :advent_day
   validates_uniqueness_of :day, scope: :year, strict: true, message: '%{year}-12-%{day} is already in the input table'
 
+  # seed the database with +answers+
+  #
+  # @param year Integer
+  # @param day Integer
+  # @param answers [Integer | String]
+  #
+  # @return AdventProblem
+  def self.seed(year:, day:, answers:)
+    find_or_create_by!(year: year, day: day).tap do |problem|
+      problem.update answers: answers.map(&:to_json)
+    end
+  end
+
   # @return [ActiveModel::Validations::InclusionValidator]
   def advent_day
     now = Time.now

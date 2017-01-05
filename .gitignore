@@ -9,4 +9,4 @@ pkg/*
 coverage/*
 !/coverage/.keep
 
-db/seeds/answers.json
+/db/seeds/answers.yml
