@@ -18,5 +18,5 @@ Gem::Specification.new do |spec|
     f.match(%r{^(test|spec|features)/})
   end
 
-  spec.require_paths = %w(app lib spec)
+  spec.require_paths = %w(app coverage lib spec)
 end

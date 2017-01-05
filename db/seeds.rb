@@ -1,5 +1,8 @@
 autoload :AdventProblem, 'models/advent_problem'
 autoload :YAML, 'yaml'
+autoload :StartCoverage, 'start_coverage'
+
+StartCoverage.run
 
 # noinspection RubyResolve
 YAML.load(File.read 'db/seeds/answers.yml')['years'].each do |year|

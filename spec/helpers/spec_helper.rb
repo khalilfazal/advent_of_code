@@ -1,7 +1,6 @@
-# Start coverage
-autoload :SimpleCov, 'simplecov'
+autoload :StartCoverage, 'start_coverage'
 
-SimpleCov.start
+StartCoverage.run complete: true
 
 # Load database
 autoload :LoadDB, 'models/load_db'

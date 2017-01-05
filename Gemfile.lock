@@ -21,7 +21,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: b9db45bb632853b709c64c736859e9ee347ca4bf
+  revision: 98a3d647f1329c556f977678a08143cac914253a
   specs:
     actionpack (5.1.0.alpha)
       actionview (= 5.1.0.alpha)
@@ -84,7 +84,7 @@ GEM
     method_source (0.8.2)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
-    nokogiri (1.7.0)
+    nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     parser (2.3.3.1)
       ast (~> 2.2)

@@ -7,6 +7,6 @@ pkg/*
 !/pkg/.keep
 
 coverage/*
-!/coverage/.keep
+!/coverage/start_coverage.rb
 
 /db/seeds/answers.yml
