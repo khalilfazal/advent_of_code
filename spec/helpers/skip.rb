@@ -8,9 +8,9 @@ module Skip
   # @param enabled Boolean
   # @block example
   #
-  # @return NilClass | Exception
+  # @return Boolean | Exception
   def skip_this_when_dced(enabled: true, &example)
-    skip_this_when(enabled: enabled, expected_exception: SocketError, &example)
+    skip_this_when enabled: enabled, expected_exception: SocketError, &example
   end
 
   # skip when +Errno::ENOENT+ is raised
@@ -18,9 +18,9 @@ module Skip
   # @param enabled Boolean
   # @block example
   #
-  # @return NilClass | Exception
+  # @return Boolean | Exception
   def skip_this_when_file_not_found(enabled: true, &example)
-    skip_this_when(enabled: enabled, expected_exception: Errno::ENOENT, &example)
+    skip_this_when enabled: enabled, expected_exception: Errno::ENOENT, &example
   end
 
   private
@@ -31,18 +31,13 @@ module Skip
   # @param expected_exception Exception
   # @block example
   #
-  # @return NilClass | Exception
+  # @return Boolean | Exception
   def skip_this_when(enabled:, expected_exception:, &example)
-    actual_exception = nil
-
-    begin
-      example.call
-    rescue expected_exception => e
-      actual_exception = e
+    example.call
+  rescue expected_exception => e
+    e.tap do
       skip e.message if enabled && e.is_a?(expected_exception)
     end
-
-    actual_exception
   end
 end
 

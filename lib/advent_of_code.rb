@@ -43,15 +43,12 @@ module AdventOfCode
   #
   # @return String
   def read_cookie(file = 'cookie.txt')
-    @cookie ||=
-      begin
-        open(file, 'r', &method(:with_handle))
-      rescue SystemCallError
-        raise StandardError, [
-          'Place your session cookie into cookie.txt',
-          'See cookie.txt.sample'
-        ].unlines
-      end
+    @cookie ||= open file, 'r', &method(:with_handle)
+  rescue SystemCallError
+    raise StandardError, <<~MESSAGE
+      Place your session cookie into cookie.txt
+      See cookie.txt.sample
+    MESSAGE
   end
 
   # @param handle File
