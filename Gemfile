@@ -4,6 +4,7 @@ ruby '2.4.0'
 
 # gems needed for running all files in lib
 group :runtime do
+  gem 'msgpack', '~> 1.0', '>= 1.0.2'
   gem 'pg', '~> 0.19.0'
 
   # +standalone_migrations+ (5.0.0) depends on +rake+ (~> 10.0)
@@ -27,7 +28,6 @@ group :test do
   gem 'fuubar', '~> 2.2'
   gem 'require_all', '~> 1.3', '>= 1.3.3'
   gem 'rspec', '~> 3.5'
-  gem 'rspec-prof', '~> 0.0.7'
   gem 'rubocop', '~> 0.46.0'
   gem 'ruby-graphviz', git: 'https://github.com/khalilfazal/Ruby-Graphviz.git'
   gem 'ruby-prof', '~> 0.16.2'

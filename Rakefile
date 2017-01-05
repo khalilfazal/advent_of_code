@@ -12,7 +12,7 @@ task :profile do
   require 'ruby-prof/task'
 
   RubyProf::ProfileTask.new do |t|
-    t.test_files = FileList['**/{spec_*,*_spec}.rb']
+    t.test_files = FileList['spec/helpers/spec_helper.rb']
     t.min_percent = 0
     t.output_dir = 'profiles/html'
     t.printer = :graph_html

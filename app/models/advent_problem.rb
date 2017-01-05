@@ -1,5 +1,5 @@
-autoload :JSON, 'json'
 require 'monkey_patches/time'
+require 'msgpack'
 
 # noinspection RailsParamDefResolve
 class AdventProblem < ActiveRecord::Base
@@ -20,7 +20,7 @@ class AdventProblem < ActiveRecord::Base
   # @return AdventProblem
   def self.seed(year:, day:, answers:)
     find_or_create_by!(year: year, day: day).tap do |problem|
-      problem.update answers: answers.map(&:to_json)
+      problem.update answers: answers.to_msgpack
     end
   end
 
@@ -37,6 +37,6 @@ class AdventProblem < ActiveRecord::Base
   # @return Integer | String
   def solution(id)
     # noinspection RubyResolve
-    JSON.parse answers[id - 1], quirks_mode: true
+    MessagePack.unpack(answers)[id - 1]
   end
 end
