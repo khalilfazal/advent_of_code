@@ -29,8 +29,10 @@ group :test do
   gem 'require_all', '~> 1.3', '>= 1.3.3'
   gem 'rspec', '~> 3.5'
   gem 'rubocop', '~> 0.46.0'
-  gem 'ruby-graphviz', git: 'https://github.com/khalilfazal/Ruby-Graphviz.git'
   gem 'ruby-prof', '~> 0.16.2'
+
+  # bug fix: https://github.com/glejeune/Ruby-Graphviz/pull/121
+  gem 'ruby-graphviz', git: 'https://github.com/khalilfazal/Ruby-Graphviz.git'
 
   # next version after 0.12 solves this problem: https://github.com/colszowka/simplecov/commit/050eb6830440bf998c462aee219f8b3cd17d570f
   gem 'simplecov', git: 'https://github.com/colszowka/simplecov.git' # , '~> 0.12.0'
