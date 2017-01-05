@@ -1,5 +1,35 @@
-Travis CI: [![Build Status](https://travis-ci.org/khalilfazal/advent_of_code.svg?branch=master)](https://travis-ci.org/khalilfazal/advent_of_code)  
-Code Climate: [![Code Climate](https://codeclimate.com/github/khalilfazal/advent_of_code/badges/gpa.svg)](https://codeclimate.com/github/khalilfazal/advent_of_code/trends) [![Test Coverage](https://codeclimate.com/github/khalilfazal/advent_of_code/badges/coverage.svg)](https://codeclimate.com/github/khalilfazal/advent_of_code/coverage) [![Issue Count](https://codeclimate.com/github/khalilfazal/advent_of_code/badges/issue_count.svg)](https://codeclimate.com/github/khalilfazal/advent_of_code/issues)
+<table align="center">
+  <tr>
+    <td align="left">Travis CI</td>
+    <td align="left">
+      <a href="https://travis-ci.org/khalilfazal/advent_of_code">
+        <img alt="Build Status" src="https://travis-ci.org/khalilfazal/advent_of_code.svg?branch=master"/>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="left">Code Climate</td>
+    <td align="left">
+      <a href="https://codeclimate.com/github/khalilfazal/advent_of_code/trends">
+        <img alt="Code Climate" src="https://codeclimate.com/github/khalilfazal/advent_of_code/badges/gpa.svg"/>
+      </a>
+      <a href="https://codeclimate.com/github/khalilfazal/advent_of_code/coverage">
+        <img alt="Test Coverage" src="https://codeclimate.com/github/khalilfazal/advent_of_code/badges/coverage.svg"/>
+      </a>
+      <a href="https://codeclimate.com/github/khalilfazal/advent_of_code/issues">
+        <img alt="Issue Count" src="https://codeclimate.com/github/khalilfazal/advent_of_code/badges/issue_count.svg"/>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="left">Inch CI</td>
+    <td align="left">
+      <a href="http://inch-ci.org/github/khalilfazal/advent_of_code">
+        <img alt="Inline docs" src="http://inch-ci.org/github/khalilfazal/advent_of_code.svg?branch=master"/>
+      </a>
+    </td>
+  </tr>
+</table>
 
 # Advent of Code
 
