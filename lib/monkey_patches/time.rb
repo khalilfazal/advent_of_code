@@ -1,6 +1,6 @@
 autoload :Boolean, 'helpers/boolean'
 
-# calculates valid advent days and years
+# Calculates valid advent days and years
 class Time
   # @return Range<Integer>
   def advent_years
@@ -24,7 +24,7 @@ class Time
     advent_days(year: year).include? day
   end
 
-  # Are there Advent of Code problems for this year?
+  # Are there any Advent of Code problems for the specified +year+?
   #
   # @param year Integer
   #

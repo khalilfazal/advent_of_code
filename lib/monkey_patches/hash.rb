@@ -1,13 +1,13 @@
-# Key type of a Hash
+# +Key+ type of a Hash
 class Key < Object
 end
 
-# Value type of a Hash
+# +Value+ type of a Hash
 class Value < Object
 end
 
-# update value at key with updater
-# if key doesn't exist, create with creator before using updater
+# Update value at key with +updater+
+# If key doesn't exist, create with +creator+ before using +updater+
 class Hash
   # @param key Key
   # @param updater Proc: Value -> Value

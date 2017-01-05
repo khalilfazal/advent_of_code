@@ -3,7 +3,7 @@ require 'active_support/core_ext/hash/transform_values'
 require 'monkey_patches/array'
 require 'monkey_patches/enumerable'
 
-# the room name is encrypted
+# Decrypts room name
 class Room
   attr_reader :id
   attr_reader :checksum

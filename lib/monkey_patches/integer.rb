@@ -1,4 +1,4 @@
-# added methods here instead of Fixnum because Fixnum and Bignum will both be merged in 2.4
+# Added here any number theoretical methods for integers
 class Integer
   # @return Integer
   def to_nat

@@ -2,7 +2,7 @@ autoload :Boolean, 'helpers/boolean'
 autoload :Forwardable, 'forwardable'
 require 'monkey_patches/array'
 
-# a traveller as a location and a direction
+# A traveller has a location and a direction
 class Traveller
   extend Forwardable
 
@@ -51,7 +51,6 @@ class Traveller
         end
       end
 
-      # noinspection RubyResolve
       traveller.distance
     end
   end

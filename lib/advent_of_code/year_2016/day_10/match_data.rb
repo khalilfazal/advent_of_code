@@ -1,4 +1,4 @@
-# captures information for either a bot or output
+# Captures information for either a +Bot+ or +Output+
 class MatchData
   # @param entities [Symbol]
   #

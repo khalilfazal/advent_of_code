@@ -1,16 +1,37 @@
+autoload :Boolean, 'helpers/boolean'
 require 'socket'
 
+# methods that can bee used to skip test cases on exceptions
 module Skip
+  # skip when +SocketError+ is raised
+  #
+  # @param enabled Boolean
+  # @block example
+  #
+  # @return NilClass | Exception
   def skip_this_when_dced(enabled: true, &example)
     skip_this_when(enabled: enabled, expected_exception: SocketError, &example)
   end
 
+  # skip when +Errno::ENOENT+ is raised
+  #
+  # @param enabled Boolean
+  # @block example
+  #
+  # @return NilClass | Exception
   def skip_this_when_file_not_found(enabled: true, &example)
     skip_this_when(enabled: enabled, expected_exception: Errno::ENOENT, &example)
   end
 
   private
 
+  # skip when +expected_exception+ is raised
+  #
+  # @param enabled Boolean
+  # @param expected_exception Exception
+  # @block example
+  #
+  # @return NilClass | Exception
   def skip_this_when(enabled:, expected_exception:, &example)
     actual_exception = nil
 

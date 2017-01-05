@@ -1,7 +1,7 @@
 autoload :Boolean, 'helpers/boolean'
 require 'monkey_patches/array'
 
-# can check if an IPV7 string supports tls or ssl
+# Can check if an +IPV7+ string supports tls or ssl
 module IPV7
   # @return Boolean
   def tls?

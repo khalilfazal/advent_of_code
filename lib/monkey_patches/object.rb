@@ -1,6 +1,6 @@
 autoload :Boolean, 'helpers/boolean'
 
-# add method to dynamically create a module
+# Add method to dynamically create a module
 class Object
   # @param name String
   #
@@ -9,8 +9,8 @@ class Object
     const_set name, Module.new(&block)
   end
 
-  # Continuously calls block until f(seed) is true
-  # returns seed
+  # Continuously calls block until +f+ +seed+ is +true+
+  # returns +seed+
   #
   # @param f Proc: Object -> Boolean
   # @block

@@ -1,7 +1,7 @@
 require 'English'
 require 'monkey_patches/hash'
 
-# contains bots and outputs
+# Contains +Bots+ and +Outputs+
 class World
   attr_reader :entities
 

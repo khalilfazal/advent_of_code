@@ -1,5 +1,4 @@
 autoload :JSON, 'json'
-require 'monkey_patches/string'
 require 'monkey_patches/time'
 
 # noinspection RailsParamDefResolve

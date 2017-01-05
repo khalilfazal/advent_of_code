@@ -1,7 +1,7 @@
 require 'monkey_patches/array'
 require 'monkey_patches/string'
 
-# can be used with different layouts
+# Can be used with different layouts
 class Keypad
   private_class_method :new
 

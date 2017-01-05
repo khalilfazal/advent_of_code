@@ -1,9 +1,9 @@
-# start coverage
+# Start coverage
 autoload :SimpleCov, 'simplecov'
 
 SimpleCov.start
 
-# load database
+# Load database
 autoload :LoadDB, 'models/load_db'
 LoadDB.run(environment: ENV['RAILS_ENV'])
 

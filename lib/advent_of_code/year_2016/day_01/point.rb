@@ -1,6 +1,6 @@
 require 'monkey_patches/integer'
 
-# a 2d point with taxicab metric
+# A 2d point with taxicab metric
 class Point
   private_class_method :new
 
@@ -62,7 +62,7 @@ class Point
   end
 
   # Copied from: http://stackoverflow.com/a/919661/710755
-  # No difference in run time between Array#hash and Point#cantor_pairing
+  # No difference in runtime between Array#hash and Point#pi
   #
   # @return Integer
   def hash

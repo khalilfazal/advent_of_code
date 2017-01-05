@@ -1,6 +1,6 @@
 autoload :Boolean, 'helpers/boolean'
 
-# either a Bot or Output
+# Either a +Bot+ or +Output+
 class Entity
   attr_reader :id
   attr_reader :microchips

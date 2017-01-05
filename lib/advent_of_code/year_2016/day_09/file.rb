@@ -1,8 +1,9 @@
 autoload :Forwardable, 'forwardable'
 require 'monkey_patches/string'
 
+# Need to wrap class in a module to avoid collision with +File+
 module Day9
-  # represents a compressed file
+  # Represents a compressed file
   class File
     extend Forwardable
 

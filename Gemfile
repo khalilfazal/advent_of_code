@@ -6,12 +6,12 @@ ruby '2.4.0'
 group :runtime do
   gem 'pg', '~> 0.19.0'
 
-  # standalone_migrations (5.0.0) depends on rake (~> 10.0)
+  # +standalone_migrations+ (5.0.0) depends on +rake+ (~> 10.0)
   # gem 'rake', '~> 12.0'
   gem 'rake', '~> 10.0'
   gem 'standalone_migrations', '~> 5.0'
 
-  # activerecord (5.1.0.alpha) depends on arel (~> 8.0)
+  # +activerecord+ (5.1.0.alpha) depends on +arel+ (~> 8.0)
   gem 'arel', git: 'https://github.com/rails/arel.git'
 
   git 'https://github.com/rails/rails.git' do
@@ -35,7 +35,7 @@ group :test do
   # next version after 0.12 solves this problem: https://github.com/colszowka/simplecov/commit/050eb6830440bf998c462aee219f8b3cd17d570f
   gem 'simplecov', git: 'https://github.com/colszowka/simplecov.git' # , '~> 0.12.0'
 
-  # debase 0.2.2 has this bug: https://intellij-support.jetbrains.com/hc/en-us/community/posts/203374210-Problem-debugging-with-Rubymine
+  # +debase+ 0.2.2 has this bug: https://intellij-support.jetbrains.com/hc/en-us/community/posts/203374210-Problem-debugging-with-Rubymine
   gem 'debase', '~> 0.2.1'
 end
 

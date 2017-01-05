@@ -1,13 +1,13 @@
-# either true or false
+# Either +true+ or +false+
 module Boolean
 end
 
-# class of true
+# Class of +true+
 class TrueClass
   extend Boolean
 end
 
-# class of false
+# Class of +false+
 class FalseClass
   extend Boolean
 end

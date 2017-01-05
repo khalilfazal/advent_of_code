@@ -1,6 +1,6 @@
 require 'monkey_patches/object'
 
-# finds interesting md5 hashes
+# Finds interesting md5 hashes
 class MD5Hasher
   private_class_method :new
 

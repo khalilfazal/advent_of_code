@@ -1,7 +1,7 @@
 autoload :Boolean, 'helpers/boolean'
 autoload :Forwardable, 'forwardable'
 
-# can fulfil promises
+# Can fulfil promises
 class Bot < Entity
   extend Forwardable
 

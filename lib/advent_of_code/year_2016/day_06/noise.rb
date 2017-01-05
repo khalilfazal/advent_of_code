@@ -1,6 +1,6 @@
 require 'monkey_patches/array'
 
-# noises are decoded by finding the most common or least common character per column
+# Noises are decoded by finding the most common or least common character per column
 class Noise
   private_class_method :new
 

@@ -1,4 +1,4 @@
-# added method to group equal elements together
+# Added method to group equal elements together
 module Enumerable
   # @return Enumerable
   def group_eq

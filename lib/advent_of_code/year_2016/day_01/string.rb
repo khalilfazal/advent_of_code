@@ -1,4 +1,4 @@
-# parse travel commands
+# Parse travel commands
 class String
   # @return [Symbol]
   def parse_commands

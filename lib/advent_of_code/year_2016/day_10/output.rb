@@ -1,4 +1,4 @@
-# can't give to other entities or make promises
+# Can't give to other Entities or make promises
 class Output < Entity
   # @return Integer
   def output

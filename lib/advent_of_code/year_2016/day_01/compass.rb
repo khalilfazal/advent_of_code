@@ -1,4 +1,4 @@
-# a compass implemented with only 4 instancesL one per direction
+# A compass implemented with only 4 instances: one per direction
 class Compass
   attr_reader :clockwise, :widdershins
 

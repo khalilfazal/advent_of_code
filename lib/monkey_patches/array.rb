@@ -1,12 +1,12 @@
 autoload :Boolean, 'helpers/boolean'
 require 'English'
 
-# Element of an array
+# +Element+ of an array
 class Element < Object
 end
 
-# added methods to get the most and least common element in array (mode and rarest).
-# added methods to get elements with odd and even indices.
+# Added methods to get the most and least common element in array (+mode+ and +rarest+).
+# Added methods to get elements with +odd+ and +even+ indices.
 class Array
   alias old_flat_map flat_map
   alias old_join join
