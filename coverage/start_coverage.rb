@@ -10,8 +10,11 @@ module StartCoverage
   # @return SimpleCov
   def run(complete: false)
     SimpleCov.configure do
-      minimum_coverage 100 if complete
-      start
+      unless ENV['WITHOUT_COVERAGE']
+        minimum_coverage 100 if complete
+        start
+        command_name 'cover all'
+      end
     end
   end
 end
