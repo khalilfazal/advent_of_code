@@ -13,7 +13,6 @@ module StartCoverage
       unless ENV['WITHOUT_COVERAGE']
         minimum_coverage 100 if complete
         start
-        command_name 'cover all'
       end
     end
   end
