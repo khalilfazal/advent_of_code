@@ -11,6 +11,10 @@ class Room
   NAME_ID_REGEX =/([-a-z]+)-(\d+)/
 
   class << self
+    # Constructs a list of rooms,
+    # selects the real rooms,
+    # and sums their ids.
+    #
     # @param inputs [String]
     #
     # @return Integer
