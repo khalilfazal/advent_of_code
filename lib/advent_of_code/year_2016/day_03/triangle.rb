@@ -27,6 +27,9 @@ class Triangle
 
     private
 
+    # Interpreting a +Triangle+ as three integers either row-wise or column-wise,
+    # count the number of valid +triangle+s
+    #
     # @param input String
     # @param transpose Boolean
     #
