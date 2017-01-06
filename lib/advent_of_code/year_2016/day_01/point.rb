@@ -13,6 +13,8 @@ class Point
     end
   end
 
+  # Example: origin = Point.new 0, 0
+  #
   # @param dims [Integer]
   def initialize(*dims)
     @x, @y = dims
