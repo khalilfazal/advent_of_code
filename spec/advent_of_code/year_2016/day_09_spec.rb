@@ -11,35 +11,29 @@ describe AdventOfCode::Year2016::Day9 do
   context 'examples and stars' do
     [{
       compressed: 'ADVENT',
-      decompressed: 'ADVENT',
-      length: 6
+      decompressed: 'ADVENT'
     }, {
       compressed: 'A(1x5)BC',
-      decompressed: 'ABBBBBC',
-      length: 7
+      decompressed: 'ABBBBBC'
     }, {
       compressed: '(3x3)XYZ',
-      decompressed: 'XYZXYZXYZ',
-      length: 9
+      decompressed: 'XYZXYZXYZ'
     }, {
       compressed: 'A(2x2)BCD(2x2)EFG',
-      decompressed: 'ABCBCDEFEFG',
-      length: 11
+      decompressed: 'ABCBCDEFEFG'
     }, {
       compressed: '(6x1)(1x3)A',
-      decompressed: '(1x3)A',
-      length: 6
+      decompressed: '(1x3)A'
     }, {
       compressed: 'X(8x2)(3x3)ABCY',
-      decompressed: 'X(3x3)ABC(3x3)ABCY',
-      length: 18
+      decompressed: 'X(3x3)ABC(3x3)ABCY'
     }].each_with_index do |example, i|
       it "example #{i + 1}" do
         file = Day9::File.new example[:compressed]
 
         # noinspection RubyResolve
         expect(file.decompress).to be_identical_to_string example[:decompressed]
-        expect(file.length).to be === example[:length]
+        expect(file.length).to be === example[:decompressed].length
       end
     end
 
