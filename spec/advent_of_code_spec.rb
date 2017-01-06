@@ -16,7 +16,7 @@ describe AdventOfCode do
     ENV['ADVENT_OF_CODE_COOKIE'] = nil
 
     # change the behaviour of +YAML+
-    allow(YAML).to receive(:load_file).and_return nil
+    allow(YAML).to receive(:load_file).and_return({})
 
     expect { subject.cookie }.to raise_error StandardError
 
