@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.0'
 
 # gems needed for running all files in lib
-group :runtime do
+group :main do
   gem 'msgpack', '~> 1.0', '>= 1.0.2'
   gem 'pg', '~> 0.19.0'
 
@@ -27,6 +27,7 @@ group :ci do
   gem 'fuubar', '~> 2.2'
   gem 'require_all', '~> 1.3', '>= 1.3.3'
   gem 'rspec', '~> 3.5'
+  gem 'rubocop', '~> 0.46.0'
 
   # next version after 0.12 solves this problem: https://github.com/colszowka/simplecov/commit/050eb6830440bf998c462aee219f8b3cd17d570f
   gem 'simplecov', git: 'https://github.com/colszowka/simplecov.git' # , '~> 0.12.0'
@@ -35,7 +36,6 @@ end
 # gems needed for testing, inspections, profiling and coverage
 group :test do
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
-  gem 'rubocop', '~> 0.46.0'
   gem 'ruby-prof', '~> 0.16.2'
 
   # bug fix: https://github.com/glejeune/Ruby-Graphviz/pull/121

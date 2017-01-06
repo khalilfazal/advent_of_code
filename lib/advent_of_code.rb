@@ -17,7 +17,7 @@ module AdventOfCode
     # Preemptively throw a mock 404 error without using any resources if there is no problem for that date.
     raise OpenURI::HTTPError.new '404 Not Found', nil unless now.valid_advent_date? date
 
-    AdventProblem.find_or_create_by(date).tap do |problem|
+    AdventProblem.find_or_create_by!(date).tap do |problem|
       if problem.input.nil?
         problem.update input: open(problem_url(date), 'Cookie' => cookie).read
       end
@@ -36,7 +36,7 @@ module AdventOfCode
 
   # @return Time
   def now
-    @now ||= Time.now
+    @now ||= Time.current
   end
 
   # @return String

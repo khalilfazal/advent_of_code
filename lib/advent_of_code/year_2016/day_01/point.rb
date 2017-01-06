@@ -4,6 +4,8 @@ require 'monkey_patches/integer'
 class Point
   private_class_method :new
 
+  delegate :to_s, to: :dims
+
   class << self
     # @return Point
     def origin
@@ -45,11 +47,6 @@ class Point
   # @return Integer
   def taxicab_metric
     dims.sum(&:abs)
-  end
-
-  # @return String
-  def to_s
-    dims.to_s
   end
 
   private

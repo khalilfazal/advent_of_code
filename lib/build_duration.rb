@@ -13,4 +13,4 @@ builds = Travis::Repository.find("#{Travis.user.login}/#{File.basename Dir.pwd}"
 builds.pop ENV['SINCE_BUILD'].to_i if ENV['SINCE_BUILD']
 mean_build_time = builds.select(&:passed?).map(&:duration).mean.format('%.2f').duration
 
-print "Mean build duration of passing builds since #{builds.last} is #{mean_build_time}."
+Logger.new(STDOUT).info "Mean build duration of passing builds since #{builds.last} is #{mean_build_time}."
