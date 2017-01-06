@@ -24,8 +24,10 @@ end
 task :stats do
   require 'rails/code_statistics'
 
-  ::STATS_DIRECTORIES << %w(Specs spec/)
-  CodeStatistics::TEST_TYPES << 'Specs'
+  [%w(DB db), %w(Specs spec)].each do |dir|
+    ::STATS_DIRECTORIES << dir
+    CodeStatistics::TEST_TYPES << dir[0]
+  end
 end
 
 # db
