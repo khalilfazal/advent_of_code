@@ -13,6 +13,8 @@ class Screen
     @major = :row
   end
 
+  # Runs each command line to change the +Screen+'s display
+  #
   # @param lines [String]
   #
   # @return Screen
