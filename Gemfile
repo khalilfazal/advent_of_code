@@ -21,6 +21,17 @@ group :runtime do
   end
 end
 
+# gems needed for travis ci
+group :ci do
+  gem 'codeclimate-test-reporter', '~> 1.0', '>= 1.0.4'
+  gem 'fuubar', '~> 2.2'
+  gem 'require_all', '~> 1.3', '>= 1.3.3'
+  gem 'rspec', '~> 3.5'
+
+  # next version after 0.12 solves this problem: https://github.com/colszowka/simplecov/commit/050eb6830440bf998c462aee219f8b3cd17d570f
+  gem 'simplecov', git: 'https://github.com/colszowka/simplecov.git' # , '~> 0.12.0'
+end
+
 # gems needed for testing, inspections, profiling and coverage
 group :test do
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
@@ -34,18 +45,7 @@ group :test do
   gem 'debase', '~> 0.2.1'
 end
 
-# gems needed for travis ci
-group :test, :ci do
-  gem 'codeclimate-test-reporter', '~> 1.0', '>= 1.0.4'
-  gem 'fuubar', '~> 2.2'
-  gem 'require_all', '~> 1.3', '>= 1.3.3'
-  gem 'rspec', '~> 3.5'
-
-  # next version after 0.12 solves this problem: https://github.com/colszowka/simplecov/commit/050eb6830440bf998c462aee219f8b3cd17d570f
-  gem 'simplecov', git: 'https://github.com/colszowka/simplecov.git' # , '~> 0.12.0'
-end
-
-group :test, :build_duration do
+group :build_duration do
   gem 'chronic_duration', '~> 0.10.6'
   gem 'descriptive_statistics', '~> 2.5', '>= 2.5.1'
   gem 'travis', '~> 1.8', '>= 1.8.5'
