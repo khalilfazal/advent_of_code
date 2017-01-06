@@ -1,5 +1,5 @@
 autoload :Boolean, 'helpers/boolean'
-require 'socket'
+autoload :SocketError, 'socket'
 
 # methods that can bee used to skip test cases on exceptions
 module Skip
