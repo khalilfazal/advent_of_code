@@ -1,6 +1,4 @@
-source 'https://rubygems.org'
-
-ruby '2.4.0'
+eval_gemfile File.expand_path('Gemfile.ci', File.dirname(__FILE__))
 
 # gems needed for testing, inspections, profiling and coverage
 group :test do
@@ -19,5 +17,3 @@ group :build_duration do
   gem 'descriptive_statistics', '~> 2.5', '>= 2.5.1'
   gem 'travis', '~> 1.8', '>= 1.8.5'
 end
-
-eval_gemfile 'Gemfile.ci'
