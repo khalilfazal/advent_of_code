@@ -8,11 +8,14 @@ describe AdventOfCode do
   it { within_block_is_expected.not_to raise_exception }
 
   it 'raises an error when the session cookie can not be determined' do
-    # make the environment variable null
+    # set the +cookie+ instance variable to nil
+    subject.instance_variable_set :@cookie, nil
+
+    # make the environment variable nil
     cookie = ENV['ADVENT_OF_CODE_COOKIE']
     ENV['ADVENT_OF_CODE_COOKIE'] = nil
 
-    # change the behaviour of YAML
+    # change the behaviour of +YAML+
     allow(YAML).to receive(:load_file).and_return nil
 
     expect { subject.cookie }.to raise_error StandardError
