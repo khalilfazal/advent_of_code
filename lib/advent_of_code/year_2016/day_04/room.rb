@@ -18,6 +18,8 @@ class Room
       make_inputs(inputs).find_all(&:real?).map(&:id).sum
     end
 
+    # Called either by Room#decrypt or in the spec
+    #
     # @param params [String | Integer]
     #
     # @return String

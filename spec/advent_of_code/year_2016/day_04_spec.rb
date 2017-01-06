@@ -57,7 +57,7 @@ describe AdventOfCode::Year2016::Day4 do
 
     it 'passes example 6' do
       # noinspection RubyResolve
-      expect(subject.decrypt('qzmt-zixmtkozy-ivhz-343')).to be_identical_to_string 'very encrypted name'
+      expect(subject.decrypt 'qzmt-zixmtkozy-ivhz-343').to be_identical_to_string 'very encrypted name'
     end
 
     it 'anchieves star 2' do
