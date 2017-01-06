@@ -5,6 +5,8 @@ class Noise
   private_class_method :new
 
   class << self
+    # Unscramble by finding the most common character in the column.
+    #
     # @param input [String]
     #
     # @return String
@@ -12,6 +14,8 @@ class Noise
       unscramble_generic input, :mode
     end
 
+    # Unscramble by finding the rarest character in the column.
+    #
     # @param input [String]
     #
     # @return String
