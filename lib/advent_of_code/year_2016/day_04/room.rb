@@ -39,6 +39,10 @@ class Room
       encrypted.tr abc.join + '-', abc.rotate(id % 26).join + ' '
     end
 
+    # Constructs a list of +Room+ names from the list of +inputs+,
+    # finds the room who's decrypted name matches +name+
+    # returns the +room+'s +id+
+    #
     # @param inputs [String]
     # @param name String
     #
@@ -51,6 +55,8 @@ class Room
 
     private
 
+    # Constructs a list of +Room+ names from the list of +inputs+
+    #
     # @param inputs [String]
     #
     # @return [Room]
