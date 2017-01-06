@@ -71,7 +71,6 @@ GEM
     codeclimate-test-reporter (1.0.4)
       simplecov
     concurrent-ruby (1.0.4)
-    database_cleaner (1.5.3)
     debase (0.2.1)
       debase-ruby_core_source
     debase-ruby_core_source (0.9.6)
@@ -185,7 +184,6 @@ DEPENDENCIES
   arel!
   chronic_duration (~> 0.10.6)
   codeclimate-test-reporter (~> 1.0, >= 1.0.4)
-  database_cleaner (~> 1.5, >= 1.5.3)
   debase (~> 0.2.1)
   descriptive_statistics (~> 2.5, >= 2.5.1)
   fuubar (~> 2.2)
