@@ -20,7 +20,7 @@ describe AdventOfCode::Year2016::Day4 do
   context 'examples and stars' do
     subject { Room }
 
-    RSpec::Matchers.define :be_a_real_room do
+    define :be_a_real_room do
       match do |input|
         room = subject.new input
 

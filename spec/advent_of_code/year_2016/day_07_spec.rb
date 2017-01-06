@@ -26,7 +26,7 @@ describe AdventOfCode::Year2016::Day7 do
   end
 
   context 'examples and stars' do
-    RSpec::Matchers.define :support do |protocol|
+    define :support do |protocol|
       match do |ip|
         expect(ip.send "#{protocol}?".to_sym).to be true
       end
