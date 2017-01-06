@@ -10,6 +10,9 @@ module Day9
     def_delegator :@decompressed, :length, :length
 
     class << self
+      # Calculates the total length of the file when decompressed.
+      # More efficient than running Day9::File#decompress then String#length
+      #
       # @param contents String
       #
       # @return Integer
@@ -23,9 +26,10 @@ module Day9
           if contents[i] === '('
             length, times = contents.slice(i .. -1).match(/\((\d+)x(\d+)\)/).captures
             marker_end = i + 3 + length.length + times.length
+            length = length.to_i
             times = times.to_i
 
-            (marker_end .. marker_end + length.to_i - 1).each do |j|
+            (marker_end ... marker_end + length).each do |j|
               weights[j] *= times
             end
 
