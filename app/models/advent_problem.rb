@@ -5,6 +5,9 @@ require 'msgpack'
 class AdventProblem < ActiveRecord::Base
   # validates a date using Time#valid_advent_date?
   class DateValidator < ActiveModel::Validator
+    # @param record AdventProblem
+    #
+    # @return NilClass
     def validate(record)
       valid_date = Time.current.valid_advent_date? record.slice(:year, :day).symbolize_keys
 
