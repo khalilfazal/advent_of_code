@@ -1,11 +1,11 @@
 autoload :AdventProblem, 'models/advent_problem'
+autoload :YAML, 'yaml'
 
 require 'monkey_patches/object'
 require 'monkey_patches/time'
 require 'open-uri'
 
 # Retrieves input from http://adventofcode.com
-# Retrieves +@cookie+ from cookie.txt
 # Queries and creates Advent Problems
 module AdventOfCode
   module_function
@@ -19,7 +19,7 @@ module AdventOfCode
 
     AdventProblem.find_or_create_by(date).tap do |problem|
       if problem.input.nil?
-        problem.update input: open(problem_url(date), 'Cookie' => read_cookie).read
+        problem.update input: open(problem_url(date), 'Cookie' => cookie).read
       end
     end
   end
@@ -34,30 +34,18 @@ module AdventOfCode
     "http://adventofcode.com/#{year}/day/#{day}/input"
   end
 
+  # @return String
+  def cookie
+    @cookie ||= (ENV['ADVENT_OF_CODE_COOKIE'] || YAML.load_file('config/application.yml')['cookie']).tap do |cookie|
+      if cookie.nil?
+        raise StandardError, "Set ENV['ADVENT_OF_CODE_COOKIE'] or place your session cookie into config/application.yml"
+      end
+    end
+  end
+
   # @return Time
   def now
     @now ||= Time.now
-  end
-
-  # @param file String
-  #
-  # @return String
-  def read_cookie(file = 'cookie.txt')
-    @cookie ||= open file, 'r', &method(:with_handle)
-  rescue SystemCallError
-    raise StandardError, <<~MESSAGE
-      Place your session cookie into cookie.txt
-      See cookie.txt.sample
-    MESSAGE
-  end
-
-  # @param handle File
-  #
-  # @return String
-  def with_handle(handle)
-    handle.read.tap do |contents|
-      raise StandardError, 'cookie.txt contains a badly formed cookie' unless contents =~ /^session=[a-f0-9]+$/
-    end
   end
 
   # @param year Integer

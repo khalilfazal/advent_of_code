@@ -5,18 +5,6 @@ require 'helpers/within_block_is_expected'
 describe AdventOfCode do
   it { within_block_is_expected.not_to raise_exception }
 
-  it "shows error message when cookie.txt doesn't exist" do
-    subject.instance_variable_set :@cookie, nil
-    expect { subject.read_cookie('foobar.txt') }.to raise_error StandardError
-  end
-
-  it 'shows error message when the cookie in cookie.txt is malformed' do
-    open('cookie.txt', 'r') do |handle|
-      allow(handle).to receive(:read).and_return('bad cookie')
-      expect { subject.with_handle(handle) }.to raise_error StandardError
-    end
-  end
-
   context '404 Exceptions for an invalid year/day' do
     def expect_input_factory(year:, day:)
       expect { subject.problem(year: year, day: day).input }.to raise_error OpenURI::HTTPError

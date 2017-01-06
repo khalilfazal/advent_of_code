@@ -1,5 +1,3 @@
-cookie.txt
-
 profiles/*
 !profiles/.keep
 
@@ -10,3 +8,5 @@ coverage/*
 !/coverage/start_coverage.rb
 
 /db/seeds/answers.yml
+
+/config/application.yml

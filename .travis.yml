@@ -6,7 +6,7 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_46cc5676755c_key -iv $encrypted_46cc5676755c_iv
     -in db/seeds/answers.yml.enc -out db/seeds/answers.yml -d
 
-install: bundle install
+install: bundle install --with runtime ci
 
 sudo: required
 
@@ -16,6 +16,5 @@ script:
   - bundle exec rake db:create
   - bundle exec rake db:schema:load
   - bundle exec rake db:seed
-  - echo -n session=$ADVENT_OF_CODE_COOKIE > cookie.txt
   - bundle exec rake spec
   - bundle exec codeclimate-test-reporter
