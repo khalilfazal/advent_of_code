@@ -8,6 +8,9 @@ class World
   private_class_method :new
 
   class << self
+    # Constructs a world,
+    # and runs each command on the world
+    #
     # @param commands [String]
     #
     # @return World
