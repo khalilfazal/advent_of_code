@@ -5,6 +5,9 @@ class Triangle
   private_class_method :new
 
   class << self
+    # Interpreting a +Triangle+ as three integers row-wise,
+    # count the number of valid +triangle+s
+    #
     # @param input String
     #
     # @return Integer
@@ -12,6 +15,9 @@ class Triangle
       num_of_triangles input
     end
 
+    # Interpreting a +Triangle+ as three integers column-wise,
+    # count the number of valid +triangle+s
+    #
     # @param input String
     #
     # @return Integer
