@@ -1,4 +1,5 @@
 autoload :AdventProblem, 'models/advent_problem'
+autoload :YAML, 'yaml'
 
 require 'monkey_patches/object'
 require 'monkey_patches/time'
