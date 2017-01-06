@@ -616,7 +616,7 @@ Style/ExtraSpacing:
 Style/FileName:
   Description: 'Use snake_case for source file names.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#snake-case-files'
-  Enabled: false
+  Enabled: true
 
 Style/InitialIndentation:
   Description: >-
