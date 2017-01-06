@@ -19,7 +19,12 @@ module AdventOfCode
 
     AdventProblem.find_or_create_by(date).tap do |problem|
       if problem.input.nil?
-        problem.update input: open(problem_url(date), 'Cookie' => cookie).read
+        begin
+          problem.update input: open(problem_url(date), 'Cookie' => cookie).read
+        rescue OpenURI::HTTPError
+          p problem_url(date)
+          p cookie
+        end
       end
     end
   end
