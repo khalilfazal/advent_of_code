@@ -43,7 +43,7 @@ namespace :db do
 
       connection.tables.each do |table|
         unless %w(ar_internal_metadata schema_migrations).include? table
-          connection.execute %Q(ALTER SEQUENCE "#{table}_id_seq" RESTART)
+          connection.execute %(ALTER SEQUENCE "#{table}_id_seq" RESTART)
           connection.execute "TRUNCATE #{table}"
         end
       end
