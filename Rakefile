@@ -33,17 +33,17 @@ StandaloneMigrations::Tasks.load_tasks
 
 # truncate
 namespace :db do
-  include ActiveRecord
-
   desc 'Truncate all existing data'
   task truncate: 'db:load_config' do
-    Base.establish_connection
+    ActiveRecord::Base.tap do |base|
+      base.establish_connection
 
-    Base.connection do |connection|
-      connection.tables.each do |table|
-        unless %w(ar_internal_metadata schema_migrations).include? table
-          connection.execute %(ALTER SEQUENCE "#{table}_id_seq" RESTART)
-          connection.execute "TRUNCATE #{table}"
+      base.connection do |connection|
+        connection.tables.each do |table|
+          unless %w(ar_internal_metadata schema_migrations).include? table
+            connection.execute %(ALTER SEQUENCE "#{table}_id_seq" RESTART)
+            connection.execute "TRUNCATE #{table}"
+          end
         end
       end
     end
