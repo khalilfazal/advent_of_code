@@ -21,9 +21,7 @@
     <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
     <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
     <method>
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:drop test" run_configuration_type="RakeRunConfigurationType" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:create test" run_configuration_type="RakeRunConfigurationType" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:schema:load: test" run_configuration_type="RakeRunConfigurationType" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:truncate test" run_configuration_type="RakeRunConfigurationType" />
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="db:seed test" run_configuration_type="RakeRunConfigurationType" />
     </method>
   </configuration>

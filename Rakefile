@@ -39,9 +39,13 @@ namespace :db do
   task truncate: 'db:load_config' do
     begin
       Base.establish_connection
+      connection = Base.connection
 
-      Base.connection.tables.each do |table|
-        Base.connection.execute("TRUNCATE #{table}")
+      connection.tables.each do |table|
+        unless %w(ar_internal_metadata schema_migrations).include? table
+          connection.execute %Q(ALTER SEQUENCE "#{table}_id_seq" RESTART)
+          connection.execute "TRUNCATE #{table}"
+        end
       end
     end
   end
