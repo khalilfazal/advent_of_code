@@ -43,11 +43,16 @@ class Triangle
     end
   end
 
+  # Creates a triangle from a list of integers
+  # The points are sorted to make validation easier
+  #
   # @param points [Integer]
   def initialize(points)
     @a, @b, @c = points.sort
   end
 
+  # Does the triangle inequality hold?
+  #
   # @return Boolean
   def triangle?
     @a + @b > @c
