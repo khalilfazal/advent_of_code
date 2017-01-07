@@ -1,15 +1,16 @@
 autoload :ActiveRecord, 'active_record'
 autoload :YAML, 'yaml'
 
-# load database
+# Load database
 module LoadDB
   module_function
 
+  # Loads the database depending on the specified environment
+  #
   # @param environment String
   #
   # @return ActiveRecord::ConnectionAdapters::ConnectionPool
   def run(environment:)
-    config = YAML.load_file('db/config.yml')
-    ActiveRecord::Base.establish_connection(config[environment])
+    ActiveRecord::Base.establish_connection(YAML.load_file('db/config.yml')[environment])
   end
 end
