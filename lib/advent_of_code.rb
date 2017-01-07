@@ -24,9 +24,8 @@ module AdventOfCode
         contents = open(problem_url(date), 'Cookie' => cookie).read
         p contents.encoding
         problem.update input: contents
+        p problem.input.encoding
       end
-
-      p problem.input.encoding
     end
   end
 
