@@ -46,12 +46,12 @@ describe AdventOfCode::Year2016::Day4 do
     end
 
     it 'passes example 5' do
-      expect(subject.sum_of_real_sector_ids examples).to be === 1_514
+      expect(subject.sum_of_real_sector_ids examples).to eql 1_514
     end
 
     it 'anchieves star 1' do
       skip_this_when_dced do
-        expect(subject.sum_of_real_sector_ids input).to be === problem.answer(1)
+        expect(subject.sum_of_real_sector_ids input).to eql problem.answer 1
       end
     end
 
@@ -62,7 +62,7 @@ describe AdventOfCode::Year2016::Day4 do
 
     it 'anchieves star 2' do
       skip_this_when_dced do
-        expect(subject.find_sector_id_of(input, 'northpole object storage')).to be === problem.answer(2)
+        expect(subject.find_sector_id_of input, 'northpole object storage').to eql problem.answer 2
       end
     end
   end

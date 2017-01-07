@@ -33,19 +33,19 @@ describe AdventOfCode::Year2016::Day9 do
 
         # noinspection RubyResolve
         expect(decompressed).to be_identical_to_string example[:decompressed]
-        expect(decompressed.length).to be === example[:decompressed].length
+        expect(decompressed.length).to eql example[:decompressed].length
       end
     end
 
     it 'achieves star 1' do
       skip_this_when_dced do
-        expect(Decompressor.partially_decompress(input).length).to be === problem.answer(1)
+        expect(Decompressor.partially_decompress(input).length).to eql problem.answer 1
       end
     end
 
     it 'achieves star 2' do
       skip_this_when_dced do
-        expect(Decompressor.full_decompressed_length input).to be === problem.answer(2)
+        expect(Decompressor.full_decompressed_length input).to eql problem.answer 2
       end
     end
   end

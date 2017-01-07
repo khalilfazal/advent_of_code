@@ -1,7 +1,9 @@
 autoload :Boolean, 'helpers/boolean'
+
 require 'active_support/core_ext/hash/transform_values'
 require 'monkey_patches/array'
 require 'monkey_patches/enumerable'
+require 'monkey_patches/string'
 
 # Decrypts room name
 class Room
@@ -28,7 +30,7 @@ class Room
     #
     # @return String
     def decrypt(*params)
-      if params.length === 1
+      if params.length.eql? 1
         encrypted, id = params[0].match(NAME_ID_REGEX).captures
         id = id.to_i
       else
@@ -49,7 +51,7 @@ class Room
     # @return Integer
     def find_sector_id_of(inputs, name)
       make_inputs(inputs).find do |room|
-        room.decrypt === name
+        room.decrypt.eql? name
       end.id
     end
 
@@ -82,7 +84,7 @@ class Room
 
   # @return Boolean
   def real?
-    @checksum === calc_checksum
+    @checksum.eql? calc_checksum
   end
 
   # @return String

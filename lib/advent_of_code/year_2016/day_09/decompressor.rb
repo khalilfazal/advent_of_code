@@ -36,7 +36,8 @@ module Decompressor
     i = 0
 
     while i < min_length
-      if compressed[i] === '('
+      # noinspection RubyResolve
+      if compressed[i].eql? '('
         length, times = compressed.slice(i .. -1).match(/\((\d+)x(\d+)\)/).captures
         marker_end = i + 3 + length.length + times.length
         length = length.to_i

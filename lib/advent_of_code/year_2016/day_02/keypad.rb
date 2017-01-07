@@ -6,6 +6,8 @@ class Keypad
   private_class_method :new
 
   class << self
+    # Determines the bathroom code based on the instructions given
+    #
     # @param instructions String
     # @param layout String
     #
@@ -61,6 +63,6 @@ class Keypad
         raise ParseError, "Invalid input: #{dir}"
     end
 
-    @pos = old_pos if pos === ' '
+    @pos = old_pos if pos.eql? ' '
   end
 end

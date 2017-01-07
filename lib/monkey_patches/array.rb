@@ -43,7 +43,7 @@ class Array
   # @return [Element]
   def flat_map(n = 1, &f)
     old_flat_map do |elem|
-      if n === 1
+      if n.eql? 1
         f.call elem
       else
         elem.flat_map n - 1, &f

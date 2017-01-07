@@ -44,7 +44,7 @@ class World
   # @return Integer
   def bot_with_chips(microchips)
     @entities.values.find do |v|
-      v.microchips === microchips
+      v.microchips.eql? microchips
     end.id
   end
 

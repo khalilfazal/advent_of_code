@@ -55,7 +55,7 @@ class Traveller
         commands.detect do |command|
           traveller.move command
 
-          if command === :straight
+          if command.equal? :straight
             pos = traveller.pos
             visited.include?(pos) || !(visited << pos)
           end
@@ -79,7 +79,7 @@ class Traveller
   # @return Integer | Compass
   # @throws ParseError
   def move(command)
-    if command === :straight
+    if command.equal? :straight
       @pos.move @dir
     else
       @dir = @dir.send command

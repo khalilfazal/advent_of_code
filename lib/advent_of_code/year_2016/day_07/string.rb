@@ -1,5 +1,7 @@
 autoload :Boolean, 'helpers/boolean'
+
 require 'monkey_patches/array'
+require 'monkey_patches/string'
 
 # Can check if an +IPV7+ string supports tls or ssl
 module IPV7
@@ -16,7 +18,7 @@ module IPV7
   # @return Boolean
   def abba?
     links_of(4).any? do |a, b, c, d|
-      a === d && b === c && !(a === b)
+      a.eql?(d) && b.eql?(c) && a.not_eql?(b)
     end
   end
 

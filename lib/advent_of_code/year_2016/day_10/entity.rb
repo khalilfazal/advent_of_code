@@ -39,6 +39,6 @@ class Entity
 
   # @return Boolean
   def full?
-    @microchips.length === 2
+    @microchips.length.eql? 2
   end
 end

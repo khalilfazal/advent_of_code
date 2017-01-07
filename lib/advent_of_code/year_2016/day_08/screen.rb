@@ -69,7 +69,7 @@ class Screen
 
   # @return Boolean
   def transposed?
-    @major === :column
+    @major.eql? :column
   end
 
   # @param dim Symbol
@@ -78,7 +78,7 @@ class Screen
   #
   # @return [String]
   def rotate(dim, i, amount)
-    unless dim === @major
+    unless dim.eql? @major
       @screen = @screen.transpose
       @major = dim
     end

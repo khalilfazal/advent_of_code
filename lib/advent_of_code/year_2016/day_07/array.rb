@@ -1,3 +1,5 @@
+require 'monkey_patches/string'
+
 # I think using methods look neater than using functions
 # Object.m() versus f(Object)
 class Array
@@ -5,7 +7,7 @@ class Array
   def abas
     map do |sequence|
       sequence.links_of(3).find_all do |a, b, c|
-        a === c && !(a === b)
+        a.eql?(c) && !(a.eql?(b))
       end
     end.flat_map(2, &:join)
   end

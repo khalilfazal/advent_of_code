@@ -32,7 +32,7 @@ class Compass
     output = [self]
     current = @clockwise
 
-    until current === self
+    until current.equal? self
       output << current
       current = current.clockwise
     end

@@ -11,7 +11,7 @@ class Time
   #
   # @return Range<Integer>
   def advent_days(year:)
-    1 .. ((year === self.year && month === 12) ? day.clamp(1, 25) : 25)
+    1 .. (year.eql?(self.year) && month.eql?(12) ? day.clamp(1, 25) : 25)
   end
 
   # Are there any problems for this +date+?

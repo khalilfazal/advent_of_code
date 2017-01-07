@@ -46,7 +46,9 @@ describe AdventOfCode::Year2016::Day8 do
       SCREEN
     end
 
-    it 'passes example 4: can rotate the second column down by one pixel, causing the bottom pixel to wrap back to the top' do
+    it <<-SPEC do
+      passes example 4: can rotate the second column down by one pixel, causing the bottom pixel to wrap back to the top
+    SPEC
       # noinspection RubyResolve
       expect(example_screen.prompt 'rotate column x=1 by 1').to be_identical_to_string <<~SCREEN
         .#..#.#
@@ -56,7 +58,7 @@ describe AdventOfCode::Year2016::Day8 do
     end
 
     it 'achieves star 1: count the number of lit pixels' do
-      expect(test_screen.pixels).to be === problem.answer(1)
+      expect(test_screen.pixels).to eql problem.answer 1
     end
 
     it 'achieves star 2: what code is the screen trying to display?' do
