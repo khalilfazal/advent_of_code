@@ -1,10 +1,12 @@
 require 'monkey_patches/time'
 require 'msgpack'
 
-# stores an advent problem's input and answer
+# Stores an advent problem's date, input and answer
 class AdventProblem < ActiveRecord::Base
-  # validates a date using Time#valid_advent_date?
+  # Validates a date using Time#valid_advent_date?
   class DateValidator < ActiveModel::Validator
+    # Validates a record's date
+    #
     # @param record AdventProblem
     #
     # @return NilClass
