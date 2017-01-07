@@ -15,6 +15,9 @@ sudo: required
 
 services: postgresql
 
+matrix:
+  fast_finish: true
+
 script:
   - bundle exec rubocop -n --fail-level A -f fu -E -D -R -S
   - bundle exec rake db:create
