@@ -11,8 +11,9 @@ class AdventProblem < ActiveRecord::Base
     #
     # @return NilClass
     def validate(record)
+      date = record.slice(:year, :day).symbolize_keys
       message = "There are no Advent of Code problems for #{date[:year]}-12-#{date[:day]}."
-      valid_date = Time.current.valid_advent_date? record.slice(:year, :day).symbolize_keys
+      valid_date = Time.current.valid_advent_date? date
 
       record.errors[:base] << message unless valid_date
     end
