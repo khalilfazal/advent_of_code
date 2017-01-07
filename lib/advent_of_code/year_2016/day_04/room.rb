@@ -69,11 +69,6 @@ class Room
 
   # @param input String
   def initialize(input)
-    unless input.encoding.eql?([].join.encoding)
-      p input.encoding
-      p [].join.encoding
-    end
-
     @encrypted_name, id, @checksum = input.match(/#{NAME_ID_REGEX}\[([a-z]+)\]/).captures
     @id = id.to_i
   end

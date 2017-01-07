@@ -59,6 +59,12 @@ class AdventProblem < ActiveRecord::Base
   # @return Integer | String
   def answer(id)
     # noinspection RubyResolve
-    MessagePack.unpack(answers)[id - 1]
+    answer = MessagePack.unpack(answers)[id - 1]
+
+    if answer.is_a? String
+      p answer.encoding
+    end
+
+    answer
   end
 end
