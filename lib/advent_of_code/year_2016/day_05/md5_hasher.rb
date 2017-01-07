@@ -5,6 +5,8 @@ class MD5Hasher
   private_class_method :new
 
   class << self
+    # Crack the password for the door
+    #
     # @param id String
     #
     # @return String
@@ -16,6 +18,9 @@ class MD5Hasher
       end.join
     end
 
+    # Crack the password for the door
+    # Interesting hashes now also determine the position of the character
+    #
     # @param id String
     #
     # @return String
