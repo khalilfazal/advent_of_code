@@ -11,8 +11,12 @@ require 'monkey_patches/travis'
 Travis.access_token = YAML.load_file('config/application.yml')['travis_access_token']
 
 # noinspection RailsParamDefResolve
-builds = Travis::Repository.find("#{Travis.user.login}/#{Dir.cwd}").builds.to_a
-builds.pop ENV['SINCE_BUILD'].to_i if ENV['SINCE_BUILD']
+builds = Travis::Repository.find("#{Travis.user.login}/#{Dir.cwd}").builds
+
+builds = builds.take_while do |build|
+  build.number.to_i > ENV['SINCE_BUILD'].to_i
+end if ENV['SINCE_BUILD']
+
 mean_build_time = builds.select(&:passed?).map(&:duration).mean.format('%.2f').duration
 
 Logger.new($stdout).info(File.script_name) do
