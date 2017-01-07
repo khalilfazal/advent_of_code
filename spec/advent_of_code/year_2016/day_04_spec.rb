@@ -51,8 +51,6 @@ describe AdventOfCode::Year2016::Day4 do
 
     it 'anchieves star 1' do
       skip_this_when_dced do
-        p subject.sum_of_real_sector_ids input
-        p input
         expect(subject.sum_of_real_sector_ids input).to eql problem.answer 1
       end
     end

@@ -21,6 +21,7 @@ class Room
     #
     # @return Integer
     def sum_of_real_sector_ids(inputs)
+      p make_inputs(inputs).find_all(&:real?).inspect
       make_inputs(inputs).find_all(&:real?).map(&:id).sum
     end
 
