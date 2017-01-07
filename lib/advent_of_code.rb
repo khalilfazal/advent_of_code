@@ -10,11 +10,13 @@ require 'open-uri'
 module AdventOfCode
   module_function
 
+  # Preemptively throw a mock 404 error without using any resources if there is no problem for that date.
+  # if the problem doesn't exist in the table or if it does but the input is nil, fetch the input from the website.
+  #
   # @param date Hash[Symbol, Integer]
   #
   # @return AdventProblem
   def problem(date)
-    # Preemptively throw a mock 404 error without using any resources if there is no problem for that date.
     raise OpenURI::HTTPError.new '404 Not Found', nil unless now.valid_advent_date? date
 
     AdventProblem.find_or_create_by!(date).tap do |problem|
