@@ -1,23 +1,9 @@
-require 'monkey_patches/time'
+autoload :DateValidator, 'models/date_validator'
+
 require 'msgpack'
 
 # Stores an advent problem's date, input and answer
 class AdventProblem < ActiveRecord::Base
-  # Validates a date using Time#valid_advent_date?
-  class DateValidator < ActiveModel::Validator
-    # Validates a record's date
-    #
-    # @param record AdventProblem
-    #
-    # @return NilClass
-    def validate(record)
-      date = record.slice(:year, :day).symbolize_keys
-      message = "There are no Advent of Code problems for #{date[:year]}-12-#{date[:day]}."
-
-      record.errors[:base] << message unless Time.current.valid_advent_date? date
-    end
-  end
-
   %i(year day).each do |attr|
     validates attr, presence: {
       strict: true,
@@ -46,7 +32,7 @@ class AdventProblem < ActiveRecord::Base
   # @param answers [Integer | String]
   #
   # @return AdventProblem
-  def self.seed(year:, day:, answers:)
+  scope :seed, ->(year:, day:, answers:) do
     find_or_create_by!(year: year, day: day).tap do |problem|
       problem.update answers: answers.to_msgpack
     end
