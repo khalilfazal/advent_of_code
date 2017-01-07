@@ -21,7 +21,6 @@ class Room
     #
     # @return Integer
     def sum_of_real_sector_ids(inputs)
-      p make_inputs(inputs).find_all(&:real?).inspect
       make_inputs(inputs).find_all(&:real?).map(&:id).sum
     end
 
@@ -85,6 +84,11 @@ class Room
 
   # @return Boolean
   def real?
+    unless @checksum.encoding.eql? calc_checksum.encoding
+      p @checksum.encoding
+      p calc_checksum
+    end
+
     @checksum.eql? calc_checksum
   end
 
