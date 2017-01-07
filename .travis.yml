@@ -9,7 +9,7 @@ before_install:
 gemfile:
   - Gemfile.ci
 
-install: bundle install --with main ci
+install: bundle exec bundle install --with main ci
 
 sudo: required
 
