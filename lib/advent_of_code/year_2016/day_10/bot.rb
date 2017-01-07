@@ -7,12 +7,16 @@ class Bot < Entity
 
   def_delegator :@microchips, :[], :[]
 
+  # The +Bot+ initially keeps no promises
+  #
   # @param id Integer
   def initialize(id)
     super(id)
     @promises = {}
   end
 
+  # Promise to give its +:low+ or +:high+ +@microchips+ to another +Entity+
+  #
   # @param low Integer
   # @param high Integer
   #
@@ -24,15 +28,19 @@ class Bot < Entity
     self
   end
 
-  # @param entity Symbol
+  # Has this +Bot+ promised to give a +kind+ of +microchip+?
+  #
+  # @param kind Symbol
   #
   # @return Boolean
-  def promised_to?(entity)
-    @promises.key? entity
+  def promised_to?(kind)
+    @promises.key? kind
   end
 
-  # @param entity Symbol
-  def givee(entity)
-    @promises[entity]
+  # Get the +id+ of the +Entity+ that was promised a +kind+ of +microchip+
+  #
+  # @param kind Symbol
+  def givee(kind)
+    @promises[kind]
   end
 end
