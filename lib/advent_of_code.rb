@@ -21,10 +21,12 @@ module AdventOfCode
 
     AdventProblem.find_or_create_by!(date).tap do |problem|
       if problem.input.nil?
-        problem.update input: open(problem_url(date), 'Cookie' => cookie).read
+        contents = open(problem_url(date), 'Cookie' => cookie).read
+        p contents.encoding
+        problem.update input: contents
       end
 
-
+      p problem.input.encoding
     end
   end
 
