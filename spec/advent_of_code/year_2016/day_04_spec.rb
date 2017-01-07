@@ -51,7 +51,7 @@ describe AdventOfCode::Year2016::Day4 do
 
     it 'anchieves star 1' do
       skip_this_when_dced do
-        expect(subject.sum_of_real_sector_ids input).to be === problem.solution(1)
+        expect(subject.sum_of_real_sector_ids input).to be === problem.answer(1)
       end
     end
 
@@ -62,7 +62,7 @@ describe AdventOfCode::Year2016::Day4 do
 
     it 'anchieves star 2' do
       skip_this_when_dced do
-        expect(subject.find_sector_id_of(input, 'northpole object storage')).to be === problem.solution(2)
+        expect(subject.find_sector_id_of(input, 'northpole object storage')).to be === problem.answer(2)
       end
     end
   end

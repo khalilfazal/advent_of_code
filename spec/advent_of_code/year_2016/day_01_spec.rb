@@ -66,7 +66,7 @@ describe AdventOfCode::Year2016::Day1 do
 
     it 'anchieves star 1' do
       skip_this_when_dced do
-        expect(subject.endpoints_distance input).to be === problem.solution(1)
+        expect(subject.endpoints_distance input).to be === problem.answer(1)
       end
     end
 
@@ -76,7 +76,7 @@ describe AdventOfCode::Year2016::Day1 do
 
     it 'anchieves star 2' do
       skip_this_when_dced do
-        expect(subject.twice_visited_points_distance input).to be === problem.solution(2)
+        expect(subject.twice_visited_points_distance input).to be === problem.answer(2)
       end
     end
   end

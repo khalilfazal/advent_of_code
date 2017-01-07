@@ -56,12 +56,12 @@ describe AdventOfCode::Year2016::Day8 do
     end
 
     it 'achieves star 1: count the number of lit pixels' do
-      expect(test_screen.pixels).to be === problem.solution(1)
+      expect(test_screen.pixels).to be === problem.answer(1)
     end
 
     it 'achieves star 2: what code is the screen trying to display?' do
       # noinspection RubyResolve
-      expect(test_screen.to_s).to be_identical_to_string problem.solution 2
+      expect(test_screen.to_s).to be_identical_to_string problem.answer 2
     end
   end
 end

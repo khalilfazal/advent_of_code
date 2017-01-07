@@ -48,11 +48,15 @@ module AdventOfCode
     end
   end
 
+  # Create a module for a year
+  #
   # @param year Integer
   #
   # @return Module
   def make_year(year)
     define_module "Year#{year}" do
+      # Get the problem associated with a day of December in this year
+      #
       # @param day Integer
       #
       # @return AdventProblem
@@ -62,6 +66,8 @@ module AdventOfCode
 
       define_singleton_method :make_day do |day|
         define_module "Day#{day}" do
+          # Get the problem associated with this day of December in this year
+          #
           # @return AdventProblem
           define_singleton_method :problem do
             parent.problem day: day

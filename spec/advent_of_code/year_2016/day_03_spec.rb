@@ -12,13 +12,13 @@ describe AdventOfCode::Year2016::Day3 do
 
     it 'anchieves star 1' do
       skip_this_when_dced do
-        expect(subject.num_of_triangles_as_rows input).to be == problem.solution(1)
+        expect(subject.num_of_triangles_as_rows input).to be == problem.answer(1)
       end
     end
 
     it 'anchieves star 2' do
       skip_this_when_dced do
-        expect(subject.num_of_triangles_as_columns input).to be == problem.solution(2)
+        expect(subject.num_of_triangles_as_columns input).to be == problem.answer(2)
       end
     end
   end

@@ -23,7 +23,7 @@ describe AdventOfCode::Year2016::Day5 do
     it 'anchieves star 1', speed: 'slow' do
       # noinspection RubyResolve
       skip_this_when_dced do
-        expect(subject.crack input).to be_identical_to_string problem.solution 1
+        expect(subject.crack input).to be_identical_to_string problem.answer 1
       end
     end
 
@@ -37,7 +37,7 @@ describe AdventOfCode::Year2016::Day5 do
     it 'anchieves star 2', speed: 'slow' do
       # noinspection RubyResolve
       skip_this_when_dced do
-        expect(subject.crack2 input).to be_identical_to_string problem.solution 2
+        expect(subject.crack2 input).to be_identical_to_string problem.answer 2
       end
     end
   end

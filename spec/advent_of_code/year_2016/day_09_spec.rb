@@ -39,13 +39,13 @@ describe AdventOfCode::Year2016::Day9 do
 
     it 'achieves star 1' do
       skip_this_when_dced do
-        expect(Decompressor.partially_decompress(input).length).to be === problem.solution(1)
+        expect(Decompressor.partially_decompress(input).length).to be === problem.answer(1)
       end
     end
 
     it 'achieves star 2' do
       skip_this_when_dced do
-        expect(Decompressor.full_decompressed_length input).to be === problem.solution(2)
+        expect(Decompressor.full_decompressed_length input).to be === problem.answer(2)
       end
     end
   end

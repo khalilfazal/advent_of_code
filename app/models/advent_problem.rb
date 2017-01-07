@@ -38,7 +38,7 @@ class AdventProblem < ActiveRecord::Base
     message: '%{year}-12-%{day} is already in the input table'
   }
 
-  # seed the database with +answers+
+  # Seed the database with +answers+
   #
   # @param year Integer
   # @param day Integer
@@ -51,10 +51,12 @@ class AdventProblem < ActiveRecord::Base
     end
   end
 
+  # Get the expected answer for the problem
+  #
   # @param id Integer
   #
   # @return Integer | String
-  def solution(id)
+  def answer(id)
     # noinspection RubyResolve
     MessagePack.unpack(answers)[id - 1]
   end
