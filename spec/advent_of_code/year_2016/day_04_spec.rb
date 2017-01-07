@@ -6,7 +6,7 @@ require 'helpers/match_string'
 # noinspection RubyResolve
 describe AdventOfCode::Year2016::Day4 do
   let(:problem) { @problem ||= described_class.problem }
-  let(:input) { @input ||= problem.input.lines }
+  let(:inputs) { @input ||= problem.input.lines }
 
   let(:examples) do
     %w(
@@ -51,8 +51,8 @@ describe AdventOfCode::Year2016::Day4 do
 
     it 'anchieves star 1' do
       skip_this_when_dced do
-        p (problem.answer 1).encoding
-        expect(subject.sum_of_real_sector_ids input).to eql problem.answer 1
+        p inputs[0].encoding
+        expect(subject.sum_of_real_sector_ids inputs).to eql problem.answer 1
       end
     end
 
@@ -63,7 +63,7 @@ describe AdventOfCode::Year2016::Day4 do
 
     it 'anchieves star 2' do
       skip_this_when_dced do
-        expect(subject.find_sector_id_of input, 'northpole object storage').to eql problem.answer 2
+        expect(subject.find_sector_id_of inputs, 'northpole object storage').to eql problem.answer 2
       end
     end
   end
