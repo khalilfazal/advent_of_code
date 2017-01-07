@@ -3,6 +3,8 @@ require 'monkey_patches/array'
 
 # A dot-matrix screen that can be manipulated with commands
 class Screen
+  # Create a two dimensional dot-matrix screen
+  #
   # @param width Integer
   # @param height Integer
   def initialize(width, height)
@@ -26,6 +28,9 @@ class Screen
     self
   end
 
+  # Runs each command line to change the +Screen+'s display
+  # Can either draw a rectangle or shift along a row or column.
+  #
   # @param raw String
   # @param display Boolean
   #
@@ -41,11 +46,15 @@ class Screen
     to_s if display
   end
 
+  # Counts the number of pixels turned on
+  #
   # @return Integer
   def pixels
     @screen.flatten.count '#'
   end
 
+  # Displays the screen
+  #
   # @return String
   def to_s
     output = @screen
@@ -55,6 +64,8 @@ class Screen
 
   private
 
+  # Draws a rectangle
+  #
   # @param x Integer
   # @param y Integer
   def rect(x, y)
@@ -67,12 +78,16 @@ class Screen
     end
   end
 
+  # Whether +@screen+ is currently transposed
+  #
   # @return Boolean
   def transposed?
     @major.eql? :column
   end
 
-  # @param dim Symbol
+  # Rotates along a row or column
+  #
+  # @param dim Symbol either :row or :column
   # @param i Integer
   # @param amount Integer
   #
