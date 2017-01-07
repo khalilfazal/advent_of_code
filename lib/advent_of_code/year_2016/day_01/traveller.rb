@@ -7,9 +7,14 @@ class Traveller
   extend Forwardable
 
   private_class_method :new
-  def_delegator :pos, :taxicab_metric, :distance
+
+  def_delegator :@pos, :taxicab_metric, :distance
+  def_delegator :@pos, :dup, :pos
 
   class << self
+    # Finds the last point to be visited
+    # and returns its distance from the origin using the taxicab metric
+    #
     # @param input String
     #
     # @return Integer
@@ -17,6 +22,9 @@ class Traveller
       travel_unparsed input
     end
 
+    # Finds the first point to be visited twice
+    # and returns its distance from the origin using the taxicab metric
+    #
     # @param input String
     #
     # @return Integer
@@ -26,6 +34,9 @@ class Traveller
 
     private
 
+    # Finds a point (either the end point or the first to be visited twice)
+    # and returns its distance from the origin using the taxicab metric
+    #
     # @param input String
     # @param to_end Boolean
     #
@@ -55,11 +66,14 @@ class Traveller
     end
   end
 
+  # Initialize a +traveller+ starting from the origin and facing north
   def initialize
     @dir = Compass::NORTH
     @pos = Point.origin
   end
 
+  # move straight or change direction
+  #
   # @param command Symbol
   #
   # @return Integer | Compass
@@ -70,10 +84,5 @@ class Traveller
     else
       @dir = @dir.send command
     end
-  end
-
-  # @return Point
-  def pos
-    @pos.dup
   end
 end
