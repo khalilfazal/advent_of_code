@@ -19,12 +19,13 @@ module AdventOfCode
   def problem(date)
     raise OpenURI::HTTPError.new '404 Not Found', nil unless now.valid_advent_date? date
 
+    logger = Logger.new($stdout)
+    logger.info [:default_external, Encoding::default_external]
+    logger.info [:default_internal, Encoding::default_internal]
+
     AdventProblem.find_or_create_by!(date).tap do |problem|
       if problem.input.nil?
-        contents = open(problem_url(date), 'Cookie' => cookie).read
-        p contents.encoding
-        problem.update input: contents
-        p problem.input.encoding
+        problem.update input: open(problem_url(date), 'Cookie' => cookie).read
       end
     end
   end
