@@ -26,7 +26,7 @@ describe AdventOfCode::Year2016::Day10 do
     end
 
     it 'achieves star 2' do
-      expect(@world.output_products 0 .. 2).to be === @problem.answer(2)
+      expect(@world.output_product_of_chips 0 .. 2).to be === @problem.answer(2)
     end
   end
 end

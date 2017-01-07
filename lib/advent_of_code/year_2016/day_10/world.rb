@@ -37,6 +37,8 @@ class World
     end
   end
 
+  # Gets the bot id of the bot with a particular low/high pair of microchips
+  #
   # @param microchips Hash[Symbol, Integer]
   #
   # @return Integer
@@ -46,14 +48,19 @@ class World
     end.id
   end
 
+  # Gets the product of the microchips held by the output entities
+  #
   # @param outputs Range
+  #
   # @return Integer
-  def output_products(outputs)
+  def output_product_of_chips(outputs)
     outputs(outputs).map(&:output).inject :*
   end
 
   private
 
+  # Generates the regexp to extract an entity's full name, type and id from a command
+  #
   # @param entity Symbol
   #
   # @return Regexp
@@ -61,6 +68,11 @@ class World
     /(?<#{entity}_key>(?<#{entity}_type>output|bot) (?<#{entity}_id>\d+))/
   end
 
+  # Executes a command (either :receive or :promise) using an entity's info
+  #
+  # For :receive, args[0] is the microchip being received
+  # For :promise, args[0] and arg[1] are the low and high ids (respectively) of the entities this bot is promising to give to
+  #
   # @param command Symbol
   # @param info Hash[Symbol, String | Integer]
   # @param args Array[Integer | Hash[Symbol, String | Integer]]
@@ -77,6 +89,8 @@ class World
     end
   end
 
+  # Give either a low or high microchip to another entity
+  #
   # @param giver Bot
   # @param low_or_high Symbol
   #
@@ -85,6 +99,8 @@ class World
     execute :receive, giver.givee(low_or_high), giver[low_or_high] if giver.promised_to? low_or_high
   end
 
+  # Gets all the output entities
+  #
   # @param outputs Range
   #
   # @return Hash[String, Entity]
