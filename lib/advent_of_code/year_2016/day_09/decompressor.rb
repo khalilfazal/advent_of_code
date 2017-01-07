@@ -11,7 +11,8 @@ module Decompressor
   #
   # @return String
   def partially_decompress(compressed)
-    if (parsed = compressed.match /(.*?)\((\d+)x(\d+)\)(.*)/)
+    # Keep regex bracketed because of Lint/AmbiguousRegexpLiteral
+    if (parsed = compressed.match(/(.*?)\((\d+)x(\d+)\)(.*)/))
       safe, length, times, rest = parsed.captures
       length = length.to_i
       times = times.to_i
