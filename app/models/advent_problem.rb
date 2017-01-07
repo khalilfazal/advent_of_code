@@ -1,5 +1,6 @@
 autoload :DateValidator, 'models/date_validator'
-autoload :MessagePack, 'msgpack'
+
+require 'msgpack'
 
 # Stores an advent problem's date, input and answer
 class AdventProblem < ActiveRecord::Base
@@ -31,11 +32,11 @@ class AdventProblem < ActiveRecord::Base
   # @param answers [Integer | String]
   #
   # @return AdventProblem
-  scope :seed, ->(year:, day:, answers:) do
+  scope :seed, lambda { |year:, day:, answers:|
     find_or_create_by!(year: year, day: day).tap do |problem|
       problem.update answers: answers.to_msgpack
     end
-  end
+  }
 
   # Get the expected answer for the problem
   #
