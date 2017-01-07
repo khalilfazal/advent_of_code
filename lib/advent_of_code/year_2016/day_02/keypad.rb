@@ -26,12 +26,18 @@ class Keypad
 
     private
 
+    # What the keypad was imagined to look like
+    #
     # @return String
     def imagined_layout
       1.upto(9).to_a.join
     end
   end
 
+  # Create the +Keypad+
+  # Assume that the length of +layout+ is a perfect square
+  # The initial position is wherever the '5' is on the +layout+, assuming that there is only one '5'
+  #
   # @param layout String
   def initialize(layout:)
     @layout = layout
@@ -39,11 +45,16 @@ class Keypad
     @pos = layout.index('5') + 1
   end
 
+  # What's on this position on the +layout+?
+  #
   # @return String
   def pos
     @layout[@pos - 1]
   end
 
+  # Move to a different position on the +Keypad+
+  # If the new position is above a blank spot, move back
+  #
   # @param dir String
   #
   # @return Integer
