@@ -6,6 +6,8 @@ class Entity
   attr_reader :microchips
 
   class << self
+    # Either creates a +Bot+ or an +Output+ with a specified +id+
+    #
     # @param type String
     # @param id Integer
     #
@@ -15,12 +17,18 @@ class Entity
     end
   end
 
+  # Creates an +Entity+ with a specified +id+
+  # It initially has no microchips
+  #
   # @param id Integer
   def initialize(id)
     @id = id
     @microchips = []
   end
 
+  # A +Bot+ is giving this +Entity+ a +microchip+
+  # If this +Entity+ now has two +microchips+, they are labelled either as +:low+ or +:high+
+  #
   # @param microchip Integer
   #
   # @return Entity
@@ -37,6 +45,8 @@ class Entity
     self
   end
 
+  # Does this +Entity+ have two +microchips+?
+  #
   # @return Boolean
   def full?
     @microchips.length.eql? 2
