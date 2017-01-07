@@ -23,6 +23,8 @@ module AdventOfCode
       if problem.input.nil?
         problem.update input: open(problem_url(date), 'Cookie' => cookie).read
       end
+
+
     end
   end
 
