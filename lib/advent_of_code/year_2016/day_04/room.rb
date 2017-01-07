@@ -86,6 +86,7 @@ class Room
   def real?
     unless @checksum.encoding.eql? calc_checksum.encoding
       p @checksum.encoding
+      p calc_checksum.encoding
       p calc_checksum
     end
 
