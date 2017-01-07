@@ -1,6 +1,5 @@
 autoload :DateValidator, 'models/date_validator'
-
-require 'msgpack'
+autoload :MessagePack, 'msgpack'
 
 # Stores an advent problem's date, input and answer
 class AdventProblem < ActiveRecord::Base
