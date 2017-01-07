@@ -71,7 +71,9 @@ class World
   # Executes a command (either :receive or :promise) using an entity's info
   #
   # For :receive, args[0] is the microchip being received
-  # For :promise, args[0] and arg[1] are the low and high ids (respectively) of the entities this bot is promising to give to
+  #
+  # For :promise, args[0] and arg[1] are the low and high ids (respectively) of the entities
+  # this bot is promising to give to
   #
   # @param command Symbol
   # @param info Hash[Symbol, String | Integer]
