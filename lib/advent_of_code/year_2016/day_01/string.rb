@@ -1,5 +1,12 @@
 # Parse travel commands
 class String
+  # Parses a command.
+  #
+  # Example command:
+  #     L8R7
+  #
+  # mean turn left, move forward 8, turn right, move forward 7
+  #
   # @return [Symbol]
   def parse_commands
     split(/, /).map do |block|
@@ -11,6 +18,8 @@ class String
     end.inject :+
   end
 
+  # Parses a direction either tot the left or right
+  #
   # @return Symbol
   # @throws ParseError
   def parse_dir
