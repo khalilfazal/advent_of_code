@@ -38,9 +38,9 @@ class Array
   end
 
   # @param n Integer
-  # @block f
+  # @block f Proc: Object -> Enumerable
   #
-  # @return [Element]
+  # @return Array of Element
   def flat_map(n = 1, &f)
     old_flat_map do |elem|
       if n.eql? 1
