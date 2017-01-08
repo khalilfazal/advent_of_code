@@ -38,8 +38,11 @@ class Bot < Entity
   end
 
   # Get the +id+ of the +Entity+ that was promised a +kind+ of +microchip+
+  # +kind+ can either be +:low+ or +:high+
   #
   # @param kind Symbol
+  #
+  # @return Integer
   def givee(kind)
     @promises[kind]
   end
