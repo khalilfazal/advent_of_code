@@ -77,6 +77,8 @@ class Screen
   #
   # @param x Integer
   # @param y Integer
+  #
+  # @return Range
   def rect(x, y)
     x, y = y, x if transposed?
 
