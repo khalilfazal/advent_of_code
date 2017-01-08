@@ -2,14 +2,18 @@ autoload :Boolean, 'helpers/boolean'
 
 # Calculates valid advent days and years
 class Time
-  # @return Range<Integer>
+  # Gets a range of valid advent years
+  #
+  # @return Range of Integer
   def advent_years
     2015 .. year - (month < 12 ? 1 : 0)
   end
 
+  # Gets a range of valid advent days for the specified year
+  #
   # @param year Integer
   #
-  # @return Range<Integer>
+  # @return Range of Integer
   def advent_days(year:)
     1 .. (year.eql?(self.year) && month.eql?(12) ? day.clamp(1, 25) : 25)
   end
