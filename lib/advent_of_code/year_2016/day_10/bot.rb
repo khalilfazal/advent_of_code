@@ -11,7 +11,7 @@ class Bot < Entity
   #
   # @param id Integer
   def initialize(id)
-    super(id)
+    super
     @promises = {}
   end
 
