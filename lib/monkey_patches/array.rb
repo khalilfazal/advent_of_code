@@ -63,6 +63,8 @@ class Array
     select_index :odd?
   end
 
+  # Finds the +rarest+ +Element+ in an +Array+
+  #
   # @return Element
   def rarest
     mode_generic :min
