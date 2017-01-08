@@ -21,11 +21,17 @@ class World
     end
   end
 
+  # Create the world initially empty
   def initialize
     @entities = {}
   end
 
+  # Runs a command
+  # Either :receive or :promise
+  #
   # @param command String
+  #
+  # @return Entity
   def run_command(command)
     case command
       when /value (?<microchip>\d+) goes to #{entity_regex :receiver}/
