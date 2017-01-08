@@ -67,12 +67,16 @@ class Room
     end
   end
 
+  # Creates a +Room+ name from the +input+
+  #
   # @param input String
   def initialize(input)
     @encrypted_name, id, @checksum = input.match(/#{NAME_ID_REGEX}\[([a-z]+)\]/).captures
     @id = id.to_i
   end
 
+  # Calculates the checksum by finding the top 5 most common characters
+  #
   # @return String
   def calc_checksum
     @encrypted_name.chars.delete_elem('-').group_eq.transform_values(&:length).sort_by do |_, v|
