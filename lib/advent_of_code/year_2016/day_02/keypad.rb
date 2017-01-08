@@ -38,6 +38,12 @@ class Keypad
   # Assume that the length of +layout+ is a perfect square
   # The initial position is wherever the '5' is on the +layout+, assuming that there is only one '5'
   #
+  # Example:
+  #
+  #   Keypad.new imagined_layout
+  #
+  #   # => Keypad(@layout = imagined_layout, @sides = 3, @pos = 5)
+  #
   # @param layout String
   def initialize(layout:)
     @layout = layout
