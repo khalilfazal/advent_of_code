@@ -1,8 +1,10 @@
 # Captures information for either a +Bot+ or +Output+
 class MatchData
+  # Captures many entities from a Regexp
+  #
   # @param entities [Symbol]
   #
-  # @return Array[Hash[Symbol, String | Integer]]
+  # @return Array of Hash[Symbol, String | Integer]
   def capture_entities(*entities)
     entities.map do |entity|
       {
