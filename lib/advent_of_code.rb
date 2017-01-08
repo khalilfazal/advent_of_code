@@ -36,11 +36,15 @@ module AdventOfCode
     "http://adventofcode.com/#{year}/day/#{day}/input"
   end
 
+  # Gets the current time
+  #
   # @return Time
   def now
     @now ||= Time.current
   end
 
+  # Gets the session cookie from either an environment variable or a config file
+  #
   # @return String
   def cookie
     @cookie ||= (ENV['ADVENT_OF_CODE_COOKIE'] || YAML.load_file('config/application.yml')['cookie']).tap do |cookie|
