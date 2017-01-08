@@ -77,6 +77,12 @@ class Room
 
   # Creates a +Room+ name from the +input+
   #
+  # Example:
+  #
+  #   Room.new 'aaaaa-bbb-z-y-x-123[abxyz]'
+  #
+  #   # => Room(@encrypted_name = 'aaaaa-bbb-z-y-x', @id = 123, @checksum = 'abxyz')
+  #
   # @param input String
   def initialize(input)
     @encrypted_name, id, @checksum = input.match(/#{NAME_ID_REGEX}\[([a-z]+)\]/).captures
