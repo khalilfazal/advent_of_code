@@ -26,6 +26,14 @@ class Room
 
     # Called either by Room#decrypt or in the spec
     #
+    # Example:
+    #
+    # Room.decrypt ['qzmt-zixmtkozy-ivhz-343']
+    #   # => 'very encrypted name'
+    #
+    # Room.decrypt ['aczupnetwp-mfyyj-opalcexpye', 977]
+    #   # => 'projectile bunny department'
+    #
     # @param params [String | Integer]
     #
     # @return String
@@ -91,6 +99,8 @@ class Room
     @checksum.eql? calc_checksum
   end
 
+  # Decrypts the +Room+ name
+  #
   # @return String
   def decrypt
     self.class.decrypt(@encrypted_name, @id)
