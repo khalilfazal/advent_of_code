@@ -2,7 +2,7 @@ autoload :DateValidator, 'models/date_validator'
 
 require 'msgpack'
 
-# Stores an advent problem's date, input and answer
+# Stores an advent problem's date, input and answers
 class AdventProblem < ActiveRecord::Base
   %i(year day).each do |attr|
     validates attr, presence: {
@@ -22,10 +22,11 @@ class AdventProblem < ActiveRecord::Base
   validates :day, uniqueness: {
     scope: :year,
     strict: true,
-    message: '%{year}-12-%{day} is already in the input table'
+    message: '%{year}-12-%{day} is already in the table of problems'
   }
 
   # Seed the database with +answers+
+  # which is stored as a variable-length binary string via MessagePack
   #
   # Example:
   #
