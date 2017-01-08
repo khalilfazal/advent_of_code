@@ -15,6 +15,12 @@ class String
   # Returns an +Array+ of size two where the first element is a prefix of length n
   # and the second is the rest of the +String+
   #
+  # Example
+  #
+  #   'hello world'.split_at 5
+  #
+  #   # => ['hello', ' world']
+  #
   # @param n Integer
   #
   # @return [String]
