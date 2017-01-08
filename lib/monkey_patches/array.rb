@@ -11,18 +11,31 @@ class Array
   alias old_flat_map flat_map
   alias old_join join
 
+  # Deletes all elements in the +Array+ equaling +elem+
+  #
   # @param elem Element
   #
-  # @return [Element]
+  # @return Array of Element
   def delete_elem(elem)
-    reject(&elem.method(:===))
+    reject(&elem.method(:eql?))
   end
 
-  # @return [Element]
+  # Gets +Element+s at +even+ indices
+  #
+  # @return Array of Element
   def even
     select_index :even?
   end
 
+  # Gets +Element+s at +odd+ indices
+  #
+  # @return Array of Element
+  def odd
+    select_index :odd?
+  end
+
+  # Is the +Array+ not +empty+?
+  #
   # @return Boolean
   def full?
     !empty?
@@ -60,11 +73,6 @@ class Array
     mode_generic :max
   end
 
-  # @return [Element]
-  def odd
-    select_index :odd?
-  end
-
   # Finds the +rarest+ +Element+ in an +Array+
   #
   # @return Element
@@ -92,7 +100,7 @@ class Array
 
   # @param method Symbol
   #
-  # @return [Element]
+  # @return Array of Element
   def select_index(method)
     select.with_index do |_, i|
       i.send method

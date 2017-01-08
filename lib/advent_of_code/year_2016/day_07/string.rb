@@ -17,7 +17,7 @@ module IPV7
 
   # @return Boolean
   def abba?
-    links_of(4).any? do |a, b, c, d|
+    substrings_of(4).any? do |a, b, c, d|
       a.eql?(d) && b.eql?(c) && a.not_eql?(b)
     end
   end
@@ -27,7 +27,7 @@ module IPV7
   # @param n Integer
   #
   # @return Array of [String]
-  def links_of(n)
+  def substrings_of(n)
     chars.each_cons n
   end
 

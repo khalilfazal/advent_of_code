@@ -6,7 +6,7 @@ class Array
   # @return [Element]
   def abas
     map do |sequence|
-      sequence.links_of(3).find_all do |a, b, c|
+      sequence.substrings_of(3).find_all do |a, b, c|
         a.eql?(c) && !(a.eql?(b))
       end
     end.flat_map(2, &:join)
