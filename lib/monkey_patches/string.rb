@@ -5,9 +5,11 @@ require 'English'
 class String
   alias old_eql? eql?
 
+  # Splits a +String+ into lines, Haskell style
+  #
   # @param separator String
   #
-  # @return [String]
+  # @return Array of String
   def lines(separator = $RS)
     split separator
   end
