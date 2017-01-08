@@ -2,6 +2,7 @@ eval_gemfile File.expand_path('Gemfile.ci', File.dirname(__FILE__))
 
 # gems needed for testing, inspections, profiling and coverage
 group :test do
+  gem 'inch', '~> 0.7.1'
   gem 'ruby-prof', '~> 0.16.2'
 
   # bug fix: https://github.com/glejeune/Ruby-Graphviz/pull/121

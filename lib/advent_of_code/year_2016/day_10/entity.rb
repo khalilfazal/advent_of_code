@@ -17,15 +17,6 @@ class Entity
     end
   end
 
-  # Creates an +Entity+ with a specified +id+
-  # It initially has no microchips
-  #
-  # @param id Integer
-  def initialize(id)
-    @id = id
-    @microchips = []
-  end
-
   # A +Bot+ is giving this +Entity+ a +microchip+
   # If this +Entity+ now has two +microchips+, they are labelled either as +:low+ or +:high+
   #
@@ -50,5 +41,28 @@ class Entity
   # @return Boolean
   def full?
     @microchips.length.eql? 2
+  end
+
+  protected
+
+  # Creates an +Entity+ with a specified +id+
+  # It initially has no microchips
+  #
+  # Examples
+  #
+  #   Bot.new 42
+  #
+  #   # => #<Bot:0x0>
+  #
+  #   or
+  #
+  #   Output.new 42
+  #
+  #   # => #<Output0x0>
+  #
+  # @param id Integer
+  def initialize(id)
+    @id = id
+    @microchips = []
   end
 end

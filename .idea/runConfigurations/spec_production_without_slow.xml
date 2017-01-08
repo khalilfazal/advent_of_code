@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="spec production without slow" type="RSpecRunConfigurationType" factoryName="RSpec">
+  <configuration default="false" name="spec production without slow" type="RSpecRunConfigurationType" factoryName="RSpec" folderName="production">
     <predefined_log_file id="RUBY_RSPEC" enabled="true" />
     <module name="advent_of_code" />
     <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
