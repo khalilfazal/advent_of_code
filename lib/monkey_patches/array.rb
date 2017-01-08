@@ -68,6 +68,8 @@ class Array
     mode_generic :min
   end
 
+  # Changes an +Array+ into a +String+ separated by newlines
+  #
   # @return String
   def unlines
     join $RS
