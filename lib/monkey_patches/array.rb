@@ -38,7 +38,7 @@ class Array
   end
 
   # @param n Integer
-  # @block f
+  # @block f Proc: Object -> Enumerable
   #
   # @return [Element]
   def flat_map(n = 1, &f)
