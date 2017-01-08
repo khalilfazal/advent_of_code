@@ -22,9 +22,11 @@ module IPV7
     end
   end
 
+  # Finds all substrings of length n
+  #
   # @param n Integer
   #
-  # @return [[String]]
+  # @return Array of [String]
   def links_of(n)
     chars.each_cons n
   end
