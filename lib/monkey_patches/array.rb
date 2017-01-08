@@ -37,6 +37,8 @@ class Array
     '' + old_join(separator)
   end
 
+  # Improves Array#flat_map by allowing it to apply a function deep within the nested array
+  #
   # @param n Integer
   # @param f Proc: Object -> Enumerable
   #
