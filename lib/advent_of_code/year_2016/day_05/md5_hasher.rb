@@ -42,6 +42,8 @@ class MD5Hasher
     end
   end
 
+  # Initializes the hasher starting at @i = 0
+  #
   # @param id String
   def initialize(id)
     @id = id
