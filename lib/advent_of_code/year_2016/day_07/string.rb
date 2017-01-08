@@ -37,6 +37,11 @@ module IPV7
     (odds & evens).full?
   end
 
+  # Gets the opposite of the string
+  # Assuming the string is three characters long
+  #
+  # Example: "xyx" -> "yxy"
+  #
   # @return String
   def opposite
     a, b, = chars
