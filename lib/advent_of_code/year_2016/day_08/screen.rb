@@ -5,6 +5,15 @@ require 'monkey_patches/array'
 class Screen
   # Create a two dimensional dot-matrix screen
   #
+  # Example:
+  #
+  #   Screen.new 2, 2
+  #
+  #   # => Screen(@screen = [
+  #     ['.', '.'],
+  #     ['.', '.'],
+  #   ])
+  #
   # @param width Integer
   # @param height Integer
   def initialize(width, height)
