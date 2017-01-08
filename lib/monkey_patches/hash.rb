@@ -6,12 +6,14 @@ end
 class Value < Object
 end
 
-# Update value at key with +updater+
-# If key doesn't exist, create with +creator+ before using +updater+
+# Monkey patch Hash
 class Hash
+  # Update value at key with +updater+
+  # If key doesn't exist, create with +creator+ before using +updater+
+  #
   # @param key Key
   # @param updater Proc: Value -> Value
-  # @block creator
+  # @block creator Proc: () -> Entity
   #
   # @return Value
   def update!(key, updater, &creator)
