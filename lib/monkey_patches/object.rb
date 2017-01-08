@@ -36,7 +36,6 @@ class Object
   #   loop_until(->(x) { x.eql? 0 }) do
   #     countdown -= 1
   #   end
-  #
   #   # => 0
   #
   # @param f Proc: Object -> Boolean

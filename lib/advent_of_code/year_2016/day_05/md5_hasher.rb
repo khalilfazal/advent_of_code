@@ -47,7 +47,6 @@ class MD5Hasher
   # Example:
   #
   #   MD5Hasher.new "abc"
-  #
   #   # => MD5Hasher(@id = "abc", @i = 0, @hasher = Digest::MD5.method :hexdigest)
   #
   # @param id String

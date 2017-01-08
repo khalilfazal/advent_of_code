@@ -9,11 +9,9 @@ class Compass
   # Example:
   #
   #   NORTH = new :N
-  #
   #   # => NORTH(@name = :N)
   #
   #   EAST = new :E
-  #
   #   # => EAST(@name = :E)
   #
   # @param name Symbol

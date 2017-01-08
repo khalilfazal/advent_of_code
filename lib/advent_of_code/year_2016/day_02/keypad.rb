@@ -41,7 +41,6 @@ class Keypad
   # Example:
   #
   #   Keypad.new imagined_layout
-  #
   #   # => Keypad(@layout = imagined_layout, @sides = 3, @pos = 5)
   #
   # @param layout String

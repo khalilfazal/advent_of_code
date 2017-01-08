@@ -20,7 +20,6 @@ class String
   # Example
   #
   #   'hello world'.split_at 5
-  #
   #   # => ['hello', ' world']
   #
   # @param n Integer

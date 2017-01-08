@@ -8,7 +8,6 @@ class Screen
   # Example:
   #
   #   Screen.new 2, 2
-  #
   #   # => Screen(@screen = [
   #     ['.', '.'],
   #     ['.', '.'],

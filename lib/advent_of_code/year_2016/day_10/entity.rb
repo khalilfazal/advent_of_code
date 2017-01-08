@@ -51,13 +51,11 @@ class Entity
   # Examples
   #
   #   Bot.new 42
-  #
   #   # => #<Bot:0x0>
   #
   #   or
   #
   #   Output.new 42
-  #
   #   # => #<Output0x0>
   #
   # @param id Integer

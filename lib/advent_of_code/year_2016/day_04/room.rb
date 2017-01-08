@@ -80,7 +80,6 @@ class Room
   # Example:
   #
   #   Room.new 'aaaaa-bbb-z-y-x-123[abxyz]'
-  #
   #   # => Room(@encrypted_name = 'aaaaa-bbb-z-y-x', @id = 123, @checksum = 'abxyz')
   #
   # @param input String

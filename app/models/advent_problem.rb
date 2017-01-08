@@ -27,6 +27,11 @@ class AdventProblem < ActiveRecord::Base
 
   # Seed the database with +answers+
   #
+  # Example:
+  #
+  #   AdventProblem.seed year: 2016, day: 1, answers: [1, 2]
+  #   # => AdventProblem(year: 2016, day: 1, answers: "\x92\x01\x02")
+  #
   # @param year Integer
   # @param day Integer
   # @param answers [Integer | String]
