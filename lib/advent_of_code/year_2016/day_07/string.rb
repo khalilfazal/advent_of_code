@@ -10,7 +10,9 @@ module IPV7
     nets.even.any?(&:abba?) && nets.odd.none?(&:abba?)
   end
 
-  # @return [String]
+  # Splits an IPV7 address into subnets
+  #
+  # @return Array of String
   def nets
     split(/\[|\]/)
   end
