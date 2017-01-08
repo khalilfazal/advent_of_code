@@ -6,6 +6,11 @@ class Compass
 
   # Initialize the +Compass+ direction
   #
+  # Example:
+  #
+  #   NORTH = new :N
+  #   # => NORTH(@name = :N)
+  #
   # @param name Symbol
   def initialize(name)
     @name = name
