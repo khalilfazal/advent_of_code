@@ -49,6 +49,8 @@ class MD5Hasher
     @hasher = Digest::MD5.method :hexdigest
   end
 
+  # Loops until an interesting md5 hash is found
+  #
   # @return String
   def next_interesting
     loop_until(->(hash) { /^0{5}/ =~ hash }) do
