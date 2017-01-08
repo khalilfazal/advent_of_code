@@ -22,10 +22,11 @@ class AdventProblem < ActiveRecord::Base
   validates :day, uniqueness: {
     scope: :year,
     strict: true,
-    message: '%{year}-12-%{day} is already in the input table'
+    message: '%{year}-12-%{day} is already in the table of problems'
   }
 
   # Seed the database with +answers+
+  # which is stored as a variable-length binary string via MessagePack
   #
   # Example:
   #
