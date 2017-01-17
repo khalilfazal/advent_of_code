@@ -12,7 +12,7 @@ describe AdventOfCode do
     subject.instance_variable_set :@cookie, nil
 
     # make the environment variable nil
-    cookie = ENV['ADVENT_OF_CODE_COOKIE']
+    saved_cookie = ENV['ADVENT_OF_CODE_COOKIE']
     ENV['ADVENT_OF_CODE_COOKIE'] = nil
 
     # change the behaviour of +YAML+
@@ -21,7 +21,7 @@ describe AdventOfCode do
     expect { subject.cookie }.to raise_error StandardError
 
     # reset the environment variable
-    ENV['ADVENT_OF_CODE_COOKIE'] = cookie
+    ENV['ADVENT_OF_CODE_COOKIE'] = saved_cookie
   end
 
   context '404 Exceptions for an invalid year/day' do
