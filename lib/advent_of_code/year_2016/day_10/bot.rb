@@ -5,7 +5,7 @@ autoload :Forwardable, 'forwardable'
 class Bot < Entity
   extend Forwardable
 
-  def_delegator :@microchips, :[], :[]
+  delegate :[] => :@microchips
 
   # The +Bot+ initially keeps no promises
   #
