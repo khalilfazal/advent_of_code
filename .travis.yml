@@ -10,7 +10,7 @@ gemfile:
   - Gemfile.ci
 
 install:
-  - gem install rainbow -v '2.2.1' -V
+  - gem install rainbow -v '2.2.1'
   - bundle install --with main ci
 
 sudo: required
