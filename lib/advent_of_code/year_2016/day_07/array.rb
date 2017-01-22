@@ -1,12 +1,12 @@
 require 'monkey_patches/string'
-require 'monkey_patches/object'
 
 # I think using methods look neater than using functions
 # Object.m() versus f(Object)
 class Array
   # Finds all aba sequences in the +Array+
+  # Assume that self is an Array of String.
   #
-  # @return Array of Element
+  # @return Array of String
   def abas
     map do |sequence|
       sequence.substrings_of(3).find_all do |a, b, c|

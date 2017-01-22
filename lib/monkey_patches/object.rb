@@ -51,14 +51,4 @@ class Object
 
     seed
   end
-
-  # True if self /= other.
-  #
-  # @param other Object
-  #
-  # @return Boolean
-  #
-  def not_eql?(other)
-    !(eql? other)
-  end
 end
