@@ -53,13 +53,13 @@ class Array
   # Improves Array#flat_map by allowing it to apply a function deep within the nested array
   #
   # @param n Integer
-  # @param f Proc: Object -> Enumerable
+  # @block f Proc: Object -> Enumerable
   #
   # @return Array of Element
   def flat_map(n = 1, &f)
     old_flat_map do |elem|
       if n.eql? 1
-        f.call elem
+        yield elem
       else
         elem.flat_map n - 1, &f
       end

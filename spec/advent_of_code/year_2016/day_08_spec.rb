@@ -46,7 +46,7 @@ describe AdventOfCode::Year2016::Day8 do
       SCREEN
     end
 
-    it <<-SPEC do
+    it <<~SPEC do
       passes example 4: can rotate the second column down by one pixel, causing the bottom pixel to wrap back to the top
     SPEC
       # noinspection RubyResolve

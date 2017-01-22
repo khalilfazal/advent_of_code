@@ -32,8 +32,8 @@ module Skip
   # @block example
   #
   # @return Boolean | Exception
-  def skip_this_when(enabled:, expected_exception:, &example)
-    example.call
+  def skip_this_when(enabled:, expected_exception:)
+    yield
   rescue expected_exception => e
     e.tap do
       skip e.message if enabled && e.is_a?(expected_exception)

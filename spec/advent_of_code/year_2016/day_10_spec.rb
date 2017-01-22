@@ -13,10 +13,8 @@ describe AdventOfCode::Year2016::Day10 do
   end
 
   context World do
-    subject { World }
-
     it 'catches invalid commands' do
-      expect { subject.run ['noop'] }.to raise_error ParseError
+      expect { World.run ['noop'] }.to raise_error ParseError
     end
   end
 

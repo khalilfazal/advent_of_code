@@ -16,11 +16,11 @@ class Hash
   # @block creator Proc: () -> Entity
   #
   # @return Value
-  def update!(key, updater, &creator)
+  def update!(key, updater)
     if key? key
       updater.call self[key]
     else
-      self[key] = updater.call creator.call
+      self[key] = updater.call yield
     end
   end
 end

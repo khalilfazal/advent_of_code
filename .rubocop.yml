@@ -1,5 +1,7 @@
+require: rubocop-rspec
+
 AllCops:
-  DisabledByDefault: true
+  DisabledByDefault: false
   TargetRubyVersion: 2.4
 
 #################### Lint ################################
@@ -80,10 +82,6 @@ Lint/EndInMethod:
 Lint/EnsureReturn:
   Description: 'Do not use return in an ensure block.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-return-ensure'
-  Enabled: true
-
-Lint/Eval:
-  Description: 'The use of eval represents a serious security risk.'
   Enabled: true
 
 Lint/FormatParameterMismatch:
@@ -214,6 +212,10 @@ Metrics/AbcSize:
   Enabled: false
   Max: 20
 
+Metrics/BlockLength:
+  Description: 'This cop checks if the length of a block exceeds some maximum value. Comment lines can optionally be ignored. The maximum allowed length is configurable.'
+  Enabled: false
+
 Metrics/BlockNesting:
   Description: 'Avoid excessive block nesting'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#three-is-the-number-thou-shalt-count'
@@ -316,6 +318,33 @@ Performance/StringReplacement:
   Enabled: true
 
 ##################### Rails ##################################
+RSpec/ExampleLength:
+  Description: >-
+                  Checks for long examples.
+                  A long example is usually more difficult to understand. Consider extracting out some behaviour, e.g. with a `let` block, or a helper method.
+  Enabled: false
+
+RSpec/FilePath:
+  Description: >-
+                  Checks that spec file paths are consistent with the test subject.
+                  Checks the path of the spec file and enforces that it reflects the described class/module and its optionally called out method.
+                  With the configuration option `IgnoreMethods` the called out method will be ignored when determining the enforced path.
+                  With the configuration option `CustomTransform` modules or classes can be specified that should not as usual be transformed from CamelCase to snake_case (e.g. 'RuboCop' => 'rubocop' ).
+  Enabled: false
+
+RSpec/InstanceVariable:
+  Description: >-
+                  Checks for instance variable usage in specs.
+                  This cop can be configured with the option `AssignmentOnly` which will configure the cop to only register offenses on instance variable usage if the instance variable is also assigned within the spec
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Description: >-
+                  Checks if examples contain too many `expect` calls.
+                  This cop is configurable using the `Max` option and works with `–auto-gen-config`.
+  Max: 2
+
+##################### Rails ##################################
 
 Rails/ActionFilter:
   Description: 'Enforces consistent use of action filter methods.'
@@ -365,6 +394,12 @@ Rails/TimeZone:
 
 Rails/Validation:
   Description: 'Use validates :attribute, hash of validations.'
+  Enabled: true
+
+################## Security #################################
+
+Security/Eval:
+  Description: 'The use of eval represents a serious security risk.'
   Enabled: true
 
 ################## Style #################################
@@ -643,6 +678,15 @@ Style/FormatString:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#sprintf'
   Enabled: true
 
+Style/FrozenStringLiteralComment:
+  Description: >-
+                 This cop is designed to help upgrade to Ruby 3.0. It will add the
+                 comment `# frozen_string_literal: true` to the top of files to
+                 enable frozen string literals. Frozen string literals will be default
+                 in Ruby 3.0. The comment will be added below a shebang and encoding
+                 comment. The frozen string literal comment is only valid in Ruby 2.3+.
+  Enabled: false
+
 Style/GlobalVars:
   Description: 'Do not introduce global variables.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#instance-vars'
@@ -718,7 +762,7 @@ Style/LineEndConcatenation:
                  line end.
   Enabled: true
 
-Style/MethodCallParentheses:
+Style/MethodCallWithoutArgsParentheses:
   Description: 'Do not use parentheses for method calls with no arguments.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-args-no-parens'
   Enabled: true
@@ -778,6 +822,10 @@ Style/NegatedWhile:
   Description: 'Favor until over while for negative conditions.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#until-for-negatives'
   Enabled: true
+
+Style/NestedParenthesizedCalls:
+  Description: 'This cop checks for unparenthesized method calls in the argument list of a parenthesized method call.'
+  Enabled: false
 
 Style/NestedTernaryOperator:
   Description: 'Use one expression per branch in a ternary operator.'

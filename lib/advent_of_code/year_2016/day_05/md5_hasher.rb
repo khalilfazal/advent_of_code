@@ -26,16 +26,13 @@ class MD5Hasher
     # @return String
     def crack2(id)
       password = Array.new 8, nil
-      hasher = new(id)
+      hasher = new id
 
       while password.include? nil
         hash = hasher.next_interesting
-        pos = hash[5]
-        pos_i = pos.to_i
+        pos = hash[5].to_i 16
 
-        if password[pos_i].nil? && ('0' .. '7').include?(pos)
-          password[pos.to_i] = hash[6]
-        end
+        password[pos] = hash[6] if pos < 0x8 && password[pos].nil?
       end
 
       password.join

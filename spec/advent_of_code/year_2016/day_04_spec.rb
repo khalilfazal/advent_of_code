@@ -19,11 +19,9 @@ describe AdventOfCode::Year2016::Day4 do
   end
 
   context 'examples and stars' do
-    subject { Room }
-
     define :be_a_real_room do
       match do |input|
-        room = subject.new input
+        room = Room.new input
 
         # noinspection RubyResolve
         expect(room.calc_checksum).to be_identical_to_string room.checksum
@@ -47,23 +45,23 @@ describe AdventOfCode::Year2016::Day4 do
     end
 
     it 'passes example 5' do
-      expect(subject.sum_of_real_sector_ids examples).to eql 1_514
+      expect(Room.sum_of_real_sector_ids examples).to be 1_514
     end
 
     it 'anchieves star 1' do
       skip_this_when_dced do
-        expect(subject.sum_of_real_sector_ids inputs).to eql problem.answer 1
+        expect(Room.sum_of_real_sector_ids inputs).to eql problem.answer 1
       end
     end
 
     it 'passes example 6' do
       # noinspection RubyResolve
-      expect(subject.decrypt 'qzmt-zixmtkozy-ivhz-343').to be_identical_to_string 'very encrypted name'
+      expect(Room.decrypt 'qzmt-zixmtkozy-ivhz-343').to be_identical_to_string 'very encrypted name'
     end
 
     it 'anchieves star 2' do
       skip_this_when_dced do
-        expect(subject.find_sector_id_of inputs, 'northpole object storage').to eql problem.answer 2
+        expect(Room.find_sector_id_of inputs, 'northpole object storage').to eql problem.answer 2
       end
     end
   end

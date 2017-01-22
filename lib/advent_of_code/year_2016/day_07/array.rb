@@ -1,4 +1,5 @@
 require 'monkey_patches/string'
+require 'monkey_patches/object'
 
 # I think using methods look neater than using functions
 # Object.m() versus f(Object)
@@ -9,7 +10,7 @@ class Array
   def abas
     map do |sequence|
       sequence.substrings_of(3).find_all do |a, b, c|
-        a.eql?(c) && !(a.eql?(b))
+        a.eql?(c) && a.not_eql?(b)
       end
     end.flat_map(2, &:join)
   end

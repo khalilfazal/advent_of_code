@@ -39,7 +39,7 @@ class Compass
 
   private :neighbours=
 
-  # Starting from the current direction, go once around the compass
+  # Starting from the current direction, go once around the compass clockwise
   #
   # @return [Compass]
   def cycle

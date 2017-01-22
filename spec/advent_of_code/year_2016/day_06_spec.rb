@@ -30,29 +30,27 @@ describe AdventOfCode::Year2016::Day6 do
   end
 
   context 'examples and stars' do
-    subject { Noise }
-
     it 'passes example 1' do
       # noinspection RubyResolve
-      expect(subject.unscramble example).to be_identical_to_string 'easter'
+      expect(Noise.unscramble example).to be_identical_to_string 'easter'
     end
 
     it 'achieves star 1' do
       # noinspection RubyResolve
       skip_this_when_dced do
-        expect(subject.unscramble input).to be_identical_to_string problem.answer 1
+        expect(Noise.unscramble input).to be_identical_to_string problem.answer 1
       end
     end
 
     it 'passes example 2' do
       # noinspection RubyResolve
-      expect(subject.unscramble2 example).to be_identical_to_string 'advent'
+      expect(Noise.unscramble2 example).to be_identical_to_string 'advent'
     end
 
     it 'achieves star 2' do
       skip_this_when_dced do
         # noinspection RubyResolve
-        expect(subject.unscramble2 input).to be_identical_to_string problem.answer 2
+        expect(Noise.unscramble2 input).to be_identical_to_string problem.answer 2
       end
     end
   end

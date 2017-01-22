@@ -39,16 +39,26 @@ class Object
   #   # => 0
   #
   # @param f Proc: Object -> Boolean
-  # @block
+  # @block block
   #
   # @return Object
-  def loop_until(f, &block)
+  def loop_until(f)
     seed = nil
 
     loop do
-      break if f.call((seed = block.call))
+      break if f.call((seed = yield))
     end
 
     seed
+  end
+
+  # True if self /= other.
+  #
+  # @param other Object
+  #
+  # @return Boolean
+  #
+  def not_eql?(other)
+    !(eql? other)
   end
 end

@@ -5,7 +5,7 @@ autoload :StartCoverage, 'start_coverage'
 StartCoverage.run
 
 # noinspection RubyResolve
-YAML.load(File.read 'db/seeds/answers.yml')['years'].each do |year|
+YAML.safe_load(File.read 'db/seeds/answers.yml')['years'].each do |year|
   year['days'].each do |day|
     AdventProblem.seed year.slice('year').merge(day).symbolize_keys
   end

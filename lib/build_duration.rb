@@ -13,9 +13,11 @@ Travis.access_token = YAML.load_file('config/application.yml')['travis_access_to
 # noinspection RailsParamDefResolve
 builds = Travis::Repository.find("#{Travis.user.login}/#{Dir.cwd}").builds
 
-builds = builds.take_while do |build|
-  build.number.to_i > ENV['SINCE_BUILD'].to_i
-end if ENV['SINCE_BUILD']
+if ENV['SINCE_BUILD']
+  builds = builds.take_while do |build|
+    build.number.to_i > ENV['SINCE_BUILD'].to_i
+  end
+end
 
 mean_build_time = builds.select(&:passed?).map(&:duration).mean.format('%.2f').duration
 

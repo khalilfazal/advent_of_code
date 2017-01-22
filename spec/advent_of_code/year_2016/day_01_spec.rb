@@ -3,6 +3,7 @@ require_all 'lib/advent_of_code/year_2016/day_01/*'
 require 'advent_of_code'
 require 'helpers/match_string'
 require 'racc/parser'
+require 'rspec/its'
 
 # noinspection RubyResolve
 describe AdventOfCode::Year2016::Day1 do
@@ -10,16 +11,14 @@ describe AdventOfCode::Year2016::Day1 do
   let(:input) { @input ||= problem.input }
 
   context Compass::NORTH do
-    it "'s @clockwise neighbour is Compass::EAST" do
-      expect(subject.clockwise).to equal Compass::EAST
-    end
+    its(:clockwise) { is_expected.to equal Compass::EAST }
 
     it "'s #neighbours= is private" do
-      expect { subject.neighbours = Compass::WEST, Compass::EAST }.to raise_exception NoMethodError
+      expect { Compass::NORTH.neighbours = Compass::WEST, Compass::EAST }.to raise_exception NoMethodError
     end
 
-    it 'can #cycle once around @clockwise' do
-      expect(subject.cycle).to eql [
+    its(:cycle) do
+      is_expected.to eql [
         Compass::NORTH,
         Compass::EAST,
         Compass::SOUTH,
@@ -53,30 +52,30 @@ describe AdventOfCode::Year2016::Day1 do
     subject { Traveller }
 
     it 'passes example 1' do
-      expect(subject.endpoints_distance 'R2, L3').to eql 5
+      expect(Traveller.endpoints_distance 'R2, L3').to be 5
     end
 
     it 'passes example 2' do
-      expect(subject.endpoints_distance 'R2, R2, R2').to eql 2
+      expect(Traveller.endpoints_distance 'R2, R2, R2').to be 2
     end
 
     it 'passes example 3' do
-      expect(subject.endpoints_distance 'R5, L5, R5, R3').to eql 12
+      expect(Traveller.endpoints_distance 'R5, L5, R5, R3').to be 12
     end
 
     it 'anchieves star 1' do
       skip_this_when_dced do
-        expect(subject.endpoints_distance input).to eql problem.answer 1
+        expect(Traveller.endpoints_distance input).to eql problem.answer 1
       end
     end
 
     it 'passes example 4' do
-      expect(subject.twice_visited_points_distance 'R8, R4, R4, R8').to eql 4
+      expect(Traveller.twice_visited_points_distance 'R8, R4, R4, R8').to be 4
     end
 
     it 'anchieves star 2' do
       skip_this_when_dced do
-        expect(subject.twice_visited_points_distance input).to eql problem.answer 2
+        expect(Traveller.twice_visited_points_distance input).to eql problem.answer 2
       end
     end
   end

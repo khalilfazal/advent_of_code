@@ -6,7 +6,7 @@ class Integer
   def to_nonneg
     twice = 2 * self
 
-    (self >= 0) ? twice : twice.negate.pred
+    self >= 0 ? twice : twice.negate.pred
   end
 
   # A postfix version of Integer#-@

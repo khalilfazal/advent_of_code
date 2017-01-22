@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/colszowka/simplecov.git
-  revision: d7ea2b186f3c6c639dc14e6bc7d09b6659a4e472
+  revision: da09611ea89f2f6f7e8dae2dc6435b3ba9922469
   specs:
     simplecov (0.12.0)
       docile (~> 1.1.0)
@@ -15,13 +15,13 @@ GIT
 
 GIT
   remote: https://github.com/rails/arel.git
-  revision: ab109d3bf1c773da5e78ddc93bb6b55aebbb1c2a
+  revision: f5f81be73df89011fe9bc89915b99d81e0c9a67f
   specs:
     arel (8.0.0)
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 7b13236818ffb26e94d72885e75966efffd71659
+  revision: fb5bd3c6f2f29c3ed370e82db0d3de52a97a0648
   specs:
     actionpack (5.1.0.alpha)
       actionview (= 5.1.0.alpha)
@@ -65,10 +65,10 @@ GEM
     addressable (2.4.0)
     ast (2.3.0)
     backports (3.6.8)
-    builder (3.2.2)
+    builder (3.2.3)
     chronic_duration (0.10.6)
       numerizer (~> 0.1.1)
-    codeclimate-test-reporter (1.0.4)
+    codeclimate-test-reporter (1.0.5)
       simplecov
     coderay (1.1.1)
     concurrent-ruby (1.0.4)
@@ -76,16 +76,16 @@ GEM
       debase-ruby_core_source
     debase-ruby_core_source (0.9.6)
     descriptive_statistics (2.5.1)
-    diff-lcs (1.2.5)
+    diff-lcs (1.3)
     docile (1.1.5)
     erubis (2.7.0)
     ethon (0.10.1)
       ffi (>= 1.3.0)
-    faraday (0.10.1)
+    faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.10.1)
+    faraday_middleware (0.11.0)
       faraday (>= 0.7.4, < 1.0)
-    ffi (1.9.14)
+    ffi (1.9.17)
     fuubar (2.2.0)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
@@ -103,7 +103,7 @@ GEM
       sparkr (>= 0.2.0)
       term-ansicolor
       yard (~> 0.8.7.5)
-    json (2.0.2)
+    json (2.0.3)
     launchy (2.4.3)
       addressable (~> 2.3)
     loofah (2.0.3)
@@ -150,16 +150,21 @@ GEM
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
+    rspec-its (1.2.0)
+      rspec-core (>= 3.0.0)
+      rspec-expectations (>= 3.0.0)
     rspec-mocks (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
-    rubocop (0.46.0)
-      parser (>= 2.3.1.1, < 3.0)
+    rubocop (0.47.1)
+      parser (>= 2.3.3.1, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
+    rubocop-rspec (1.10.0)
+      rubocop (>= 0.42.0)
     ruby-prof (0.16.2)
     ruby-progressbar (1.8.1)
     simplecov-html (0.10.0)
@@ -187,7 +192,7 @@ GEM
       ethon (>= 0.8.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    unicode-display_width (1.1.2)
+    unicode-display_width (1.1.3)
     websocket (1.2.3)
     yard (0.8.7.6)
 
@@ -209,7 +214,9 @@ DEPENDENCIES
   rake (~> 10.0)
   require_all (~> 1.3, >= 1.3.3)
   rspec (~> 3.5)
-  rubocop (~> 0.46.0)
+  rspec-its (~> 1.2)
+  rubocop (~> 0.47.1)
+  rubocop-rspec (~> 1.10)
   ruby-graphviz!
   ruby-prof (~> 0.16.2)
   simplecov!
