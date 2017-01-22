@@ -9,7 +9,9 @@ before_install:
 gemfile:
   - Gemfile.ci
 
-install: bundle install -V --with main ci || cat /home/travis/.rvm/gems/ruby-2.4.0/extensions/x86_64-linux/2.4.0/rainbow-2.2.1/gem_make.out
+install:
+  - gem install rainbow -v '2.2.1' -V
+  - bundle install --with main ci
 
 sudo: required
 
