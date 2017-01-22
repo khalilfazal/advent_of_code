@@ -16,6 +16,7 @@ sudo: required
 services: postgresql
 
 script:
+  - cat /home/travis/.rvm/gems/ruby-2.4.0/extensions/x86_64-linux/2.4.0/rainbow-2.2.1/gem_make.out
   - bundle exec rubocop -n --fail-level A -f fu -E -D -R -S
   - bundle exec rake db:create
   - bundle exec rake db:schema:load
