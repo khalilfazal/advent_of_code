@@ -40,7 +40,7 @@ namespace :db do
     ActiveRecord::Base.tap do |base|
       base.establish_connection
 
-      base.connection do |connection|
+      base.connection.tap do |connection|
         connection.tables.each do |table|
           unless %w(ar_internal_metadata schema_migrations).include? table
             connection.execute %(ALTER SEQUENCE "#{table}_id_seq" RESTART)
