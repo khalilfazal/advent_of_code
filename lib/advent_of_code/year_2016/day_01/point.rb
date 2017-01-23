@@ -4,12 +4,12 @@ require 'monkey_patches/integer'
 class Point
   private_class_method :new
 
-  delegate :to_s, to: :coords
+  delegate :hash, :to_s, to: :coords
 
   class << self
     # Gets the origin of the two dimensional space
     #
-    # @return Point
+    # @return Points
     def origin
       new 0, 0
     end
@@ -17,9 +17,9 @@ class Point
 
   # Example: origin = Point.new 0, 0
   #
-  # @param dims [Integer]
-  def initialize(*dims)
-    @x, @y = dims
+  # @param coords [Integer]
+  def initialize(*coords)
+    @x, @y = coords
   end
 
   # Gets where in the space the +Point+ currently is
@@ -68,25 +68,5 @@ class Point
   # @return TrueClass
   def eql?(other)
     coords.eql? other.coords
-  end
-
-  # Copied from: http://stackoverflow.com/a/919661/710755
-  # No difference in runtime between Array#hash and Point#pi
-  #
-  # @return Integer
-  def hash
-    # coords.hash
-    pi(*coords.map(&:to_nonneg))
-  end
-
-  # The Cantor Pairing function for two non-negative numbers
-  # https://en.wikipedia.org/wiki/Pairing_function#Cantor_pairing_function
-  #
-  # @param k1 Integer assumed to be non-negative
-  # @param k2 Integer assumed to be non-negative
-  #
-  # @return Integer
-  def pi(k1, k2)
-    (k1 + k2).triangle_num + k2
   end
 end
