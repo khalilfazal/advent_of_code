@@ -3,7 +3,7 @@ require 'English'
 
 # Reimplemented String#lines which doesn't remove newline characters
 class String
-  alias old_eql? eql?
+  alias _eql? eql?
 
   # Splits a +String+ into lines, Haskell style
   #
@@ -35,7 +35,7 @@ class String
   #
   # @return Boolean
   def eql?(other)
-    old_eql?(other) && encoding.eql?(other.encoding)
+    _eql?(other) && encoding.eql?(other.encoding)
   end
 
   # If two +Strings+ are not equal

@@ -8,8 +8,8 @@ end
 # Added methods to get the most and least common element in array (+mode+ and +rarest+).
 # Added methods to get elements with +odd+ and +even+ indices.
 class Array
-  alias old_flat_map flat_map
-  alias old_join join
+  alias _flat_map flat_map
+  alias _join join
 
   # Deletes all elements in the +Array+ equaling +elem+
   #
@@ -47,7 +47,7 @@ class Array
   #
   # @return String
   def join(separator = $OFS)
-    '' + old_join(separator)
+    '' + _join(separator)
   end
 
   # Improves Array#flat_map by allowing it to apply a function deep within the nested array
@@ -57,7 +57,7 @@ class Array
   #
   # @return Array of Element
   def flat_map(n = 1, &f)
-    old_flat_map do |elem|
+    _flat_map do |elem|
       if n.eql? 1
         yield elem
       else
