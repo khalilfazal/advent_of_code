@@ -30,9 +30,7 @@ group :ci do
   gem 'rspec-its', '~> 1.2'
   gem 'rubocop', '~> 0.47.1'
   gem 'rubocop-rspec', '~> 1.10'
-
-  # next version after 0.12 solves this problem: https://github.com/colszowka/simplecov/commit/050eb6830440bf998c462aee219f8b3cd17d570f
-  gem 'simplecov', git: 'https://github.com/colszowka/simplecov.git' # , '~> 0.13.0'
+  gem 'simplecov', '~> 0.13.0'
 end
 
 gemspec
