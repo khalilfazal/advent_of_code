@@ -1,5 +1,3 @@
-require 'monkey_patches/integer'
-
 # A 2d point with taxicab metric
 class Point
   private_class_method :new
