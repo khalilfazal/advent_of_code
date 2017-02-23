@@ -10,6 +10,7 @@ gemfile:
   - Gemfile.ci
 
 install:
+  # need to install rainbow before everything else for some unknown reason
   - gem install rainbow -v '2.2.1'
   - bundle install --with main ci
 
